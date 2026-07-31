@@ -1,0 +1,3 @@
+# TARAflow: canonical .tara.json handling (managed)
+*.tara.json text eol=lf
+*.tara.json diff=tara
