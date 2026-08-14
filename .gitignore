@@ -1,2 +1,5 @@
 *.backup.json
 diff*.txt
+
+# TARAflow: local audit tooling, do not commit (managed)
+/.tara/hooks/
