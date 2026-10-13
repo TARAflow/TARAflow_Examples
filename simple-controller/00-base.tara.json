@@ -262,10 +262,10 @@
           "y": 270.53999999999996
         },
         "properties": {
-          "technology": "daemon",
+          "authenticationRequired": "optional",
           "processSemantic": "execution_unit",
           "runsAs": "service",
-          "authenticationRequired": "optional"
+          "technology": "daemon"
         },
         "size": {
           "height": 30,
@@ -282,9 +282,9 @@
           "y": 270.54
         },
         "properties": {
-          "technology": "daemon",
           "processSemantic": "execution_unit",
-          "runsAs": "root"
+          "runsAs": "root",
+          "technology": "daemon"
         },
         "size": {
           "height": 30,
@@ -301,13 +301,13 @@
           "y": 360
         },
         "properties": {
-          "technology": "flash",
           "dataClassification": "internal",
+          "encryptionAtRest": "none",
+          "integrityProtection": "none",
           "storedDataTypes": [
             "config"
           ],
-          "encryptionAtRest": "none",
-          "integrityProtection": "none"
+          "technology": "flash"
         },
         "size": {
           "height": 46,
@@ -385,7 +385,7 @@
     "9": "not-started"
   },
   "risks": null,
-  "schemaVersion": 7,
+  "schemaVersion": 8,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,

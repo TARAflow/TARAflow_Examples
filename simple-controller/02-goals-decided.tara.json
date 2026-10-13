@@ -1,6 +1,311 @@
 {
   "assets": {
+    "assets": [
+      {
+        "assetGroup": "data",
+        "created": "2026-10-02T00:00:00.000Z",
+        "displayId": "DA-001",
+        "id": "DA-001",
+        "impactRatings": [
+          {
+            "criterionId": "financial_damage",
+            "value": 2
+          },
+          {
+            "criterionId": "operational",
+            "value": 3
+          },
+          {
+            "criterionId": "regulatory_compliance",
+            "value": 1
+          },
+          {
+            "criterionId": "recoverability",
+            "value": 2
+          },
+          {
+            "criterionId": "affected_users",
+            "value": 1
+          },
+          {
+            "criterionId": "safety",
+            "value": 3
+          }
+        ],
+        "lastModified": "2026-10-02T00:00:00.000Z",
+        "linkedDFDElements": [
+          {
+            "displayId": "DF-1",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-14",
+            "elementName": "push setpoint [cmd]",
+            "elementType": "DataFlow",
+            "relationType": "transports"
+          },
+          {
+            "displayId": "DF-2",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-22",
+            "elementName": "write config",
+            "elementType": "DataFlow",
+            "relationType": "transports"
+          },
+          {
+            "displayId": "DF-3",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-20",
+            "elementName": "read config",
+            "elementType": "DataFlow",
+            "relationType": "transports"
+          },
+          {
+            "displayId": "DS-1",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-18",
+            "elementName": "Config Store",
+            "elementType": "DataStore",
+            "relationType": "stores"
+          }
+        ],
+        "name": "Setpoint and configuration",
+        "numericId": 1,
+        "overallImpact": 3,
+        "securityGoals": [
+          {
+            "formalDescription": "",
+            "level": "none",
+            "rationale": "Setpoints and configuration contain no secrets.",
+            "source": "manual",
+            "suggestionAtDecision": {
+              "basis": "mechanism",
+              "driver": "financial_damage",
+              "level": "medium",
+              "suggested": true
+            },
+            "type": "C"
+          },
+          {
+            "formalDescription": "",
+            "level": "medium",
+            "rationale": "Setpoints are range-checked by the controller; a manipulated value cannot leave the safe band.",
+            "source": "manual",
+            "suggestionAtDecision": {
+              "basis": "mechanism",
+              "driver": "operational",
+              "level": "high",
+              "suggested": true
+            },
+            "type": "I"
+          },
+          {
+            "formalDescription": "",
+            "level": "high",
+            "source": "suggested",
+            "type": "A"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "N"
+          },
+          {
+            "formalDescription": "",
+            "level": "medium",
+            "rationale": "Only service technicians may change the configuration.",
+            "source": "manual",
+            "suggestionAtDecision": {
+              "basis": "mechanism",
+              "driver": "operational",
+              "level": "none",
+              "suggested": false
+            },
+            "type": "AuthZ"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthN"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "Acc"
+          }
+        ],
+        "source": "dfd",
+        "syncedWithDFD": true
+      },
+      {
+        "assetGroup": "data",
+        "created": "2026-10-02T00:00:00.000Z",
+        "displayId": "DA-002",
+        "id": "DA-002",
+        "impactRatings": [
+          {
+            "criterionId": "financial_damage",
+            "value": 3
+          },
+          {
+            "criterionId": "operational",
+            "value": 4
+          },
+          {
+            "criterionId": "regulatory_compliance",
+            "value": 2
+          },
+          {
+            "criterionId": "recoverability",
+            "value": 3
+          },
+          {
+            "criterionId": "affected_users",
+            "value": 2
+          },
+          {
+            "criterionId": "safety",
+            "value": 4
+          }
+        ],
+        "lastModified": "2026-10-02T00:00:00.000Z",
+        "linkedDFDElements": [
+          {
+            "displayId": "DF-4",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-24",
+            "elementName": "push firmware [cmd]",
+            "elementType": "DataFlow",
+            "relationType": "transports"
+          }
+        ],
+        "name": "Firmware image",
+        "numericId": 2,
+        "overallImpact": 4,
+        "securityGoals": [
+          {
+            "formalDescription": "",
+            "level": "high",
+            "source": "suggested",
+            "type": "C"
+          },
+          {
+            "formalDescription": "",
+            "level": "critical",
+            "source": "suggested",
+            "type": "I"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "A"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "N"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthZ"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthN"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "Acc"
+          }
+        ],
+        "source": "dfd",
+        "syncedWithDFD": true
+      },
+      {
+        "assetGroup": "process",
+        "created": "2026-10-02T00:00:00.000Z",
+        "displayId": "PR-001",
+        "id": "PR-001",
+        "impactRatings": [
+          {
+            "criterionId": "financial_damage",
+            "value": 2
+          },
+          {
+            "criterionId": "operational",
+            "value": 4
+          },
+          {
+            "criterionId": "regulatory_compliance",
+            "value": 2
+          },
+          {
+            "criterionId": "recoverability",
+            "value": 2
+          },
+          {
+            "criterionId": "affected_users",
+            "value": 2
+          },
+          {
+            "criterionId": "safety",
+            "value": 4
+          }
+        ],
+        "lastModified": "2026-10-02T00:00:00.000Z",
+        "linkedDFDElements": [
+          {
+            "displayId": "P-1",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-12",
+            "elementName": "Controller",
+            "elementType": "Process",
+            "relationType": "is_an"
+          }
+        ],
+        "name": "Heating control",
+        "numericId": 0,
+        "overallImpact": 4,
+        "securityGoals": [
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "C"
+          },
+          {
+            "formalDescription": "",
+            "level": "critical",
+            "source": "suggested",
+            "type": "I"
+          },
+          {
+            "formalDescription": "",
+            "level": "critical",
+            "source": "suggested",
+            "type": "A"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "N"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthZ"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthN"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "Acc"
+          }
+        ],
+        "source": "dfd",
+        "syncedWithDFD": true
+      }
+    ],
     "configuration": {
+      "calculationMethod": "conservative",
       "impactCriteria": [
         {
           "id": "financial_damage",
@@ -28,392 +333,27 @@
         }
       ],
       "impactScale": "4-level",
-      "calculationMethod": "conservative",
       "roundingMethod": "round"
     },
-    "assets": [
-      {
-        "id": "DA-001",
-        "displayId": "DA-001",
-        "numericId": 1,
-        "name": "Setpoint and configuration",
-        "assetGroup": "data",
-        "impactRatings": [
-          {
-            "criterionId": "financial_damage",
-            "value": 2
-          },
-          {
-            "criterionId": "operational",
-            "value": 3
-          },
-          {
-            "criterionId": "regulatory_compliance",
-            "value": 1
-          },
-          {
-            "criterionId": "recoverability",
-            "value": 2
-          },
-          {
-            "criterionId": "affected_users",
-            "value": 1
-          },
-          {
-            "criterionId": "safety",
-            "value": 3
-          }
-        ],
-        "overallImpact": 3,
-        "securityGoals": [
-          {
-            "type": "C",
-            "level": "none",
-            "formalDescription": "",
-            "source": "manual",
-            "rationale": "Setpoints and configuration contain no secrets.",
-            "suggestionAtDecision": {
-              "suggested": true,
-              "level": "medium",
-              "basis": "mechanism",
-              "driver": "financial_damage"
-            }
-          },
-          {
-            "type": "I",
-            "level": "medium",
-            "formalDescription": "",
-            "source": "manual",
-            "rationale": "Setpoints are range-checked by the controller; a manipulated value cannot leave the safe band.",
-            "suggestionAtDecision": {
-              "suggested": true,
-              "level": "high",
-              "basis": "mechanism",
-              "driver": "operational"
-            }
-          },
-          {
-            "type": "A",
-            "level": "high",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "N",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthZ",
-            "level": "medium",
-            "formalDescription": "",
-            "source": "manual",
-            "rationale": "Only service technicians may change the configuration.",
-            "suggestionAtDecision": {
-              "suggested": false,
-              "level": "none",
-              "basis": "mechanism",
-              "driver": "operational"
-            }
-          },
-          {
-            "type": "AuthN",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "Acc",
-            "level": "none",
-            "formalDescription": ""
-          }
-        ],
-        "linkedDFDElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-14",
-            "displayId": "DF-1",
-            "elementName": "push setpoint [cmd]",
-            "elementType": "DataFlow",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-22",
-            "displayId": "DF-2",
-            "elementName": "write config",
-            "elementType": "DataFlow",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-20",
-            "displayId": "DF-3",
-            "elementName": "read config",
-            "elementType": "DataFlow",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-18",
-            "displayId": "DS-1",
-            "elementName": "Config Store",
-            "elementType": "DataStore",
-            "relationType": "stores"
-          }
-        ],
-        "source": "dfd",
-        "syncedWithDFD": true,
-        "created": "2026-10-02T00:00:00.000Z",
-        "lastModified": "2026-10-02T00:00:00.000Z"
-      },
-      {
-        "id": "DA-002",
-        "displayId": "DA-002",
-        "numericId": 2,
-        "name": "Firmware image",
-        "assetGroup": "data",
-        "impactRatings": [
-          {
-            "criterionId": "financial_damage",
-            "value": 3
-          },
-          {
-            "criterionId": "operational",
-            "value": 4
-          },
-          {
-            "criterionId": "regulatory_compliance",
-            "value": 2
-          },
-          {
-            "criterionId": "recoverability",
-            "value": 3
-          },
-          {
-            "criterionId": "affected_users",
-            "value": 2
-          },
-          {
-            "criterionId": "safety",
-            "value": 4
-          }
-        ],
-        "overallImpact": 4,
-        "securityGoals": [
-          {
-            "type": "C",
-            "level": "high",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "I",
-            "level": "critical",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "A",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "N",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthZ",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthN",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "Acc",
-            "level": "none",
-            "formalDescription": ""
-          }
-        ],
-        "linkedDFDElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-24",
-            "displayId": "DF-4",
-            "elementName": "push firmware [cmd]",
-            "elementType": "DataFlow",
-            "relationType": "transports"
-          }
-        ],
-        "source": "dfd",
-        "syncedWithDFD": true,
-        "created": "2026-10-02T00:00:00.000Z",
-        "lastModified": "2026-10-02T00:00:00.000Z"
-      },
-      {
-        "id": "PR-001",
-        "displayId": "PR-001",
-        "numericId": 0,
-        "name": "Heating control",
-        "assetGroup": "process",
-        "impactRatings": [
-          {
-            "criterionId": "financial_damage",
-            "value": 2
-          },
-          {
-            "criterionId": "operational",
-            "value": 4
-          },
-          {
-            "criterionId": "regulatory_compliance",
-            "value": 2
-          },
-          {
-            "criterionId": "recoverability",
-            "value": 2
-          },
-          {
-            "criterionId": "affected_users",
-            "value": 2
-          },
-          {
-            "criterionId": "safety",
-            "value": 4
-          }
-        ],
-        "overallImpact": 4,
-        "securityGoals": [
-          {
-            "type": "C",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "I",
-            "level": "critical",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "A",
-            "level": "critical",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "N",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthZ",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthN",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "Acc",
-            "level": "none",
-            "formalDescription": ""
-          }
-        ],
-        "linkedDFDElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-12",
-            "displayId": "P-1",
-            "elementName": "Controller",
-            "elementType": "Process",
-            "relationType": "is_an"
-          }
-        ],
-        "source": "dfd",
-        "syncedWithDFD": true,
-        "created": "2026-10-02T00:00:00.000Z",
-        "lastModified": "2026-10-02T00:00:00.000Z"
-      }
-    ],
     "lastModified": "2026-10-02T00:00:00.000Z"
   },
   "attackTrees": null,
   "audit": null,
   "dfd": {
-    "assets": [
-      {
-        "id": "DA-001",
-        "displayId": "DA-001",
-        "name": "Setpoint and configuration",
-        "assetGroup": "data",
-        "linkedElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-18",
-            "elementName": "Config Store",
-            "elementType": "DataStore",
-            "displayId": "DS-1",
-            "relationType": "stores"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-14",
-            "elementName": "push setpoint [cmd]",
-            "elementType": "DataFlow",
-            "displayId": "DF-1",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-20",
-            "elementName": "read config",
-            "elementType": "DataFlow",
-            "displayId": "DF-3",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-22",
-            "elementName": "write config",
-            "elementType": "DataFlow",
-            "displayId": "DF-2",
-            "relationType": "transports"
-          }
-        ]
-      },
-      {
-        "id": "DA-002",
-        "displayId": "DA-002",
-        "name": "Firmware image",
-        "assetGroup": "data",
-        "linkedElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-24",
-            "elementName": "push firmware [cmd]",
-            "elementType": "DataFlow",
-            "displayId": "DF-4",
-            "relationType": "transports"
-          }
-        ]
-      },
-      {
-        "id": "PR-001",
-        "displayId": "PR-001",
-        "name": "Heating control",
-        "assetGroup": "process",
-        "linkedElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-12",
-            "elementName": "Controller",
-            "elementType": "Process",
-            "displayId": "P-1",
-            "relationType": "is_an"
-          }
-        ]
-      }
-    ],
+    "assets": [],
     "connections": [
       {
         "arrow": {
           "bidirectional": false,
           "end": "classic"
         },
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-001",
+            "relationType": "transports"
+          }
+        ],
         "displayId": "DF-1",
         "entryX": 0,
         "entryY": 0.5,
@@ -449,13 +389,6 @@
             "x": 320,
             "y": 285.5
           }
-        ],
-        "assetRelations": [
-          {
-            "assetId": "DA-001",
-            "assetGroup": "data",
-            "relationType": "transports"
-          }
         ]
       },
       {
@@ -463,6 +396,13 @@
           "bidirectional": false,
           "end": "classic"
         },
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-001",
+            "relationType": "transports"
+          }
+        ],
         "displayId": "DF-3",
         "entryX": 0.75,
         "entryY": 1,
@@ -494,13 +434,6 @@
             "x": 441.6,
             "y": 330
           }
-        ],
-        "assetRelations": [
-          {
-            "assetId": "DA-001",
-            "assetGroup": "data",
-            "relationType": "transports"
-          }
         ]
       },
       {
@@ -508,6 +441,13 @@
           "bidirectional": false,
           "end": "classic"
         },
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-001",
+            "relationType": "transports"
+          }
+        ],
         "displayId": "DF-2",
         "entryX": 0.296,
         "entryY": 0.009,
@@ -539,13 +479,6 @@
             "x": 396,
             "y": 320
           }
-        ],
-        "assetRelations": [
-          {
-            "assetId": "DA-001",
-            "assetGroup": "data",
-            "relationType": "transports"
-          }
         ]
       },
       {
@@ -553,6 +486,13 @@
           "bidirectional": false,
           "end": "classic"
         },
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-002",
+            "relationType": "transports"
+          }
+        ],
         "displayId": "DF-4",
         "entryX": 1,
         "entryY": 0.5,
@@ -585,13 +525,6 @@
           {
             "x": 510,
             "y": 285.54
-          }
-        ],
-        "assetRelations": [
-          {
-            "assetId": "DA-002",
-            "assetGroup": "data",
-            "relationType": "transports"
           }
         ]
       }
@@ -686,6 +619,13 @@
         "type": "Interface"
       },
       {
+        "assetRelations": [
+          {
+            "assetGroup": "process",
+            "assetId": "PR-001",
+            "relationType": "is_an"
+          }
+        ],
         "displayId": "P-1",
         "id": "Y_GD3hm1UADHv5-dnTFx-12",
         "name": "Controller",
@@ -694,23 +634,16 @@
           "y": 270.53999999999996
         },
         "properties": {
-          "technology": "daemon",
+          "authenticationRequired": "optional",
           "processSemantic": "execution_unit",
           "runsAs": "service",
-          "authenticationRequired": "optional"
+          "technology": "daemon"
         },
         "size": {
           "height": 30,
           "width": 108.81
         },
-        "type": "Process",
-        "assetRelations": [
-          {
-            "assetId": "PR-001",
-            "assetGroup": "process",
-            "relationType": "is_an"
-          }
-        ]
+        "type": "Process"
       },
       {
         "displayId": "P-2",
@@ -721,9 +654,9 @@
           "y": 270.54
         },
         "properties": {
-          "technology": "daemon",
           "processSemantic": "execution_unit",
-          "runsAs": "root"
+          "runsAs": "root",
+          "technology": "daemon"
         },
         "size": {
           "height": 30,
@@ -732,6 +665,13 @@
         "type": "Process"
       },
       {
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-001",
+            "relationType": "stores"
+          }
+        ],
         "displayId": "DS-1",
         "id": "Y_GD3hm1UADHv5-dnTFx-18",
         "name": "Config Store",
@@ -740,26 +680,19 @@
           "y": 360
         },
         "properties": {
-          "technology": "flash",
           "dataClassification": "internal",
+          "encryptionAtRest": "none",
+          "integrityProtection": "none",
           "storedDataTypes": [
             "config"
           ],
-          "encryptionAtRest": "none",
-          "integrityProtection": "none"
+          "technology": "flash"
         },
         "size": {
           "height": 46,
           "width": 90
         },
-        "type": "DataStore",
-        "assetRelations": [
-          {
-            "assetId": "DA-001",
-            "assetGroup": "data",
-            "relationType": "stores"
-          }
-        ]
+        "type": "DataStore"
       }
     ],
     "lastModified": "2026-10-02T06:23:16.177Z",
@@ -831,7 +764,7 @@
     "9": "not-started"
   },
   "risks": null,
-  "schemaVersion": 7,
+  "schemaVersion": 8,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,

@@ -1,6 +1,392 @@
 {
   "assets": {
+    "assets": [
+      {
+        "aggregatedImpact": "CRITICAL",
+        "assetGroup": "data",
+        "created": "2026-10-02T00:00:00.000Z",
+        "displayId": "DA-001",
+        "id": "DA-001",
+        "impactRatings": [
+          {
+            "criterionId": "financial_damage",
+            "value": 2
+          },
+          {
+            "criterionId": "operational",
+            "value": 4
+          },
+          {
+            "criterionId": "regulatory_compliance",
+            "value": 1
+          },
+          {
+            "criterionId": "recoverability",
+            "value": 2
+          },
+          {
+            "criterionId": "affected_users",
+            "value": 1
+          },
+          {
+            "criterionId": "safety",
+            "value": 3
+          }
+        ],
+        "lastModified": "2026-10-02T11:27:22.908Z",
+        "linkedDFDElements": [
+          {
+            "displayId": "DS-1",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-18",
+            "elementName": "Config Store",
+            "elementType": "DataStore",
+            "relationType": "stores"
+          },
+          {
+            "displayId": "DF-1",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-14",
+            "elementName": "push setpoint [cmd]",
+            "elementType": "DataFlow",
+            "relationType": "transports"
+          },
+          {
+            "displayId": "DF-3",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-20",
+            "elementName": "read config",
+            "elementType": "DataFlow",
+            "relationType": "transports"
+          },
+          {
+            "displayId": "DF-2",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-22",
+            "elementName": "write config",
+            "elementType": "DataFlow",
+            "relationType": "transports"
+          }
+        ],
+        "name": "Setpoint and configuration",
+        "numericId": 1,
+        "overallImpact": 4,
+        "physicalImpactSource": "derived",
+        "properties": {},
+        "securityGoals": [
+          {
+            "formalDescription": "",
+            "level": "medium",
+            "source": "suggested",
+            "type": "C"
+          },
+          {
+            "formalDescription": "",
+            "level": "critical",
+            "source": "suggested",
+            "type": "I"
+          },
+          {
+            "formalDescription": "",
+            "level": "low",
+            "rationale": "A short outage is tolerated by the heating inertia.",
+            "source": "manual",
+            "suggestionAtDecision": {
+              "basis": "mechanism",
+              "driver": "operational",
+              "level": "high",
+              "suggested": true
+            },
+            "type": "A"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "N"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthZ"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthN"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "Acc"
+          }
+        ],
+        "source": "dfd",
+        "syncedWithDFD": true
+      },
+      {
+        "assetGroup": "data",
+        "created": "2026-10-02T00:00:00.000Z",
+        "displayId": "DA-002",
+        "id": "DA-002",
+        "impactRatings": [
+          {
+            "criterionId": "financial_damage",
+            "value": 3
+          },
+          {
+            "criterionId": "operational",
+            "value": 4
+          },
+          {
+            "criterionId": "regulatory_compliance",
+            "value": 2
+          },
+          {
+            "criterionId": "recoverability",
+            "value": 3
+          },
+          {
+            "criterionId": "affected_users",
+            "value": 2
+          },
+          {
+            "criterionId": "safety",
+            "value": 4
+          }
+        ],
+        "lastModified": "2026-10-02T00:00:00.000Z",
+        "linkedDFDElements": [
+          {
+            "displayId": "DF-4",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-24",
+            "elementName": "push firmware [cmd]",
+            "elementType": "DataFlow",
+            "relationType": "transports"
+          }
+        ],
+        "name": "Firmware image",
+        "numericId": 2,
+        "overallImpact": 4,
+        "securityGoals": [
+          {
+            "formalDescription": "",
+            "level": "low",
+            "rationale": "",
+            "source": "manual",
+            "suggestionAtDecision": {
+              "basis": "mechanism",
+              "driver": "financial_damage",
+              "level": "high",
+              "suggested": true
+            },
+            "type": "C"
+          },
+          {
+            "formalDescription": "",
+            "level": "critical",
+            "source": "suggested",
+            "type": "I"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "A"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "N"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthZ"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthN"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "Acc"
+          }
+        ],
+        "source": "dfd",
+        "syncedWithDFD": true
+      },
+      {
+        "assetGroup": "process",
+        "created": "2026-10-02T00:00:00.000Z",
+        "displayId": "PR-001",
+        "id": "PR-001",
+        "impactRatings": [
+          {
+            "criterionId": "financial_damage",
+            "value": 2
+          },
+          {
+            "criterionId": "operational",
+            "value": 4
+          },
+          {
+            "criterionId": "regulatory_compliance",
+            "value": 2
+          },
+          {
+            "criterionId": "recoverability",
+            "value": 2
+          },
+          {
+            "criterionId": "affected_users",
+            "value": 2
+          },
+          {
+            "criterionId": "safety",
+            "value": 4
+          }
+        ],
+        "lastModified": "2026-10-02T00:00:00.000Z",
+        "linkedDFDElements": [
+          {
+            "displayId": "P-1",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-12",
+            "elementName": "Controller",
+            "elementType": "Process",
+            "relationType": "is_an"
+          }
+        ],
+        "name": "Heating control",
+        "numericId": 0,
+        "overallImpact": 4,
+        "securityGoals": [
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "C"
+          },
+          {
+            "formalDescription": "",
+            "level": "critical",
+            "source": "suggested",
+            "type": "I"
+          },
+          {
+            "formalDescription": "",
+            "level": "critical",
+            "source": "suggested",
+            "type": "A"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "N"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthZ"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthN"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "Acc"
+          }
+        ],
+        "source": "dfd",
+        "syncedWithDFD": true
+      },
+      {
+        "assetGroup": "data",
+        "created": "2026-10-02T00:00:00.000Z",
+        "displayId": "DA-003",
+        "id": "DA-003",
+        "impactRatings": [
+          {
+            "criterionId": "financial_damage",
+            "value": null
+          },
+          {
+            "criterionId": "operational",
+            "value": null
+          },
+          {
+            "criterionId": "regulatory_compliance",
+            "value": null
+          },
+          {
+            "criterionId": "recoverability",
+            "value": null
+          },
+          {
+            "criterionId": "affected_users",
+            "value": null
+          },
+          {
+            "criterionId": "safety",
+            "value": null
+          }
+        ],
+        "lastModified": "2026-10-02T00:00:00.000Z",
+        "linkedDFDElements": [
+          {
+            "displayId": "DF-2",
+            "elementId": "Y_GD3hm1UADHv5-dnTFx-22",
+            "elementName": "write config",
+            "elementType": "DataFlow",
+            "relationType": "transports"
+          }
+        ],
+        "name": "Calibration data",
+        "numericId": 3,
+        "overallImpact": 0,
+        "securityGoals": [
+          {
+            "formalDescription": "",
+            "level": "low",
+            "source": "suggested",
+            "type": "C"
+          },
+          {
+            "formalDescription": "",
+            "level": "low",
+            "source": "suggested",
+            "type": "I"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "A"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "N"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthZ"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "AuthN"
+          },
+          {
+            "formalDescription": "",
+            "level": "none",
+            "type": "Acc"
+          }
+        ],
+        "source": "dfd",
+        "syncedWithDFD": true
+      }
+    ],
     "configuration": {
+      "calculationMethod": "conservative",
       "impactCriteria": [
         {
           "id": "financial_damage",
@@ -28,485 +414,27 @@
         }
       ],
       "impactScale": "4-level",
-      "calculationMethod": "conservative",
       "roundingMethod": "round"
     },
-    "assets": [
-      {
-        "id": "DA-001",
-        "displayId": "DA-001",
-        "numericId": 1,
-        "name": "Setpoint and configuration",
-        "assetGroup": "data",
-        "impactRatings": [
-          {
-            "criterionId": "financial_damage",
-            "value": 2
-          },
-          {
-            "criterionId": "operational",
-            "value": 4
-          },
-          {
-            "criterionId": "regulatory_compliance",
-            "value": 1
-          },
-          {
-            "criterionId": "recoverability",
-            "value": 2
-          },
-          {
-            "criterionId": "affected_users",
-            "value": 1
-          },
-          {
-            "criterionId": "safety",
-            "value": 3
-          }
-        ],
-        "overallImpact": 4,
-        "securityGoals": [
-          {
-            "type": "C",
-            "level": "medium",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "I",
-            "level": "critical",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "A",
-            "level": "low",
-            "formalDescription": "",
-            "source": "manual",
-            "rationale": "A short outage is tolerated by the heating inertia.",
-            "suggestionAtDecision": {
-              "suggested": true,
-              "level": "high",
-              "basis": "mechanism",
-              "driver": "operational"
-            }
-          },
-          {
-            "type": "N",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthZ",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthN",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "Acc",
-            "level": "none",
-            "formalDescription": ""
-          }
-        ],
-        "linkedDFDElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-14",
-            "displayId": "DF-1",
-            "elementName": "push setpoint [cmd]",
-            "elementType": "DataFlow",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-22",
-            "displayId": "DF-2",
-            "elementName": "write config",
-            "elementType": "DataFlow",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-20",
-            "displayId": "DF-3",
-            "elementName": "read config",
-            "elementType": "DataFlow",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-18",
-            "displayId": "DS-1",
-            "elementName": "Config Store",
-            "elementType": "DataStore",
-            "relationType": "stores"
-          }
-        ],
-        "source": "dfd",
-        "syncedWithDFD": true,
-        "created": "2026-10-02T00:00:00.000Z",
-        "lastModified": "2026-10-02T00:00:00.000Z"
-      },
-      {
-        "id": "DA-002",
-        "displayId": "DA-002",
-        "numericId": 2,
-        "name": "Firmware image",
-        "assetGroup": "data",
-        "impactRatings": [
-          {
-            "criterionId": "financial_damage",
-            "value": 3
-          },
-          {
-            "criterionId": "operational",
-            "value": 4
-          },
-          {
-            "criterionId": "regulatory_compliance",
-            "value": 2
-          },
-          {
-            "criterionId": "recoverability",
-            "value": 3
-          },
-          {
-            "criterionId": "affected_users",
-            "value": 2
-          },
-          {
-            "criterionId": "safety",
-            "value": 4
-          }
-        ],
-        "overallImpact": 4,
-        "securityGoals": [
-          {
-            "type": "C",
-            "level": "low",
-            "formalDescription": "",
-            "source": "manual",
-            "rationale": "",
-            "suggestionAtDecision": {
-              "suggested": true,
-              "level": "high",
-              "basis": "mechanism",
-              "driver": "financial_damage"
-            }
-          },
-          {
-            "type": "I",
-            "level": "critical",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "A",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "N",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthZ",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthN",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "Acc",
-            "level": "none",
-            "formalDescription": ""
-          }
-        ],
-        "linkedDFDElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-24",
-            "displayId": "DF-4",
-            "elementName": "push firmware [cmd]",
-            "elementType": "DataFlow",
-            "relationType": "transports"
-          }
-        ],
-        "source": "dfd",
-        "syncedWithDFD": true,
-        "created": "2026-10-02T00:00:00.000Z",
-        "lastModified": "2026-10-02T00:00:00.000Z"
-      },
-      {
-        "id": "PR-001",
-        "displayId": "PR-001",
-        "numericId": 0,
-        "name": "Heating control",
-        "assetGroup": "process",
-        "impactRatings": [
-          {
-            "criterionId": "financial_damage",
-            "value": 2
-          },
-          {
-            "criterionId": "operational",
-            "value": 4
-          },
-          {
-            "criterionId": "regulatory_compliance",
-            "value": 2
-          },
-          {
-            "criterionId": "recoverability",
-            "value": 2
-          },
-          {
-            "criterionId": "affected_users",
-            "value": 2
-          },
-          {
-            "criterionId": "safety",
-            "value": 4
-          }
-        ],
-        "overallImpact": 4,
-        "securityGoals": [
-          {
-            "type": "C",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "I",
-            "level": "critical",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "A",
-            "level": "critical",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "N",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthZ",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthN",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "Acc",
-            "level": "none",
-            "formalDescription": ""
-          }
-        ],
-        "linkedDFDElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-12",
-            "displayId": "P-1",
-            "elementName": "Controller",
-            "elementType": "Process",
-            "relationType": "is_an"
-          }
-        ],
-        "source": "dfd",
-        "syncedWithDFD": true,
-        "created": "2026-10-02T00:00:00.000Z",
-        "lastModified": "2026-10-02T00:00:00.000Z"
-      },
-      {
-        "id": "DA-003",
-        "displayId": "DA-003",
-        "numericId": 3,
-        "name": "Calibration data",
-        "assetGroup": "data",
-        "impactRatings": [
-          {
-            "criterionId": "financial_damage",
-            "value": null
-          },
-          {
-            "criterionId": "operational",
-            "value": null
-          },
-          {
-            "criterionId": "regulatory_compliance",
-            "value": null
-          },
-          {
-            "criterionId": "recoverability",
-            "value": null
-          },
-          {
-            "criterionId": "affected_users",
-            "value": null
-          },
-          {
-            "criterionId": "safety",
-            "value": null
-          }
-        ],
-        "overallImpact": 0,
-        "securityGoals": [
-          {
-            "type": "C",
-            "level": "low",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "I",
-            "level": "low",
-            "formalDescription": "",
-            "source": "suggested"
-          },
-          {
-            "type": "A",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "N",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthZ",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "AuthN",
-            "level": "none",
-            "formalDescription": ""
-          },
-          {
-            "type": "Acc",
-            "level": "none",
-            "formalDescription": ""
-          }
-        ],
-        "linkedDFDElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-22",
-            "displayId": "DF-2",
-            "elementName": "write config",
-            "elementType": "DataFlow",
-            "relationType": "transports"
-          }
-        ],
-        "source": "dfd",
-        "syncedWithDFD": true,
-        "created": "2026-10-02T00:00:00.000Z",
-        "lastModified": "2026-10-02T00:00:00.000Z"
-      }
-    ],
-    "lastModified": "2026-10-02T00:00:00.000Z"
+    "lastModified": "2026-10-02T11:27:24.232Z"
   },
   "attackTrees": null,
   "audit": null,
   "dfd": {
-    "assets": [
-      {
-        "id": "DA-001",
-        "displayId": "DA-001",
-        "name": "Setpoint and configuration",
-        "assetGroup": "data",
-        "linkedElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-18",
-            "elementName": "Config Store",
-            "elementType": "DataStore",
-            "displayId": "DS-1",
-            "relationType": "stores"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-14",
-            "elementName": "push setpoint [cmd]",
-            "elementType": "DataFlow",
-            "displayId": "DF-1",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-20",
-            "elementName": "read config",
-            "elementType": "DataFlow",
-            "displayId": "DF-3",
-            "relationType": "transports"
-          },
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-22",
-            "elementName": "write config",
-            "elementType": "DataFlow",
-            "displayId": "DF-2",
-            "relationType": "transports"
-          }
-        ]
-      },
-      {
-        "id": "DA-002",
-        "displayId": "DA-002",
-        "name": "Firmware image",
-        "assetGroup": "data",
-        "linkedElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-24",
-            "elementName": "push firmware [cmd]",
-            "elementType": "DataFlow",
-            "displayId": "DF-4",
-            "relationType": "transports"
-          }
-        ]
-      },
-      {
-        "id": "PR-001",
-        "displayId": "PR-001",
-        "name": "Heating control",
-        "assetGroup": "process",
-        "linkedElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-12",
-            "elementName": "Controller",
-            "elementType": "Process",
-            "displayId": "P-1",
-            "relationType": "is_an"
-          }
-        ]
-      },
-      {
-        "id": "DA-003",
-        "displayId": "DA-003",
-        "name": "Calibration data",
-        "assetGroup": "data",
-        "linkedElements": [
-          {
-            "elementId": "Y_GD3hm1UADHv5-dnTFx-22",
-            "elementName": "write config",
-            "elementType": "DataFlow",
-            "displayId": "DF-2",
-            "relationType": "transports"
-          }
-        ]
-      }
-    ],
+    "assets": [],
     "connections": [
       {
         "arrow": {
           "bidirectional": false,
           "end": "classic"
         },
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-001",
+            "relationType": "transports"
+          }
+        ],
         "displayId": "DF-1",
         "entryX": 0,
         "entryY": 0.5,
@@ -542,13 +470,6 @@
             "x": 320,
             "y": 285.5
           }
-        ],
-        "assetRelations": [
-          {
-            "assetId": "DA-001",
-            "assetGroup": "data",
-            "relationType": "transports"
-          }
         ]
       },
       {
@@ -556,6 +477,13 @@
           "bidirectional": false,
           "end": "classic"
         },
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-001",
+            "relationType": "transports"
+          }
+        ],
         "displayId": "DF-3",
         "entryX": 0.75,
         "entryY": 1,
@@ -587,13 +515,6 @@
             "x": 441.6,
             "y": 330
           }
-        ],
-        "assetRelations": [
-          {
-            "assetId": "DA-001",
-            "assetGroup": "data",
-            "relationType": "transports"
-          }
         ]
       },
       {
@@ -601,6 +522,18 @@
           "bidirectional": false,
           "end": "classic"
         },
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-001",
+            "relationType": "transports"
+          },
+          {
+            "assetGroup": "data",
+            "assetId": "DA-003",
+            "relationType": "transports"
+          }
+        ],
         "displayId": "DF-2",
         "entryX": 0.296,
         "entryY": 0.009,
@@ -632,18 +565,6 @@
             "x": 396,
             "y": 320
           }
-        ],
-        "assetRelations": [
-          {
-            "assetId": "DA-001",
-            "assetGroup": "data",
-            "relationType": "transports"
-          },
-          {
-            "assetId": "DA-003",
-            "assetGroup": "data",
-            "relationType": "transports"
-          }
         ]
       },
       {
@@ -651,6 +572,13 @@
           "bidirectional": false,
           "end": "classic"
         },
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-002",
+            "relationType": "transports"
+          }
+        ],
         "displayId": "DF-4",
         "entryX": 1,
         "entryY": 0.5,
@@ -683,13 +611,6 @@
           {
             "x": 510,
             "y": 285.54
-          }
-        ],
-        "assetRelations": [
-          {
-            "assetId": "DA-002",
-            "assetGroup": "data",
-            "relationType": "transports"
           }
         ]
       }
@@ -784,6 +705,13 @@
         "type": "Interface"
       },
       {
+        "assetRelations": [
+          {
+            "assetGroup": "process",
+            "assetId": "PR-001",
+            "relationType": "is_an"
+          }
+        ],
         "displayId": "P-1",
         "id": "Y_GD3hm1UADHv5-dnTFx-12",
         "name": "Controller",
@@ -792,23 +720,16 @@
           "y": 270.53999999999996
         },
         "properties": {
-          "technology": "daemon",
+          "authenticationRequired": "optional",
           "processSemantic": "execution_unit",
           "runsAs": "service",
-          "authenticationRequired": "optional"
+          "technology": "daemon"
         },
         "size": {
           "height": 30,
           "width": 108.81
         },
-        "type": "Process",
-        "assetRelations": [
-          {
-            "assetId": "PR-001",
-            "assetGroup": "process",
-            "relationType": "is_an"
-          }
-        ]
+        "type": "Process"
       },
       {
         "displayId": "P-2",
@@ -819,9 +740,9 @@
           "y": 270.54
         },
         "properties": {
-          "technology": "daemon",
           "processSemantic": "execution_unit",
-          "runsAs": "root"
+          "runsAs": "root",
+          "technology": "daemon"
         },
         "size": {
           "height": 30,
@@ -830,6 +751,13 @@
         "type": "Process"
       },
       {
+        "assetRelations": [
+          {
+            "assetGroup": "data",
+            "assetId": "DA-001",
+            "relationType": "stores"
+          }
+        ],
         "displayId": "DS-1",
         "id": "Y_GD3hm1UADHv5-dnTFx-18",
         "name": "Config Store",
@@ -838,26 +766,19 @@
           "y": 360
         },
         "properties": {
-          "technology": "flash",
           "dataClassification": "internal",
+          "encryptionAtRest": "none",
+          "integrityProtection": "none",
           "storedDataTypes": [
             "config"
           ],
-          "encryptionAtRest": "none",
-          "integrityProtection": "none"
+          "technology": "flash"
         },
         "size": {
           "height": 46,
           "width": 90
         },
-        "type": "DataStore",
-        "assetRelations": [
-          {
-            "assetId": "DA-001",
-            "assetGroup": "data",
-            "relationType": "stores"
-          }
-        ]
+        "type": "DataStore"
       }
     ],
     "lastModified": "2026-10-02T06:23:16.177Z",
@@ -895,7 +816,7 @@
     "created": "2026-10-02T06:14:02.241Z",
     "description": "Review cases: changed basis of a decision, missing rationale, unassessed asset.",
     "isHighImpact": false,
-    "lastModified": "2026-10-02T06:23:16.177Z",
+    "lastModified": "2026-10-13T09:56:41.909Z",
     "name": "TARAflow Example – Simple Controller – 03 Goals need review",
     "responsible": "JPM",
     "safetyRelevant": false,
@@ -920,7 +841,7 @@
     "0": "not-started",
     "1": "in-progress",
     "2": "not-started",
-    "3": "not-started",
+    "3": "complete",
     "4": "not-started",
     "5": "not-started",
     "6": "not-started",
@@ -928,8 +849,161 @@
     "8": "not-started",
     "9": "not-started"
   },
-  "risks": null,
-  "schemaVersion": 7,
+  "risks": {
+    "configuration": {
+      "activeFactors": [
+        {
+          "enabled": true,
+          "factorId": "skill_level",
+          "weight": 1
+        },
+        {
+          "enabled": true,
+          "factorId": "motive",
+          "weight": 1
+        },
+        {
+          "enabled": true,
+          "factorId": "opportunity",
+          "weight": 1
+        },
+        {
+          "enabled": true,
+          "factorId": "ease_of_exploit",
+          "weight": 1
+        },
+        {
+          "enabled": true,
+          "factorId": "deployment_scope",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "window_of_opportunity",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "attacker_capability",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "exposure_level",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "size",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "ease_of_discovery",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "awareness",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "intrusion_detection",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "financial_damage",
+          "weight": 0.25
+        },
+        {
+          "enabled": false,
+          "factorId": "regulatory_compliance",
+          "weight": 0.2
+        },
+        {
+          "enabled": false,
+          "factorId": "operational",
+          "weight": 0.25
+        },
+        {
+          "enabled": false,
+          "factorId": "recoverability",
+          "weight": 0.15
+        },
+        {
+          "enabled": false,
+          "factorId": "affected_users",
+          "weight": 0.15
+        },
+        {
+          "enabled": false,
+          "factorId": "reputation",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "privacy",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "accountability",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "physical_damage",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "environmental",
+          "weight": 1
+        },
+        {
+          "enabled": false,
+          "factorId": "supply_chain",
+          "weight": 1
+        },
+        {
+          "autoEnabled": false,
+          "enabled": false,
+          "factorId": "safety",
+          "weight": 0.2
+        }
+      ],
+      "activeStrideMethod": "per-element",
+      "assetImpactMapping": {
+        "CRITICAL": 4,
+        "HIGH": 3,
+        "HIGH+": 4,
+        "LOW": 1,
+        "MED": 2,
+        "MED+": 2
+      },
+      "customFactors": [],
+      "impactAggregation": "harm-floor",
+      "impactWeightSource": "asset",
+      "likelihoodMethod": "weighted-mean",
+      "method": "complex",
+      "roundingMethod": "round",
+      "scale": "4-level",
+      "showIndividualFactors": false,
+      "treeLikelihoodContribution": "factor",
+      "useAssetImpact": true
+    },
+    "lastModified": "2026-10-13T09:56:41.909Z",
+    "risks": [],
+    "validation": {
+      "errors": [],
+      "isComplete": false,
+      "lastValidated": "2026-10-13T09:56:41.909Z",
+      "warnings": []
+    }
+  },
+  "schemaVersion": 8,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,
