@@ -63,8 +63,8 @@
         "name": "Smoke measurement",
         "numericId": 1,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Fire not detected\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Fire not detected\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "containsSafetyRelevantData": true,
@@ -216,8 +216,8 @@
         "name": "Calibration parameters",
         "numericId": 2,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "containsSafetyRelevantData": true,
@@ -368,8 +368,8 @@
         "name": "Alarm configuration",
         "numericId": 3,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Fire not detected\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Fire not detected\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "containsSafetyRelevantData": true,
@@ -522,8 +522,8 @@
         "name": "Controller firmware",
         "numericId": 4,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatality); contributes [indirect] to \"Alarm not transmitted\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatal); contributes [indirect] to \"Alarm not transmitted\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "dataType": [
@@ -666,8 +666,8 @@
         "name": "Sensor firmware",
         "numericId": 5,
         "overallImpact": 3,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "dataType": [
@@ -1039,8 +1039,8 @@
         "name": "Alarm event",
         "numericId": 8,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Alarm not transmitted\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Alarm not transmitted\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "containsSafetyRelevantData": true,
@@ -1437,8 +1437,8 @@
         "name": "Panel commands",
         "numericId": 11,
         "overallImpact": 3,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Alarm not transmitted\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Alarm not transmitted\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "containsSafetyRelevantData": true,
@@ -1555,8 +1555,8 @@
         "name": "Smoke detection",
         "numericId": 0,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Fire not detected\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Fire not detected\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "description": "Detect smoke reliably and in time (EN 54-7 response threshold).",
@@ -1667,8 +1667,8 @@
         "name": "Alarm signalling",
         "numericId": 0,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Alarm not transmitted\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Alarm not transmitted\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "description": "Signal an alarm to the fire panel — via the loop protocol and the hard-wired alarm contact.",
@@ -1779,8 +1779,8 @@
         "name": "Fault monitoring",
         "numericId": 0,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "description": "Detect and report detector faults (sensor-bus loss, contamination, LED failure) so an out-of-service detector does not go unnoticed.",
@@ -2189,8 +2189,8 @@
         "name": "Controller unit",
         "numericId": 0,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Alarm not transmitted\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Alarm not transmitted\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "criticality": "safety_critical",
@@ -2281,8 +2281,8 @@
         "name": "Optical sensor head",
         "numericId": 0,
         "overallImpact": 4,
-        "physicalImpact": "fatality",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatality)",
+        "physicalImpact": "fatal",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
           "criticality": "safety_critical",
@@ -2370,7 +2370,7 @@
           "physicalHazardPotential": "high",
           "protectionNeed": "critical",
           "role": "external",
-          "safetyImpact": "fatality"
+          "safetyImpact": "fatal"
         },
         "securityGoals": [
           {
@@ -2449,7 +2449,7 @@
           "isProtectionTarget": true,
           "protectionNeed": "high",
           "role": "external",
-          "safetyImpact": "irreversible_injury"
+          "safetyImpact": "irreversible_major"
         },
         "securityGoals": [
           {
@@ -3500,7 +3500,6 @@
         "properties": {
           "accessMode": "write_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
@@ -3624,7 +3623,6 @@
         "properties": {
           "accessMode": "read_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
@@ -3808,7 +3806,6 @@
         "properties": {
           "dataClassification": "internal",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "signature",
           "location": "on_chip",
@@ -3897,7 +3894,6 @@
           "accessMode": "write_only",
           "dataClassification": "confidential",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
@@ -3991,7 +3987,6 @@
         "properties": {
           "accessMode": "write_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "signature",
           "location": "on_board",
@@ -6088,7 +6083,7 @@
         "systemRelevance": "in_scope"
       }
     ],
-    "lastModified": "2026-10-13T12:00:00.000Z",
+    "lastModified": "2026-10-24T14:32:00.314Z",
     "relations": [
       {
         "from": "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
@@ -6165,7 +6160,7 @@
       {
         "from": "H-01",
         "impact": {
-          "severity": "fatality",
+          "severity": "fatal",
           "target": "human"
         },
         "provenance": "manual",
@@ -6232,7 +6227,7 @@
       {
         "from": "H-02",
         "impact": {
-          "severity": "fatality",
+          "severity": "fatal",
           "target": "human"
         },
         "provenance": "manual",
@@ -6272,7 +6267,7 @@
       {
         "from": "H-03",
         "impact": {
-          "severity": "irreversible_injury",
+          "severity": "irreversible_major",
           "target": "human"
         },
         "provenance": "manual",
@@ -6330,7 +6325,7 @@
       {
         "from": "H-04",
         "impact": {
-          "severity": "reversible_injury",
+          "severity": "reversible_major",
           "target": "human"
         },
         "provenance": "manual",
@@ -6370,7 +6365,7 @@
       {
         "from": "H-05",
         "impact": {
-          "severity": "irreversible_injury",
+          "severity": "irreversible_major",
           "target": "human"
         },
         "provenance": "manual",
@@ -6381,7 +6376,7 @@
       {
         "from": "H-05",
         "impact": {
-          "severity": "irreversible_injury",
+          "severity": "irreversible_major",
           "target": "human"
         },
         "provenance": "manual",
@@ -6396,7 +6391,7 @@
     "created": "2026-05-22T17:36:25.709Z",
     "description": "Leveled DFD example: the single-page Smoke Detector split into a System page (MP-1 Sensor Head, MP-2 Smoke Detector Controller) and one child page per multiprocess. Original cell ids are kept, so threats, risks and assets refer to the same logical elements; context copies are linked in dfd.pages.",
     "isHighImpact": false,
-    "lastModified": "2026-10-22T09:38:51.412Z",
+    "lastModified": "2026-10-25T10:36:44.556Z",
     "name": "Smoke Detector (leveled)",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -6588,7 +6583,7 @@
           "weight": 1
         }
       ],
-      "activeStrideMethod": "per-element",
+      "activeStrideMethod": "per-interaction",
       "assetImpactMapping": {
         "CRITICAL": 4,
         "HIGH": 3,
@@ -6608,7 +6603,7 @@
       "treeLikelihoodContribution": "factor",
       "useAssetImpact": true
     },
-    "lastModified": "2026-10-22T09:28:09.028Z",
+    "lastModified": "2026-10-25T10:36:39.650Z",
     "risks": [
       {
         "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
@@ -45551,13 +45546,13 @@
     "validation": {
       "errors": [],
       "isComplete": true,
-      "lastValidated": "2026-10-22T09:28:09.028Z",
+      "lastValidated": "2026-10-25T10:36:39.650Z",
       "warnings": [
         "13 high-risk item(s) have no mitigation defined"
       ]
     }
   },
-  "schemaVersion": 9,
+  "schemaVersion": 10,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,
@@ -45581,7 +45576,7 @@
       "showThreatActor": false,
       "zeroTrustMode": false
     },
-    "lastModified": "2026-10-22T09:29:52.535Z",
+    "lastModified": "2026-10-25T10:36:27.091Z",
     "perElementTables": [
       {
         "displayIdentifier": "[SB]",
