@@ -4009,7 +4009,9 @@
           "boundaryId": "OE",
           "boundaryType": "network",
           "complianceRelevance": "ISO/SAE 21434 operational environment (Annex H, Figure H.2 shaded region / Table H.1).",
-          "defaultDenyPolicy": "allow_all",
+          "defaultDenyPolicy": [
+            "allow_all"
+          ],
           "defaultExposureLevel": "EL4",
           "monitoringEnabled": false,
           "notes": "Trust boundary around the operational-environment / in-vehicle connectivity domain. External entities sit outside it; its outer edge (at the cellular, Bluetooth and OBD-II interfaces) is the external-to-vehicle trust transition.",
@@ -4041,7 +4043,9 @@
           "boundaryId": "NECU",
           "boundaryType": "network",
           "complianceRelevance": "ISO/SAE 21434 Annex H — externally reachable ECU / first attack step (Tables H.5/H.6).",
-          "defaultDenyPolicy": "deny_all_permit_exception",
+          "defaultDenyPolicy": [
+            "deny_all_permit_exception"
+          ],
           "defaultExposureLevel": "EL4",
           "monitoringEnabled": false,
           "notes": "Trust boundary isolating the externally-exposed Navigation ECU (DMZ) from the hardened Gateway ECU. The Nav-to-Gateway data flow crosses this boundary, making the gateway firewall an explicit trust transition.",
@@ -4773,7 +4777,7 @@
     "created": "2026-09-12T00:00:00.000Z",
     "description": "ISO/SAE 21434 TARA example — automotive headlamp system (based on the worked example in Annex H). Exercises the iso-21434 preset: SFOP damage-scenario impact, per-element STRIDE (per-interaction disabled), attack-tree attack-potential feasibility, and R = I x L.",
     "isHighImpact": true,
-    "lastModified": "2026-10-30T23:05:57.940Z",
+    "lastModified": "2026-11-02T10:25:39.847Z",
     "name": "Headlamp System (ISO/SAE 21434)",
     "responsible": "TARAflow Example",
     "safetyRelevant": false,
@@ -5131,7 +5135,7 @@
       "useAssetImpact": true,
       "windowOfOpportunity": "moderately_restricted"
     },
-    "lastModified": "2026-10-30T21:45:19.227Z",
+    "lastModified": "2026-10-31T09:11:04.864Z",
     "risks": [
       {
         "attackDescription": "Forge the lamp request > Take over the Navigation ECU over cellular and send forged lamp requests through the gateway",
@@ -5244,7 +5248,7 @@
           },
           "value": 5
         },
-        "lastModified": "2026-10-30T21:44:33.215Z",
+        "lastModified": "2026-10-31T09:11:03.579Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857"
         ],
@@ -5491,7 +5495,7 @@
           },
           "value": 4
         },
-        "lastModified": "2026-10-30T21:45:17.944Z",
+        "lastModified": "2026-10-31T08:59:14.943Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857"
         ],
@@ -9023,11 +9027,11 @@
     "validation": {
       "errors": [],
       "isComplete": true,
-      "lastValidated": "2026-10-30T21:45:19.227Z",
+      "lastValidated": "2026-10-31T09:11:04.864Z",
       "warnings": []
     }
   },
-  "schemaVersion": 11,
+  "schemaVersion": 12,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,
