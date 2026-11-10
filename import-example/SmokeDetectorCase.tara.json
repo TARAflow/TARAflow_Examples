@@ -731,7 +731,7 @@
           "exposureLevel": "EL1",
           "exposureLevelSource": "derived",
           "frequency": "ondemand",
-          "integrityProtection": "crc",
+          "integrityProtection": "hmac",
           "location": "on_board",
           "messageType": "config",
           "physicalPathProtection": [
@@ -1050,11 +1050,16 @@
           "endpointAuthentication": "none",
           "exposureLevel": "EL1",
           "frequency": "periodic",
-          "integrityProtection": "none",
+          "integrityProtection": "hmac",
           "location": "in_enclosure",
           "messageType": "command",
           "protocol": "spi",
-          "redundancy": "none"
+          "redundancy": "none",
+          "physicalPathProtection": [
+            "inside_enclosure",
+            "cable_duct",
+            "tamper_seal"
+          ]
         },
         "to": "P-2",
         "waypoints": [],
@@ -1108,7 +1113,7 @@
           ],
           "nonRepudiation": "none",
           "notes": "SPI side of the sensor chip. Receives commands from the controller, sends measurement values and the diagnostic status. Buffers values while the link is down.",
-          "privilegeLevel": "medium",
+          "privilegeLevel": "low",
           "processSemantic": "functional_block",
           "runsAs": "system",
           "securityControls": "None known",
@@ -1600,7 +1605,7 @@
         "dateFormat": "iso"
       }
     },
-    "lastModified": "2026-11-09T19:08:45.602Z"
+    "lastModified": "2026-11-09T20:13:03.367Z"
   },
   "hazards": null,
   "id": "proj_smoke_detector_case",
@@ -1815,8 +1820,8 @@
     },
     "risks": [
       {
-        "id": "R-e1fc1d27-6fb9-46d5-8df0-f65740a739a6",
-        "threatId": "e1fc1d27-6fb9-46d5-8df0-f65740a739a6",
+        "id": "R-3858ee2c-f62f-492c-93ab-c483252cdffc",
+        "threatId": "3858ee2c-f62f-492c-93ab-c483252cdffc",
         "threatDisplayId": "P2-T-1",
         "threatDescription": "Undefined fail-safe output state — process outputs reach arbitrary values on communication loss",
         "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
@@ -1907,12 +1912,9 @@
         "calculatedRiskBeforeMitigation": 4,
         "selectedMitigations": [
           {
-            "id": "M-T-FSAFE-001",
-            "status": "implemented"
-          },
-          {
             "id": "M-T-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -1980,8 +1982,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-49ac1643-3267-4059-9614-d801861d97fa",
-        "threatId": "49ac1643-3267-4059-9614-d801861d97fa",
+        "id": "R-529a8be2-6e95-4796-9c36-9c64797b3194",
+        "threatId": "529a8be2-6e95-4796-9c36-9c64797b3194",
         "threatDisplayId": "P2-I-1",
         "threatDescription": "Process data leakage — sensitive data processed by the process is exposed",
         "attackDescription": "Attacker observes process output and extracts sensitive configuration data, credentials, or business information",
@@ -2073,11 +2075,13 @@
         "selectedMitigations": [
           {
             "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-I-005",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -2145,8 +2149,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-eadbc516-95b7-4c06-8710-f56f395637c7",
-        "threatId": "eadbc516-95b7-4c06-8710-f56f395637c7",
+        "id": "R-b75e1a3f-3673-4882-9bde-39d365eab4eb",
+        "threatId": "b75e1a3f-3673-4882-9bde-39d365eab4eb",
         "threatDisplayId": "P2-D-1",
         "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
         "attackDescription": "Attacker sends high volume of requests consuming all available CPU, memory, or file handles",
@@ -2248,11 +2252,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -2320,8 +2326,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-b6fae1c0-8fe3-4ba9-bff3-076aab29f5ac",
-        "threatId": "b6fae1c0-8fe3-4ba9-bff3-076aab29f5ac",
+        "id": "R-f56f40f4-3741-4ffc-99cd-065978c15809",
+        "threatId": "f56f40f4-3741-4ffc-99cd-065978c15809",
         "threatDisplayId": "P2-E-1",
         "threatDescription": "Privilege escalation via process vulnerability — attacker gains elevated privileges through process flaw",
         "attackDescription": "Attacker exploits a process vulnerability to execute code or trigger operations with elevated privileges",
@@ -2428,11 +2434,8 @@
         "selectedMitigations": [
           {
             "id": "M-E-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-E-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -2500,8 +2503,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-72abd43d-f382-4270-9fe8-0d43f5b30334",
-        "threatId": "72abd43d-f382-4270-9fe8-0d43f5b30334",
+        "id": "R-141dd203-32b9-459d-9325-a3b91f5b7bb9",
+        "threatId": "141dd203-32b9-459d-9325-a3b91f5b7bb9",
         "threatDisplayId": "P3-T-1",
         "threatDescription": "Undefined fail-safe output state — process outputs reach arbitrary values on communication loss",
         "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
@@ -2592,12 +2595,9 @@
         "calculatedRiskBeforeMitigation": 4,
         "selectedMitigations": [
           {
-            "id": "M-T-FSAFE-001",
-            "status": "implemented"
-          },
-          {
             "id": "M-T-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -2665,8 +2665,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-66f8d3f4-1a0b-41ca-8436-0e355fdc0fdd",
-        "threatId": "66f8d3f4-1a0b-41ca-8436-0e355fdc0fdd",
+        "id": "R-6e8392d5-ae04-4626-9ea2-f29ee1d2b96c",
+        "threatId": "6e8392d5-ae04-4626-9ea2-f29ee1d2b96c",
         "threatDisplayId": "P3-I-1",
         "threatDescription": "Process data leakage — sensitive data processed by the process is exposed",
         "attackDescription": "Attacker observes process output and extracts sensitive configuration data, credentials, or business information",
@@ -2758,11 +2758,13 @@
         "selectedMitigations": [
           {
             "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-I-005",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -2830,8 +2832,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-c362839f-abe1-4554-9cda-07690125a3a5",
-        "threatId": "c362839f-abe1-4554-9cda-07690125a3a5",
+        "id": "R-54ae5b3f-4e6c-4488-a718-8d9830a82824",
+        "threatId": "54ae5b3f-4e6c-4488-a718-8d9830a82824",
         "threatDisplayId": "P3-D-1",
         "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
         "attackDescription": "Attacker sends high volume of requests consuming all available CPU, memory, or file handles",
@@ -2933,11 +2935,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -3005,8 +3009,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-6dc86d10-cc8a-4f40-bb71-42cd9b71329d",
-        "threatId": "6dc86d10-cc8a-4f40-bb71-42cd9b71329d",
+        "id": "R-3c5313ad-9c90-4f8b-a1c8-9e2354b265b0",
+        "threatId": "3c5313ad-9c90-4f8b-a1c8-9e2354b265b0",
         "threatDisplayId": "P3-E-1",
         "threatDescription": "Secure boot bypass on embedded system — attacker bypasses firmware signature verification",
         "attackDescription": "Attacker disables Secure Boot to execute malicious firmware that persists across device resets",
@@ -3108,11 +3112,13 @@
         "selectedMitigations": [
           {
             "id": "M-CB-E-001",
-            "status": "in_progress"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-CB-E-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -3180,173 +3186,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-7c1c808a-caf6-4b40-b663-63ee4007bb09",
-        "threatId": "7c1c808a-caf6-4b40-b663-63ee4007bb09",
-        "threatDisplayId": "P4-S-1",
-        "threatDescription": "Local-only account management — stale accounts persist, no central revocation possible",
-        "attackDescription": "Attacker uses credentials of a former employee that still exists locally on the device",
-        "causeDescription": "Account management is local-only — no central directory or IAM system",
-        "linkedAssetIds": [],
-        "threatRelevance": "relevant",
-        "proposedMitigations": [
-          {
-            "id": "M-S-006",
-            "text": "Use centralized account management with revocation capability (LDAP, Active Directory, RADIUS, IAM)",
-            "isCustom": false
-          },
-          {
-            "id": "M-S-001",
-            "text": "Implement multi-factor authentication (MFA)",
-            "isCustom": false
-          }
-        ],
-        "proposedVerifications": [
-          {
-            "id": "V-S-005",
-            "text": "Verify account revocation process — confirm stale accounts are removed within SLA",
-            "isCustom": false
-          },
-          {
-            "id": "V-S-001",
-            "text": "Penetration testing for authentication bypass",
-            "isCustom": false
-          }
-        ],
-        "strideCategory": "S",
-        "sourceStrideMethod": "per-element",
-        "factorRatings": [
-          {
-            "factorId": "skill_level",
-            "value": 2,
-            "weight": 1
-          },
-          {
-            "factorId": "motive",
-            "value": 2,
-            "weight": 1
-          },
-          {
-            "factorId": "opportunity",
-            "value": 2,
-            "weight": 1
-          },
-          {
-            "factorId": "ease_of_exploit",
-            "value": 2,
-            "weight": 1
-          },
-          {
-            "factorId": "deployment_scope",
-            "value": 2,
-            "weight": 1
-          },
-          {
-            "factorId": "financial_damage",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "regulatory_compliance",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "operational",
-            "value": 2,
-            "weight": 1,
-            "source": "manual"
-          },
-          {
-            "factorId": "recoverability",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "safety",
-            "value": 0,
-            "weight": 1
-          }
-        ],
-        "calculatedImpact": 2,
-        "calculatedLikelihood": 2,
-        "calculatedRiskBeforeMitigation": 4,
-        "selectedMitigations": [
-          {
-            "id": "M-S-006",
-            "status": "implemented"
-          },
-          {
-            "id": "M-S-001",
-            "status": "implemented"
-          }
-        ],
-        "selectedVerifications": [],
-        "mitigatedFactorRatings": [
-          {
-            "factorId": "skill_level",
-            "value": 1,
-            "weight": 1
-          },
-          {
-            "factorId": "motive",
-            "value": 1,
-            "weight": 1
-          },
-          {
-            "factorId": "opportunity",
-            "value": 1,
-            "weight": 1
-          },
-          {
-            "factorId": "ease_of_exploit",
-            "value": 1,
-            "weight": 1
-          },
-          {
-            "factorId": "deployment_scope",
-            "value": 1,
-            "weight": 1
-          },
-          {
-            "factorId": "financial_damage",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "regulatory_compliance",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "operational",
-            "value": 2,
-            "weight": 1,
-            "source": "manual"
-          },
-          {
-            "factorId": "recoverability",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "safety",
-            "value": 0,
-            "weight": 1
-          }
-        ],
-        "calculatedRiskAfterMitigation": 2,
-        "treatment": "reduce",
-        "treatmentJustification": "",
-        "moscowPriority": "should",
-        "wontJustification": "",
-        "riskBeforeRationale": "",
-        "riskAfterRationale": "",
-        "created": "2026-11-10T09:00:00.000Z",
-        "lastModified": "2026-11-10T09:00:00.000Z"
-      },
-      {
-        "id": "R-9010cbb3-796c-4038-a52a-a9c2136e70b7",
-        "threatId": "9010cbb3-796c-4038-a52a-a9c2136e70b7",
+        "id": "R-30571bde-52f9-41ed-8847-4f21db0217ea",
+        "threatId": "30571bde-52f9-41ed-8847-4f21db0217ea",
         "threatDisplayId": "P4-T-1",
         "threatDescription": "Embedded process firmware tampering — attacker modifies firmware of embedded process component",
         "attackDescription": "Attacker replaces embedded process firmware to disable security checks or introduce a backdoor",
@@ -3453,11 +3294,13 @@
         "selectedMitigations": [
           {
             "id": "M-CB-T-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-T-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -3525,8 +3368,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-1a319893-4f7d-4918-b00f-eb8a91fff90f",
-        "threatId": "1a319893-4f7d-4918-b00f-eb8a91fff90f",
+        "id": "R-3124f9dc-747e-472b-9306-5c5a9ce67b57",
+        "threatId": "3124f9dc-747e-472b-9306-5c5a9ce67b57",
         "threatDisplayId": "P4-R-1",
         "threatDescription": "Process action repudiation — process denies having performed an action",
         "attackDescription": "Process or its operator denies having executed a command that affected the system",
@@ -3618,11 +3461,13 @@
         "selectedMitigations": [
           {
             "id": "M-R-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-R-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -3690,8 +3535,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-2c6a912e-57f2-42a8-bcd3-982865f9319b",
-        "threatId": "2c6a912e-57f2-42a8-bcd3-982865f9319b",
+        "id": "R-eceaad66-654b-4cb4-9aff-77cb74ea8f69",
+        "threatId": "eceaad66-654b-4cb4-9aff-77cb74ea8f69",
         "threatDisplayId": "P4-I-1",
         "threatDescription": "Cryptographic keys in software-only storage — extractable via memory dump or debug access",
         "attackDescription": "Attacker uses debug interface or firmware extraction to read memory and recover cryptographic keys",
@@ -3782,12 +3627,9 @@
         "calculatedRiskBeforeMitigation": 4,
         "selectedMitigations": [
           {
-            "id": "M-I-006",
-            "status": "implemented"
-          },
-          {
             "id": "M-CB-I-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -3855,8 +3697,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-0bc2c2a8-fc62-4b28-8213-2b9a22ea4c5d",
-        "threatId": "0bc2c2a8-fc62-4b28-8213-2b9a22ea4c5d",
+        "id": "R-51836f9c-8088-41ce-b8a9-d2799c1ff986",
+        "threatId": "51836f9c-8088-41ce-b8a9-d2799c1ff986",
         "threatDisplayId": "P4-D-1",
         "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
         "attackDescription": "Attacker sends high volume of requests consuming all available CPU, memory, or file handles",
@@ -3958,11 +3800,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -4030,8 +3874,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-01312597-4be0-430c-8c8f-ab10cf398d28",
-        "threatId": "01312597-4be0-430c-8c8f-ab10cf398d28",
+        "id": "R-451356a5-7ee0-47e6-9180-8abfb76361d1",
+        "threatId": "451356a5-7ee0-47e6-9180-8abfb76361d1",
         "threatDisplayId": "P4-E-1",
         "threatDescription": "Secure boot bypass on embedded system — attacker bypasses firmware signature verification",
         "attackDescription": "Attacker disables Secure Boot to execute malicious firmware that persists across device resets",
@@ -4138,11 +3982,13 @@
         "selectedMitigations": [
           {
             "id": "M-CB-E-001",
-            "status": "in_progress"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-CB-E-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -4210,8 +4056,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-d978efe4-df61-492f-9c04-667820857202",
-        "threatId": "d978efe4-df61-492f-9c04-667820857202",
+        "id": "R-ff2f62a3-613f-4675-bb42-43289ccbaf2a",
+        "threatId": "ff2f62a3-613f-4675-bb42-43289ccbaf2a",
         "threatDisplayId": "P1-T-1",
         "threatDescription": "Undefined fail-safe output state — process outputs reach arbitrary values on communication loss",
         "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
@@ -4314,12 +4160,9 @@
         "calculatedRiskBeforeMitigation": 6.8,
         "selectedMitigations": [
           {
-            "id": "M-T-FSAFE-001",
-            "status": "implemented"
-          },
-          {
             "id": "M-T-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -4396,8 +4239,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-471e2978-f47e-4aa9-be61-f544eef39553",
-        "threatId": "471e2978-f47e-4aa9-be61-f544eef39553",
+        "id": "R-e692b0ce-e747-4928-a5ee-760678862d53",
+        "threatId": "e692b0ce-e747-4928-a5ee-760678862d53",
         "threatDisplayId": "P1-I-1",
         "threatDescription": "Process data leakage — sensitive data processed by the process is exposed",
         "attackDescription": "Attacker observes process output and extracts sensitive configuration data, credentials, or business information",
@@ -4501,11 +4344,13 @@
         "selectedMitigations": [
           {
             "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-I-005",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -4582,8 +4427,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-23295da7-1452-48b4-9715-62e93a5daa8d",
-        "threatId": "23295da7-1452-48b4-9715-62e93a5daa8d",
+        "id": "R-13d426c2-fd69-42a2-9273-7b169597e08f",
+        "threatId": "13d426c2-fd69-42a2-9273-7b169597e08f",
         "threatDisplayId": "P1-D-1",
         "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
         "attackDescription": "Attacker sends high volume of requests consuming all available CPU, memory, or file handles",
@@ -4697,11 +4542,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -4778,8 +4625,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-4dded9b5-5a25-40fa-a3de-66115f5f204e",
-        "threatId": "4dded9b5-5a25-40fa-a3de-66115f5f204e",
+        "id": "R-5bd43754-781e-4aa8-b0c4-c76fdb2311a8",
+        "threatId": "5bd43754-781e-4aa8-b0c4-c76fdb2311a8",
         "threatDisplayId": "DF7-T-1",
         "threatDescription": "Data flow tampering — attacker modifies data in transit between components",
         "attackDescription": "Attacker intercepts and modifies values before they reach the destination",
@@ -4882,11 +4729,8 @@
         "selectedMitigations": [
           {
             "id": "M-T-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-T-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -4963,8 +4807,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-dc264a9e-9874-49f3-8ac9-fc18c6ceb053",
-        "threatId": "dc264a9e-9874-49f3-8ac9-fc18c6ceb053",
+        "id": "R-31866b18-34c6-4802-a109-030591fea18c",
+        "threatId": "31866b18-34c6-4802-a109-030591fea18c",
         "threatDisplayId": "DF7-I-1",
         "threatDescription": "Data flow eavesdropping — attacker intercepts sensitive data on the data flow",
         "attackDescription": "Attacker passively monitors the data flow and captures sensitive data",
@@ -5067,11 +4911,13 @@
         "selectedMitigations": [
           {
             "id": "M-I-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -5148,8 +4994,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-53cd5496-a140-4d1e-acf1-54738af3b1ab",
-        "threatId": "53cd5496-a140-4d1e-acf1-54738af3b1ab",
+        "id": "R-054baac8-22cb-485a-8d45-999efcd49930",
+        "threatId": "054baac8-22cb-485a-8d45-999efcd49930",
         "threatDisplayId": "DF7-D-1",
         "threatDescription": "Data flow disruption — attacker blocks or delays the data flow",
         "attackDescription": "Attacker blocks or corrupts the data flow causing dependent components to lose communication",
@@ -5252,11 +5098,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-003",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -5333,8 +5181,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-b9af933b-1803-41fa-b262-701b3dca69fe",
-        "threatId": "b9af933b-1803-41fa-b262-701b3dca69fe",
+        "id": "R-0167772a-c66f-4031-b416-5e388b4b4211",
+        "threatId": "0167772a-c66f-4031-b416-5e388b4b4211",
         "threatDisplayId": "DF9-T-1",
         "threatDescription": "Unauthorized write access via OT protocol — attacker modifies process values or configuration",
         "attackDescription": "Attacker places a rogue node on the OT network and sends write commands to modify setpoints or controller configuration",
@@ -5441,12 +5289,9 @@
         "calculatedRiskBeforeMitigation": 7.2,
         "selectedMitigations": [
           {
-            "id": "M-T-010",
-            "status": "implemented"
-          },
-          {
             "id": "M-T-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -5523,8 +5368,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-3492fdc8-4bf1-4f7f-abe4-d46a3f565ec0",
-        "threatId": "3492fdc8-4bf1-4f7f-abe4-d46a3f565ec0",
+        "id": "R-2ce411a5-85a8-4ee5-8536-f8e93cb1bad6",
+        "threatId": "2ce411a5-85a8-4ee5-8536-f8e93cb1bad6",
         "threatDisplayId": "DF9-I-1",
         "threatDescription": "Data flow eavesdropping — attacker intercepts sensitive data on the data flow",
         "attackDescription": "Attacker passively monitors the data flow and captures sensitive data",
@@ -5627,11 +5472,8 @@
         "selectedMitigations": [
           {
             "id": "M-I-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -5708,8 +5550,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-9900c292-d517-43fb-8282-702b9ed00b01",
-        "threatId": "9900c292-d517-43fb-8282-702b9ed00b01",
+        "id": "R-0fa25362-efca-4563-a134-2c5e9a9ba595",
+        "threatId": "0fa25362-efca-4563-a134-2c5e9a9ba595",
         "threatDisplayId": "DF9-D-1",
         "threatDescription": "Data flow disruption — attacker blocks or delays the data flow",
         "attackDescription": "Attacker blocks or corrupts the data flow causing dependent components to lose communication",
@@ -5812,11 +5654,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-003",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -5893,8 +5737,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-03ea95a6-248c-4a56-bedb-ade8fa7846b2",
-        "threatId": "03ea95a6-248c-4a56-bedb-ade8fa7846b2",
+        "id": "R-c97a2ae4-e2da-4062-ba59-829bc4ec8884",
+        "threatId": "c97a2ae4-e2da-4062-ba59-829bc4ec8884",
         "threatDisplayId": "DF8-T-1",
         "threatDescription": "Physical cable tampering — data flow manipulated via accessible cable or connector",
         "attackDescription": "Attacker splices in a tap device or signal injector and manipulates data in transit without triggering any alarm",
@@ -5991,11 +5835,13 @@
         "selectedMitigations": [
           {
             "id": "M-T-008",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-T-009",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -6063,8 +5909,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-5067157d-7bf1-4c31-a6a9-2306fdb134c6",
-        "threatId": "5067157d-7bf1-4c31-a6a9-2306fdb134c6",
+        "id": "R-d6b535a1-a3f9-4e28-bf29-3741dbc905e3",
+        "threatId": "d6b535a1-a3f9-4e28-bf29-3741dbc905e3",
         "threatDisplayId": "DF8-I-1",
         "threatDescription": "Data flow eavesdropping — attacker intercepts sensitive data on the data flow",
         "attackDescription": "Attacker passively monitors the data flow and captures sensitive data",
@@ -6156,11 +6002,8 @@
         "selectedMitigations": [
           {
             "id": "M-I-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -6228,8 +6071,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-55764f10-1c53-48af-9b31-aca2128d04cf",
-        "threatId": "55764f10-1c53-48af-9b31-aca2128d04cf",
+        "id": "R-29f2a6ee-da6a-448a-859f-650c8207380d",
+        "threatId": "29f2a6ee-da6a-448a-859f-650c8207380d",
         "threatDisplayId": "DF8-D-1",
         "threatDescription": "Data flow disruption — attacker blocks or delays the data flow",
         "attackDescription": "Attacker blocks or corrupts the data flow causing dependent components to lose communication",
@@ -6321,11 +6164,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-003",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -6393,8 +6238,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-69ee5074-bedf-494a-bf58-c17c922cdbc2",
-        "threatId": "69ee5074-bedf-494a-bf58-c17c922cdbc2",
+        "id": "R-aad6affa-1156-40fe-939f-bd7d93334cb2",
+        "threatId": "aad6affa-1156-40fe-939f-bd7d93334cb2",
         "threatDisplayId": "EE6-S-1",
         "threatDescription": "External entity identity spoofing — attacker impersonates a legitimate external entity",
         "attackDescription": "Attacker crafts requests that appear to originate from a legitimate external entity",
@@ -6491,11 +6336,13 @@
         "selectedMitigations": [
           {
             "id": "M-S-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-S-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -6563,8 +6410,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-01586843-c9df-4d7b-a79c-ca697831c8e1",
-        "threatId": "01586843-c9df-4d7b-a79c-ca697831c8e1",
+        "id": "R-c7f0cbc3-c620-48e7-b3db-c38813f54d47",
+        "threatId": "c7f0cbc3-c620-48e7-b3db-c38813f54d47",
         "threatDisplayId": "EE6-R-1",
         "threatDescription": "External entity repudiation — external entity denies having sent a request",
         "attackDescription": "External entity denies having sent a command that the system received and acted upon",
@@ -6656,11 +6503,13 @@
         "selectedMitigations": [
           {
             "id": "M-R-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-R-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -6728,8 +6577,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-87e8b90a-3c0c-4e82-b6d8-ae9663bca648",
-        "threatId": "87e8b90a-3c0c-4e82-b6d8-ae9663bca648",
+        "id": "R-59400ee0-98f7-4fbd-99e1-3a7bfd033b95",
+        "threatId": "59400ee0-98f7-4fbd-99e1-3a7bfd033b95",
         "threatDisplayId": "SB-DF7-T-OUT-1",
         "threatDescription": "Response tampering: Attacker modifies response data before it reaches Sensor Communication Controller",
         "attackDescription": "Attacker intercepts the response from Smoke Detector Controller and modifies data, causing Sensor Communication Controller to process falsified information",
@@ -6832,11 +6681,8 @@
         "selectedMitigations": [
           {
             "id": "M-T-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-T-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -6913,8 +6759,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-4568f3b4-f8fa-4c9b-a5f0-bd5fed1d489a",
-        "threatId": "4568f3b4-f8fa-4c9b-a5f0-bd5fed1d489a",
+        "id": "R-f316ee66-efee-40f4-b871-35aea057e9a8",
+        "threatId": "f316ee66-efee-40f4-b871-35aea057e9a8",
         "threatDisplayId": "SB-DF7-R-OUT-1",
         "threatDescription": "Receiver repudiation: Smoke Detector Controller denies receiving or processing the request",
         "attackDescription": "Smoke Detector Controller claims it never received the data from Sensor Communication Controller, or denies having processed it",
@@ -7017,11 +6863,8 @@
         "selectedMitigations": [
           {
             "id": "M-R-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-R-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -7098,8 +6941,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-8fb82cf6-025a-4456-9edf-9ac424db66a1",
-        "threatId": "8fb82cf6-025a-4456-9edf-9ac424db66a1",
+        "id": "R-0c9a5346-649a-40dc-8789-1a94fa2f01da",
+        "threatId": "0c9a5346-649a-40dc-8789-1a94fa2f01da",
         "threatDisplayId": "SB-DF7-I-OUT-1",
         "threatDescription": "Eavesdropping on response: Attacker intercepts sensitive response data from Smoke Detector Controller",
         "attackDescription": "Attacker intercepts the response from Smoke Detector Controller to Sensor Communication Controller and reads sensitive information",
@@ -7202,11 +7045,13 @@
         "selectedMitigations": [
           {
             "id": "M-I-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -7283,8 +7128,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-430c32df-95be-45ef-b0d5-61f8730535d9",
-        "threatId": "430c32df-95be-45ef-b0d5-61f8730535d9",
+        "id": "R-5ee7a990-edc9-4ca1-a781-defe733353d5",
+        "threatId": "5ee7a990-edc9-4ca1-a781-defe733353d5",
         "threatDisplayId": "SB-DF7-D-OUT-1",
         "threatDescription": "Response blocking: Attacker prevents Sensor Communication Controller from receiving responses from Smoke Detector Controller",
         "attackDescription": "Attacker disrupts or delays the response channel from Smoke Detector Controller, causing Sensor Communication Controller to stall or fail",
@@ -7387,11 +7232,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-003",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -7468,8 +7315,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-d5de88fa-1153-404b-b393-bb52ab45e63e",
-        "threatId": "d5de88fa-1153-404b-b393-bb52ab45e63e",
+        "id": "R-328b68da-3a15-4f2a-a820-e983ab1c469f",
+        "threatId": "328b68da-3a15-4f2a-a820-e983ab1c469f",
         "threatDisplayId": "SB-DF7-T-IN-1",
         "threatDescription": "Data tampering on incoming flow: Attacker modifies data before it reaches Smoke Detector Controller",
         "attackDescription": "Attacker intercepts the data flow from Sensor Communication Controller and modifies commands or payload before delivery to Smoke Detector Controller",
@@ -7572,11 +7419,8 @@
         "selectedMitigations": [
           {
             "id": "M-T-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-T-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -7653,8 +7497,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-43e426f0-b749-4bb6-a9bd-7807aa46ec54",
-        "threatId": "43e426f0-b749-4bb6-a9bd-7807aa46ec54",
+        "id": "R-6bd8e35c-2ef2-4a39-a821-fa7417e6b7ee",
+        "threatId": "6bd8e35c-2ef2-4a39-a821-fa7417e6b7ee",
         "threatDisplayId": "SB-DF7-R-IN-1",
         "threatDescription": "Sender repudiation: Sensor Communication Controller denies sending the request or data",
         "attackDescription": "Sensor Communication Controller claims it never sent the command or data that Smoke Detector Controller received and acted upon",
@@ -7757,11 +7601,8 @@
         "selectedMitigations": [
           {
             "id": "M-R-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-R-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -7838,8 +7679,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-caa2ae20-d76f-4f84-b42d-fa99b96b9276",
-        "threatId": "caa2ae20-d76f-4f84-b42d-fa99b96b9276",
+        "id": "R-da03fbe6-788d-4355-bd60-74a04d72d611",
+        "threatId": "da03fbe6-788d-4355-bd60-74a04d72d611",
         "threatDisplayId": "SB-DF7-I-IN-1",
         "threatDescription": "Eavesdropping on incoming data: Attacker intercepts sensitive data flowing to Smoke Detector Controller",
         "attackDescription": "Attacker passively monitors the data flow and reads sensitive payload transmitted from Sensor Communication Controller to Smoke Detector Controller",
@@ -7942,11 +7783,13 @@
         "selectedMitigations": [
           {
             "id": "M-I-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -8023,8 +7866,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-78b30207-3383-4874-884d-27cda7564c10",
-        "threatId": "78b30207-3383-4874-884d-27cda7564c10",
+        "id": "R-6eb2c9b1-fc97-4784-82a7-d4d044025efa",
+        "threatId": "6eb2c9b1-fc97-4784-82a7-d4d044025efa",
         "threatDisplayId": "SB-DF7-D-IN-1",
         "threatDescription": "Request flooding: Attacker overwhelms Smoke Detector Controller with excessive incoming requests",
         "attackDescription": "Attacker sends a high volume of requests via the data flow, exhausting the processing capacity of Smoke Detector Controller",
@@ -8127,11 +7970,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-003",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -8208,8 +8053,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-7ae200d4-0673-48e1-a81d-370cb2f16625",
-        "threatId": "7ae200d4-0673-48e1-a81d-370cb2f16625",
+        "id": "R-b7828d4e-34c6-4856-ab31-9b9af0d225a7",
+        "threatId": "b7828d4e-34c6-4856-ab31-9b9af0d225a7",
         "threatDisplayId": "SB-DF9-T-OUT-1",
         "threatDescription": "Response tampering: Attacker modifies response data before it reaches Smoke Detector Controller",
         "attackDescription": "Attacker intercepts the response from Sensor Communication Controller and modifies data, causing Smoke Detector Controller to process falsified information",
@@ -8312,11 +8157,8 @@
         "selectedMitigations": [
           {
             "id": "M-T-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-T-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -8393,8 +8235,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-7ae20b9a-672b-4c68-acb6-3a8cc9f2d197",
-        "threatId": "7ae20b9a-672b-4c68-acb6-3a8cc9f2d197",
+        "id": "R-adbb8d87-f153-4517-98b8-7bf57b98184f",
+        "threatId": "adbb8d87-f153-4517-98b8-7bf57b98184f",
         "threatDisplayId": "SB-DF9-I-OUT-1",
         "threatDescription": "Eavesdropping on response: Attacker intercepts sensitive response data from Sensor Communication Controller",
         "attackDescription": "Attacker intercepts the response from Sensor Communication Controller to Smoke Detector Controller and reads sensitive information",
@@ -8497,11 +8339,8 @@
         "selectedMitigations": [
           {
             "id": "M-I-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -8578,8 +8417,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-3ef503f3-a3dd-4f08-a445-25cf42a835b6",
-        "threatId": "3ef503f3-a3dd-4f08-a445-25cf42a835b6",
+        "id": "R-45881697-fb9a-485e-a39c-3c20ca31664d",
+        "threatId": "45881697-fb9a-485e-a39c-3c20ca31664d",
         "threatDisplayId": "SB-DF9-D-OUT-1",
         "threatDescription": "Response blocking: Attacker prevents Smoke Detector Controller from receiving responses from Sensor Communication Controller",
         "attackDescription": "Attacker disrupts or delays the response channel from Sensor Communication Controller, causing Smoke Detector Controller to stall or fail",
@@ -8682,11 +8521,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-003",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -8763,8 +8604,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-c3126d27-2471-482e-813b-38d2d6c019b9",
-        "threatId": "c3126d27-2471-482e-813b-38d2d6c019b9",
+        "id": "R-3dcb35dc-1e0f-405a-9239-9432eeac1ef5",
+        "threatId": "3dcb35dc-1e0f-405a-9239-9432eeac1ef5",
         "threatDisplayId": "SB-DF9-T-IN-1",
         "threatDescription": "Unauthorized write access via OT protocol — attacker modifies process values or configuration",
         "attackDescription": "Attacker places a rogue node on the OT network and sends write commands to modify setpoints or controller configuration",
@@ -8872,11 +8713,13 @@
         "selectedMitigations": [
           {
             "id": "M-T-010",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-T-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -8953,8 +8796,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-758ce5a5-be57-491e-87b6-bf0a450aaad6",
-        "threatId": "758ce5a5-be57-491e-87b6-bf0a450aaad6",
+        "id": "R-133e3ecf-afb7-4ce0-bf5e-b3f5f68f732f",
+        "threatId": "133e3ecf-afb7-4ce0-bf5e-b3f5f68f732f",
         "threatDisplayId": "SB-DF9-I-IN-1",
         "threatDescription": "Eavesdropping on incoming data: Attacker intercepts sensitive data flowing to Sensor Communication Controller",
         "attackDescription": "Attacker passively monitors the data flow and reads sensitive payload transmitted from Smoke Detector Controller to Sensor Communication Controller",
@@ -9057,11 +8900,8 @@
         "selectedMitigations": [
           {
             "id": "M-I-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -9138,8 +8978,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-cbc38e0a-6743-4183-a765-1048011faec0",
-        "threatId": "cbc38e0a-6743-4183-a765-1048011faec0",
+        "id": "R-09666312-4959-4a51-b471-6de9eb88bfd3",
+        "threatId": "09666312-4959-4a51-b471-6de9eb88bfd3",
         "threatDisplayId": "SB-DF9-D-IN-1",
         "threatDescription": "Fieldbus flooding: Attacker saturates Sensor Communication Controller input buffer via high-frequency frames from Smoke Detector Controller",
         "attackDescription": "Attacker floods the fieldbus with high-frequency frames exhausting Sensor Communication Controller communication stack",
@@ -9252,11 +9092,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-003",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -9333,8 +9175,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-8495d42c-e5f0-4463-974d-2328ece4228a",
-        "threatId": "8495d42c-e5f0-4463-974d-2328ece4228a",
+        "id": "R-c5d6ce7c-cc96-4e9b-9c6e-9a585ccaa3b7",
+        "threatId": "c5d6ce7c-cc96-4e9b-9c6e-9a585ccaa3b7",
         "threatDisplayId": "SB-DF8-S-OUT-1",
         "threatDescription": "Receiver spoofing: Attacker impersonates Sensor Diagnostic Controller to intercept data from Debugger",
         "attackDescription": "Attacker sets up a rogue endpoint pretending to be Sensor Diagnostic Controller, causing Debugger to send sensitive data to the attacker",
@@ -9431,11 +9273,8 @@
         "selectedMitigations": [
           {
             "id": "M-S-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-S-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -9503,8 +9342,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-66d8768a-26b0-44eb-b4e5-042f816c6e0b",
-        "threatId": "66d8768a-26b0-44eb-b4e5-042f816c6e0b",
+        "id": "R-0a0d5183-2673-47ba-b242-f7b57435a637",
+        "threatId": "0a0d5183-2673-47ba-b242-f7b57435a637",
         "threatDisplayId": "SB-DF8-T-OUT-1",
         "threatDescription": "Response tampering: Attacker modifies response data before it reaches Debugger",
         "attackDescription": "Attacker intercepts the response from Sensor Diagnostic Controller and modifies data, causing Debugger to process falsified information",
@@ -9596,11 +9435,8 @@
         "selectedMitigations": [
           {
             "id": "M-T-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-T-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -9668,8 +9504,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-b31f52cf-ef0e-4da1-9865-c3abba1e675f",
-        "threatId": "b31f52cf-ef0e-4da1-9865-c3abba1e675f",
+        "id": "R-a4ddc362-1b60-4641-9907-052b01a0dd75",
+        "threatId": "a4ddc362-1b60-4641-9907-052b01a0dd75",
         "threatDisplayId": "SB-DF8-R-OUT-1",
         "threatDescription": "Receiver repudiation: Sensor Diagnostic Controller denies receiving or processing the request",
         "attackDescription": "Sensor Diagnostic Controller claims it never received the data from Debugger, or denies having processed it",
@@ -9761,11 +9597,8 @@
         "selectedMitigations": [
           {
             "id": "M-R-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-R-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -9833,8 +9666,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-4b749a19-c052-45f0-ad02-2a3d9fc271e1",
-        "threatId": "4b749a19-c052-45f0-ad02-2a3d9fc271e1",
+        "id": "R-82ea0aa2-9d8f-4fb0-96ae-26ac64dd2987",
+        "threatId": "82ea0aa2-9d8f-4fb0-96ae-26ac64dd2987",
         "threatDisplayId": "SB-DF8-I-OUT-1",
         "threatDescription": "Eavesdropping on response: Attacker intercepts sensitive response data from Sensor Diagnostic Controller",
         "attackDescription": "Attacker intercepts the response from Sensor Diagnostic Controller to Debugger and reads sensitive information",
@@ -9926,11 +9759,8 @@
         "selectedMitigations": [
           {
             "id": "M-I-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-I-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -9998,8 +9828,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-8f4c4978-6806-4e15-ac6b-4ffd987701da",
-        "threatId": "8f4c4978-6806-4e15-ac6b-4ffd987701da",
+        "id": "R-a60a9e47-cc2f-45dd-aaed-f6806523ca9d",
+        "threatId": "a60a9e47-cc2f-45dd-aaed-f6806523ca9d",
         "threatDisplayId": "SB-DF8-D-OUT-1",
         "threatDescription": "Response blocking: Attacker prevents Debugger from receiving responses from Sensor Diagnostic Controller",
         "attackDescription": "Attacker disrupts or delays the response channel from Sensor Diagnostic Controller, causing Debugger to stall or fail",
@@ -10091,11 +9921,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-003",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -10163,8 +9995,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-a4ee9d03-0be9-4663-a245-b00872bc855d",
-        "threatId": "a4ee9d03-0be9-4663-a245-b00872bc855d",
+        "id": "R-2428b91a-e1dc-4f26-bd9a-7ab5293dc86a",
+        "threatId": "2428b91a-e1dc-4f26-bd9a-7ab5293dc86a",
         "threatDisplayId": "SB-DF8-E-OUT-1",
         "threatDescription": "Response manipulation for privilege escalation: Attacker manipulates response to gain elevated access in Debugger",
         "attackDescription": "Attacker modifies the response from Sensor Diagnostic Controller to include elevated roles or permissions, causing Debugger to grant unauthorized access",
@@ -10261,11 +10093,13 @@
         "selectedMitigations": [
           {
             "id": "M-E-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-E-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -10333,8 +10167,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-f3b2e782-5bea-42a3-80f2-68febb8f777a",
-        "threatId": "f3b2e782-5bea-42a3-80f2-68febb8f777a",
+        "id": "R-864a0b3d-dd02-46a7-90f7-b2b770bb8072",
+        "threatId": "864a0b3d-dd02-46a7-90f7-b2b770bb8072",
         "threatDisplayId": "SB-DF8-S-IN-1",
         "threatDescription": "Sender spoofing: Attacker impersonates Debugger to deceive Sensor Diagnostic Controller",
         "attackDescription": "Attacker forges the identity of Debugger and sends malicious data to Sensor Diagnostic Controller, which processes it as legitimate",
@@ -10436,11 +10270,13 @@
         "selectedMitigations": [
           {
             "id": "M-S-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
-            "id": "M-S-002",
-            "status": "implemented"
+            "id": "M-S-008",
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -10508,8 +10344,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-6966d831-b82f-48bc-816e-ddbb1b6c4005",
-        "threatId": "6966d831-b82f-48bc-816e-ddbb1b6c4005",
+        "id": "R-45e255e2-8dfe-4c63-bcd4-62379d008455",
+        "threatId": "45e255e2-8dfe-4c63-bcd4-62379d008455",
         "threatDisplayId": "SB-DF8-T-IN-1",
         "threatDescription": "Data tampering on embedded bus DF-8 between Debugger and Sensor Diagnostic Controller",
         "attackDescription": "Attacker attaches a hardware probe to the embedded bus and injects or modifies data packets",
@@ -10606,11 +10442,13 @@
         "selectedMitigations": [
           {
             "id": "M-T-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
-            "id": "M-T-002",
-            "status": "implemented"
+            "id": "M-T-008",
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -10678,8 +10516,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-de4b1d2a-ca10-438e-982b-bbe9a5f03756",
-        "threatId": "de4b1d2a-ca10-438e-982b-bbe9a5f03756",
+        "id": "R-e944e6a8-afa3-47bd-a5e1-eda13506c8d6",
+        "threatId": "e944e6a8-afa3-47bd-a5e1-eda13506c8d6",
         "threatDisplayId": "SB-DF8-R-IN-1",
         "threatDescription": "Sender repudiation: Debugger denies sending the request or data",
         "attackDescription": "Debugger claims it never sent the command or data that Sensor Diagnostic Controller received and acted upon",
@@ -10771,11 +10609,8 @@
         "selectedMitigations": [
           {
             "id": "M-R-001",
-            "status": "implemented"
-          },
-          {
-            "id": "M-R-002",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -10843,8 +10678,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-dbbb6068-61c4-4eae-a1f4-625c81f9aac6",
-        "threatId": "dbbb6068-61c4-4eae-a1f4-625c81f9aac6",
+        "id": "R-11efbdd2-b90a-417b-84a0-f3ea487b7e33",
+        "threatId": "11efbdd2-b90a-417b-84a0-f3ea487b7e33",
         "threatDisplayId": "SB-DF8-I-IN-1",
         "threatDescription": "Eavesdropping on embedded bus DF-8 between Debugger and Sensor Diagnostic Controller",
         "attackDescription": "Attacker attaches a logic analyzer to the embedded bus and captures all traffic",
@@ -10946,11 +10781,13 @@
         "selectedMitigations": [
           {
             "id": "M-I-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
-            "id": "M-I-002",
-            "status": "implemented"
+            "id": "M-IF-I-002",
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -11018,8 +10855,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-e58ab998-3439-4517-9285-1e39d749d830",
-        "threatId": "e58ab998-3439-4517-9285-1e39d749d830",
+        "id": "R-3b45ed91-52b6-47eb-ba59-12f6fffddcf5",
+        "threatId": "3b45ed91-52b6-47eb-ba59-12f6fffddcf5",
         "threatDisplayId": "SB-DF8-D-IN-1",
         "threatDescription": "Request flooding: Attacker overwhelms Sensor Diagnostic Controller with excessive incoming requests",
         "attackDescription": "Attacker sends a high volume of requests via the data flow, exhausting the processing capacity of Sensor Diagnostic Controller",
@@ -11111,11 +10948,13 @@
         "selectedMitigations": [
           {
             "id": "M-D-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-D-003",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
@@ -11183,8 +11022,8 @@
         "lastModified": "2026-11-10T09:00:00.000Z"
       },
       {
-        "id": "R-663a231c-7652-47cc-90fb-9c899f35ba29",
-        "threatId": "663a231c-7652-47cc-90fb-9c899f35ba29",
+        "id": "R-4472025f-315a-4a23-99c7-7032a683810b",
+        "threatId": "4472025f-315a-4a23-99c7-7032a683810b",
         "threatDisplayId": "SB-DF8-E-IN-1",
         "threatDescription": "Privilege escalation via DF-8 debug interface on Sensor Diagnostic Controller",
         "attackDescription": "Attacker uses the DF-8 interface to halt the processor, reads security keys and modifies execution flow to bypass access controls",
@@ -11281,38 +11120,40 @@
         "selectedMitigations": [
           {
             "id": "M-CB-E-001",
-            "status": "in_progress"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           },
           {
             "id": "M-E-001",
-            "status": "implemented"
+            "status": "implemented",
+            "evidenceNote": "Design review SD-DR-04, 2026-10-28"
           }
         ],
         "selectedVerifications": [],
         "mitigatedFactorRatings": [
           {
             "factorId": "skill_level",
-            "value": 2,
+            "value": 1,
             "weight": 1
           },
           {
             "factorId": "motive",
-            "value": 2,
+            "value": 1,
             "weight": 1
           },
           {
             "factorId": "opportunity",
-            "value": 2,
+            "value": 1,
             "weight": 1
           },
           {
             "factorId": "ease_of_exploit",
-            "value": 2,
+            "value": 1,
             "weight": 1
           },
           {
             "factorId": "deployment_scope",
-            "value": 2,
+            "value": 1,
             "weight": 1
           },
           {
@@ -11342,7 +11183,7 @@
             "weight": 1
           }
         ],
-        "calculatedRiskAfterMitigation": 4,
+        "calculatedRiskAfterMitigation": 2,
         "treatment": "reduce",
         "treatmentJustification": "",
         "moscowPriority": "should",
@@ -11392,7 +11233,7 @@
         "displayIdentifier": "[SB]",
         "threats": [
           {
-            "id": "e1fc1d27-6fb9-46d5-8df0-f65740a739a6",
+            "id": "3858ee2c-f62f-492c-93ab-c483252cdffc",
             "displayId": "P2-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11437,7 +11278,7 @@
             "templateId": "T-001"
           },
           {
-            "id": "49ac1643-3267-4059-9614-d801861d97fa",
+            "id": "529a8be2-6e95-4796-9c36-9c64797b3194",
             "displayId": "P2-I-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11482,7 +11323,7 @@
             "templateId": "I-001"
           },
           {
-            "id": "eadbc516-95b7-4c06-8710-f56f395637c7",
+            "id": "b75e1a3f-3673-4882-9bde-39d365eab4eb",
             "displayId": "P2-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11533,7 +11374,7 @@
             "templateId": "D-001"
           },
           {
-            "id": "b6fae1c0-8fe3-4ba9-bff3-076aab29f5ac",
+            "id": "f56f40f4-3741-4ffc-99cd-065978c15809",
             "displayId": "P2-E-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11587,7 +11428,7 @@
             "templateId": "E-001"
           },
           {
-            "id": "72abd43d-f382-4270-9fe8-0d43f5b30334",
+            "id": "141dd203-32b9-459d-9325-a3b91f5b7bb9",
             "displayId": "P3-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11632,7 +11473,7 @@
             "templateId": "T-001"
           },
           {
-            "id": "66f8d3f4-1a0b-41ca-8436-0e355fdc0fdd",
+            "id": "6e8392d5-ae04-4626-9ea2-f29ee1d2b96c",
             "displayId": "P3-I-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11677,7 +11518,7 @@
             "templateId": "I-001"
           },
           {
-            "id": "c362839f-abe1-4554-9cda-07690125a3a5",
+            "id": "54ae5b3f-4e6c-4488-a718-8d9830a82824",
             "displayId": "P3-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11728,7 +11569,7 @@
             "templateId": "D-001"
           },
           {
-            "id": "6dc86d10-cc8a-4f40-bb71-42cd9b71329d",
+            "id": "3c5313ad-9c90-4f8b-a1c8-9e2354b265b0",
             "displayId": "P3-E-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11779,7 +11620,7 @@
             "templateId": "E-005"
           },
           {
-            "id": "7c1c808a-caf6-4b40-b663-63ee4007bb09",
+            "id": "6a7f5b46-cfab-41e4-b794-ed3d15020a67",
             "displayId": "P4-S-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11815,7 +11656,7 @@
                 "id": "V-S-001"
               }
             ],
-            "relevance": "relevant",
+            "relevance": "not_relevant",
             "workflowStatus": "open",
             "relevanceOverridden": false,
             "isTextCustomized": false,
@@ -11824,7 +11665,7 @@
             "templateId": "S-001"
           },
           {
-            "id": "9010cbb3-796c-4038-a52a-a9c2136e70b7",
+            "id": "30571bde-52f9-41ed-8847-4f21db0217ea",
             "displayId": "P4-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11881,7 +11722,7 @@
             "templateId": "T-004"
           },
           {
-            "id": "1a319893-4f7d-4918-b00f-eb8a91fff90f",
+            "id": "3124f9dc-747e-472b-9306-5c5a9ce67b57",
             "displayId": "P4-R-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11926,7 +11767,7 @@
             "templateId": "R-002"
           },
           {
-            "id": "2c6a912e-57f2-42a8-bcd3-982865f9319b",
+            "id": "eceaad66-654b-4cb4-9aff-77cb74ea8f69",
             "displayId": "P4-I-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -11971,7 +11812,7 @@
             "templateId": "I-001"
           },
           {
-            "id": "0bc2c2a8-fc62-4b28-8213-2b9a22ea4c5d",
+            "id": "51836f9c-8088-41ce-b8a9-d2799c1ff986",
             "displayId": "P4-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12022,7 +11863,7 @@
             "templateId": "D-001"
           },
           {
-            "id": "01312597-4be0-430c-8c8f-ab10cf398d28",
+            "id": "451356a5-7ee0-47e6-9180-8abfb76361d1",
             "displayId": "P4-E-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12082,7 +11923,7 @@
             "templateId": "E-005"
           },
           {
-            "id": "b6a0d687-46fd-40d2-be35-ecf1f04b1b10",
+            "id": "57bf60c0-1139-43f2-8727-5e3d1a2ac92d",
             "displayId": "DS1-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12136,7 +11977,7 @@
             "templateId": "T-005"
           },
           {
-            "id": "2b61eb85-12ef-4e8c-b2c5-e77098f040d9",
+            "id": "935d4010-1eab-454b-9c2b-946af404113d",
             "displayId": "DS1-I-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12190,7 +12031,7 @@
             "templateId": "I-003"
           },
           {
-            "id": "d1e2b108-95df-4a54-8597-33e38ef925ce",
+            "id": "4d62412c-7f4f-41f4-9860-2b230c3f8282",
             "displayId": "DS1-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12241,7 +12082,7 @@
             "templateId": "D-004"
           },
           {
-            "id": "18edd1bf-8c10-4d22-afae-a2e1d31b8052",
+            "id": "2382e27a-4462-4898-aa2a-6d014e3e9143",
             "displayId": "DS2-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12295,7 +12136,7 @@
             "templateId": "T-005"
           },
           {
-            "id": "56a03f29-e01e-492e-95b0-e916ac1da73b",
+            "id": "7ffcd606-f1d1-4701-8f20-b299bc1c8757",
             "displayId": "DS2-I-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12349,7 +12190,7 @@
             "templateId": "I-003"
           },
           {
-            "id": "dfa70262-8d7c-46d5-af4a-9002bb9101ef",
+            "id": "7cb0b5d2-1417-4c82-a8b3-a54cef281d5c",
             "displayId": "DS2-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12400,7 +12241,7 @@
             "templateId": "D-004"
           },
           {
-            "id": "d978efe4-df61-492f-9c04-667820857202",
+            "id": "ff2f62a3-613f-4675-bb42-43289ccbaf2a",
             "displayId": "P1-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12449,7 +12290,7 @@
             "templateId": "T-001"
           },
           {
-            "id": "471e2978-f47e-4aa9-be61-f544eef39553",
+            "id": "e692b0ce-e747-4928-a5ee-760678862d53",
             "displayId": "P1-I-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12498,7 +12339,7 @@
             "templateId": "I-001"
           },
           {
-            "id": "23295da7-1452-48b4-9715-62e93a5daa8d",
+            "id": "13d426c2-fd69-42a2-9273-7b169597e08f",
             "displayId": "P1-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12553,7 +12394,7 @@
             "templateId": "D-001"
           },
           {
-            "id": "cf74eb06-4237-4f6c-9dd9-6d88d463fc59",
+            "id": "faf7c41d-7f43-495a-a9fa-665d2d1a947f",
             "displayId": "DF1-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12607,7 +12448,7 @@
             "templateId": "T-009"
           },
           {
-            "id": "8fc8e2e4-1f37-4d7f-aad0-d4d88e4cef5f",
+            "id": "8d071093-0f7d-4d7f-bc94-322dcd767a38",
             "displayId": "DF1-I-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12655,7 +12496,7 @@
             "templateId": "I-003"
           },
           {
-            "id": "ee44fd19-66e2-41b7-8f38-404b83f2a6b2",
+            "id": "fe62eb90-c73d-4842-957b-ca019010f8bd",
             "displayId": "DF1-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12706,7 +12547,7 @@
             "templateId": "D-003"
           },
           {
-            "id": "4d465e8b-1830-4c6c-b9c2-85c3c8f641a8",
+            "id": "222064e2-f9ab-48d7-b822-2d8d8fc3052b",
             "displayId": "DF2-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12757,7 +12598,7 @@
             "templateId": "T-009"
           },
           {
-            "id": "ad5fc0ca-6bf5-41f8-a562-f379a967226b",
+            "id": "a287ad7b-6b82-4dd2-b6fd-15f3e376fad9",
             "displayId": "DF2-I-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12808,7 +12649,7 @@
             "templateId": "I-017"
           },
           {
-            "id": "7665c8fe-1ad8-4b1a-88a5-33ada5774196",
+            "id": "6677d1c3-2f5a-4291-b692-c4a815f5691e",
             "displayId": "DF2-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12856,7 +12697,7 @@
             "templateId": "D-003"
           },
           {
-            "id": "50d77a1d-d0d7-490c-ba17-78b1c44c8ade",
+            "id": "550909ad-902a-4198-a6fc-46b4624882a9",
             "displayId": "DF5-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12904,7 +12745,7 @@
             "templateId": "T-009"
           },
           {
-            "id": "ae4ba966-9649-48d1-9a1d-5008f5253e53",
+            "id": "93fd047f-aefe-41b6-a834-bc1f36e6f7d4",
             "displayId": "DF5-I-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12952,7 +12793,7 @@
             "templateId": "I-017"
           },
           {
-            "id": "6ff29391-904a-482f-8c3f-c4c3a3e35f0e",
+            "id": "31faf9b0-5ea0-423d-95c7-4b8fbecdda4d",
             "displayId": "DF5-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -12997,7 +12838,7 @@
             "templateId": "D-003"
           },
           {
-            "id": "c0ce544a-dc1c-4d5a-ab4e-1e1dcc17d2e2",
+            "id": "aa909b33-d4e5-4e0a-bd64-857e9e2f97e6",
             "displayId": "DF6-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13051,7 +12892,7 @@
             "templateId": "T-009"
           },
           {
-            "id": "d9655668-087c-4e46-9ad2-003a9dd95f17",
+            "id": "7798eebb-90fe-4264-ba0a-cf962bd3ea32",
             "displayId": "DF6-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13102,7 +12943,7 @@
             "templateId": "D-003"
           },
           {
-            "id": "a0ed66df-1e87-4def-95b6-79c1040e5b25",
+            "id": "dff3182b-cb68-455d-b324-1208789d2308",
             "displayId": "DF3-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13156,7 +12997,7 @@
             "templateId": "T-009"
           },
           {
-            "id": "34ee872a-1bd5-4228-b785-5e324865060c",
+            "id": "d599a49c-001f-41bb-b9df-dd2611c9e93c",
             "displayId": "DF3-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13207,7 +13048,7 @@
             "templateId": "D-003"
           },
           {
-            "id": "ef62680e-7ec7-4731-a773-d38b899d2d24",
+            "id": "db9bb58d-6486-4a26-b878-cdc30004b549",
             "displayId": "DF10-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13261,7 +13102,7 @@
             "templateId": "T-009"
           },
           {
-            "id": "17cd7375-b5b0-49b5-82ef-b09aa74c2b61",
+            "id": "7d9f5b5d-623e-4484-9812-a9e9151e078a",
             "displayId": "DF10-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13312,7 +13153,7 @@
             "templateId": "D-003"
           },
           {
-            "id": "ea8b0c46-b2f7-425a-ae2e-200656083a59",
+            "id": "7c36b91a-5f63-4d09-9bbb-26edd81738eb",
             "displayId": "DF11-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13363,7 +13204,7 @@
             "templateId": "T-009"
           },
           {
-            "id": "218bf33c-dff2-4fe2-8b19-4859364fd492",
+            "id": "f258c71d-3ce4-415d-a35d-4957f279ac8c",
             "displayId": "DF11-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13411,7 +13252,7 @@
             "templateId": "D-003"
           },
           {
-            "id": "b0f35ee3-a73e-40ec-9d8f-770184fb531d",
+            "id": "e8eb8a0e-7628-4784-b9d6-cc3e516774e7",
             "displayId": "DF4-T-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13465,7 +13306,7 @@
             "templateId": "T-009"
           },
           {
-            "id": "48781d1d-e306-48aa-bf54-dea5fc642eca",
+            "id": "8320579e-7afd-4358-9317-ed3c9fb44666",
             "displayId": "DF4-D-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -13523,7 +13364,7 @@
         "displayIdentifier": "[DF]",
         "threats": [
           {
-            "id": "4dded9b5-5a25-40fa-a3de-66115f5f204e",
+            "id": "5bd43754-781e-4aa8-b0c4-c76fdb2311a8",
             "displayId": "DF7-T-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Data Flows",
@@ -13571,7 +13412,7 @@
             "templateId": "T-003"
           },
           {
-            "id": "dc264a9e-9874-49f3-8ac9-fc18c6ceb053",
+            "id": "31866b18-34c6-4802-a109-030591fea18c",
             "displayId": "DF7-I-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Data Flows",
@@ -13619,7 +13460,7 @@
             "templateId": "I-003"
           },
           {
-            "id": "53cd5496-a140-4d1e-acf1-54738af3b1ab",
+            "id": "054baac8-22cb-485a-8d45-999efcd49930",
             "displayId": "DF7-D-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Data Flows",
@@ -13667,7 +13508,7 @@
             "templateId": "D-003"
           },
           {
-            "id": "b9af933b-1803-41fa-b262-701b3dca69fe",
+            "id": "0167772a-c66f-4031-b416-5e388b4b4211",
             "displayId": "DF9-T-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Data Flows",
@@ -13721,7 +13562,7 @@
             "templateId": "T-011"
           },
           {
-            "id": "3492fdc8-4bf1-4f7f-abe4-d46a3f565ec0",
+            "id": "2ce411a5-85a8-4ee5-8536-f8e93cb1bad6",
             "displayId": "DF9-I-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Data Flows",
@@ -13769,7 +13610,7 @@
             "templateId": "I-003"
           },
           {
-            "id": "9900c292-d517-43fb-8282-702b9ed00b01",
+            "id": "0fa25362-efca-4563-a134-2c5e9a9ba595",
             "displayId": "DF9-D-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Data Flows",
@@ -13820,7 +13661,7 @@
             "templateId": "D-003"
           },
           {
-            "id": "03ea95a6-248c-4a56-bedb-ade8fa7846b2",
+            "id": "c97a2ae4-e2da-4062-ba59-829bc4ec8884",
             "displayId": "DF8-T-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Data Flows",
@@ -13848,7 +13689,10 @@
                 "id": "M-T-009"
               },
               {
-                "id": "M-T-001"
+                "id": "M-T-001",
+                "alreadyImplemented": true,
+                "implementedByProperty": "physicalPathProtection",
+                "implementedByValue": "inside_enclosure, cable_duct, tamper_seal"
               }
             ],
             "proposedVerifications": [
@@ -13868,7 +13712,7 @@
             "templateId": "T-009"
           },
           {
-            "id": "5067157d-7bf1-4c31-a6a9-2306fdb134c6",
+            "id": "d6b535a1-a3f9-4e28-bf29-3741dbc905e3",
             "displayId": "DF8-I-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Data Flows",
@@ -13913,7 +13757,7 @@
             "templateId": "I-003"
           },
           {
-            "id": "55764f10-1c53-48af-9b31-aca2128d04cf",
+            "id": "29f2a6ee-da6a-448a-859f-650c8207380d",
             "displayId": "DF8-D-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Data Flows",
@@ -13935,7 +13779,10 @@
             "source": "generated:classic",
             "proposedMitigations": [
               {
-                "id": "M-D-001"
+                "id": "M-D-001",
+                "alreadyImplemented": true,
+                "implementedByProperty": "physicalPathProtection",
+                "implementedByValue": "inside_enclosure, cable_duct, tamper_seal"
               },
               {
                 "id": "M-D-003"
@@ -13965,7 +13812,7 @@
         "displayIdentifier": "[EE]",
         "threats": [
           {
-            "id": "cc016579-4a0c-44cc-8109-81e956fc9e0b",
+            "id": "56bd225c-e8d9-40ff-a52f-13de05638fd5",
             "displayId": "EE1-S-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "External Entities",
@@ -14013,7 +13860,7 @@
             "templateId": "S-001"
           },
           {
-            "id": "af120202-4b95-4a97-875d-7e6da5af7702",
+            "id": "65835719-c0fb-4fdc-9d90-2a0f85788ed9",
             "displayId": "EE1-R-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "External Entities",
@@ -14058,7 +13905,7 @@
             "templateId": "R-001"
           },
           {
-            "id": "69ee5074-bedf-494a-bf58-c17c922cdbc2",
+            "id": "aad6affa-1156-40fe-939f-bd7d93334cb2",
             "displayId": "EE6-S-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "External Entities",
@@ -14106,7 +13953,7 @@
             "templateId": "S-001"
           },
           {
-            "id": "01586843-c9df-4d7b-a79c-ca697831c8e1",
+            "id": "c7f0cbc3-c620-48e7-b3db-c38813f54d47",
             "displayId": "EE6-R-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "External Entities",
@@ -14158,7 +14005,7 @@
         "displayIdentifier": "[CASE]",
         "threats": [
           {
-            "id": "5bee5e15-9173-4715-9d30-568bc5b13916",
+            "id": "5eb84552-c615-4f50-9a82-ced52d5a53e8",
             "displayId": "CASE-IF2-S-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14203,7 +14050,7 @@
             "templateId": "S-005"
           },
           {
-            "id": "4fbf2fcb-1b87-4f4d-82ce-67a88749c496",
+            "id": "21c028e0-ed8b-46bb-b5a0-30b14b35f9f4",
             "displayId": "CASE-IF2-T-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14254,7 +14101,7 @@
             "templateId": "T-007"
           },
           {
-            "id": "e246e232-c3b0-4ed0-8313-28c9d4f93d1a",
+            "id": "860033f0-9b32-4d0f-b6a5-160aa3f108b8",
             "displayId": "CASE-IF2-R-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14293,7 +14140,7 @@
             "templateId": "R-005"
           },
           {
-            "id": "eb6322af-1b9c-4e3b-ad9e-7434b15ab0c1",
+            "id": "5b5d3f55-d14c-4b56-83d0-00e59e6fd148",
             "displayId": "CASE-IF2-I-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14335,7 +14182,7 @@
             "templateId": "I-007"
           },
           {
-            "id": "ba18f82b-8fdf-4fb5-bdfa-c91a6ca2027e",
+            "id": "b7f826dc-80f2-4632-aa13-7cece68fe26a",
             "displayId": "CASE-IF2-D-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14377,7 +14224,7 @@
             "templateId": "D-006"
           },
           {
-            "id": "34539b7a-e32f-40e2-9309-0b64854036af",
+            "id": "076a748b-3c5a-4477-b210-ea7ee594e569",
             "displayId": "CASE-IF2-E-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14437,7 +14284,7 @@
             "templateId": "E-004"
           },
           {
-            "id": "3e0b53af-249d-4fb7-97cd-4884633bdce4",
+            "id": "ea1ac8c5-50cf-43fd-8f10-f344a372b1e3",
             "displayId": "CASE-IF1-S-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14482,7 +14329,7 @@
             "templateId": "S-005"
           },
           {
-            "id": "182d1c03-c2a0-49a8-a78a-3d236c5c96a3",
+            "id": "69346d85-03d3-4af7-becc-81e5afd78714",
             "displayId": "CASE-IF1-T-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14530,7 +14377,7 @@
             "templateId": "T-007"
           },
           {
-            "id": "fa0dc9d4-93c7-4437-bfa0-f5b360938609",
+            "id": "4c5d3399-eb34-40e0-893f-b174966d69ca",
             "displayId": "CASE-IF1-R-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14569,7 +14416,7 @@
             "templateId": "R-005"
           },
           {
-            "id": "c25a8dfb-997f-4456-8802-774d0e5b0695",
+            "id": "31b3e252-b7f9-4078-bace-a5b34535a22b",
             "displayId": "CASE-IF1-I-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14611,7 +14458,7 @@
             "templateId": "I-007"
           },
           {
-            "id": "b8c22e20-76a0-446f-9f13-626ea3c7ea8b",
+            "id": "c274d1c9-65e5-493d-99c6-c7eb7435178d",
             "displayId": "CASE-IF1-D-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14653,7 +14500,7 @@
             "templateId": "D-006"
           },
           {
-            "id": "40f1a942-ce57-48f5-b459-d993bb47f697",
+            "id": "e2ddbd0b-6616-4a5f-ad4d-6798e202a91f",
             "displayId": "CASE-IF1-E-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14707,7 +14554,7 @@
             "templateId": "E-004"
           },
           {
-            "id": "ef4b9801-8575-4671-a6ab-b46b4bb66286",
+            "id": "df12cc3b-6816-46d5-be6d-89bdd1601555",
             "displayId": "CASE-T-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14767,7 +14614,7 @@
             "templateId": "T-001"
           },
           {
-            "id": "e5168a28-8a45-4e3e-84d6-a2b62318a091",
+            "id": "c218e229-bf47-411a-90b5-1cf6d56f563d",
             "displayId": "CASE-I-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14815,7 +14662,7 @@
             "templateId": "I-005"
           },
           {
-            "id": "1cfe13c6-6c16-4ba8-a353-57d158ee8997",
+            "id": "bcf7b83c-4715-4154-971b-a94e66f4e847",
             "displayId": "CASE-D-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14866,7 +14713,7 @@
             "templateId": "D-007"
           },
           {
-            "id": "530035d7-73fb-4682-add5-04bcb8777260",
+            "id": "ae7318ef-86d2-446a-9062-b2143f1b71eb",
             "displayId": "CASE-E-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -14924,7 +14771,7 @@
         "displayIdentifier": "[SDS]",
         "threats": [
           {
-            "id": "612fc7c6-4b4b-45a2-9b86-5358d1c45bec",
+            "id": "aaffe308-dbc9-4951-b7c0-e56ac897db58",
             "displayId": "SDS-T-1",
             "trustBoundaryId": "CB-1",
             "trustBoundaryName": "Smoke Detector Sensor [SDS]",
@@ -14969,7 +14816,7 @@
             "templateId": "T-005"
           },
           {
-            "id": "a4065cc8-76c2-45b6-8524-31c5aa93f6b2",
+            "id": "74a34a29-faae-4c86-83ef-8923237b105a",
             "displayId": "SDS-I-1",
             "trustBoundaryId": "CB-1",
             "trustBoundaryName": "Smoke Detector Sensor [SDS]",
@@ -15014,7 +14861,7 @@
             "templateId": "I-013"
           },
           {
-            "id": "270d222b-70cd-4b18-911e-70436528fd3d",
+            "id": "da381eb2-e964-499c-af44-042376a75109",
             "displayId": "SDS-E-1",
             "trustBoundaryId": "CB-1",
             "trustBoundaryName": "Smoke Detector Sensor [SDS]",
@@ -15068,7 +14915,7 @@
         "displayIdentifier": "[SB]",
         "threats": [
           {
-            "id": "be257526-00f2-4673-877f-0015658e3804",
+            "id": "7fe637aa-8b01-422d-9ee9-716a0874a0a9",
             "displayId": "SB-DF1-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15128,7 +14975,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "88262c06-7e4f-4cfa-852e-ec946d6ecd77",
+            "id": "29976c26-929c-4ea2-8f0a-09b5ef738a46",
             "displayId": "SB-DF1-R-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15188,7 +15035,7 @@
             "templateId": "R-002"
           },
           {
-            "id": "e488a1ab-b9b3-46e3-80d7-3cd282bc5036",
+            "id": "1e06ac77-53f1-460e-95e2-ecbe245c0224",
             "displayId": "SB-DF1-I-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15248,7 +15095,7 @@
             "templateId": "I-002"
           },
           {
-            "id": "58c571ae-a9e0-40b5-8410-df61370a82a1",
+            "id": "4f26b76e-3468-4d5b-a2f8-9f8cd6a052ea",
             "displayId": "SB-DF1-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15308,7 +15155,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "87e8b90a-3c0c-4e82-b6d8-ae9663bca648",
+            "id": "59400ee0-98f7-4fbd-99e1-3a7bfd033b95",
             "displayId": "SB-DF7-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15366,7 +15213,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "4568f3b4-f8fa-4c9b-a5f0-bd5fed1d489a",
+            "id": "f316ee66-efee-40f4-b871-35aea057e9a8",
             "displayId": "SB-DF7-R-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15424,7 +15271,7 @@
             "templateId": "R-002"
           },
           {
-            "id": "8fb82cf6-025a-4456-9edf-9ac424db66a1",
+            "id": "0c9a5346-649a-40dc-8789-1a94fa2f01da",
             "displayId": "SB-DF7-I-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15482,7 +15329,7 @@
             "templateId": "I-002"
           },
           {
-            "id": "430c32df-95be-45ef-b0d5-61f8730535d9",
+            "id": "5ee7a990-edc9-4ca1-a781-defe733353d5",
             "displayId": "SB-DF7-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15540,7 +15387,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "d5de88fa-1153-404b-b393-bb52ab45e63e",
+            "id": "328b68da-3a15-4f2a-a820-e983ab1c469f",
             "displayId": "SB-DF7-T-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15598,7 +15445,7 @@
             "templateId": "T-001"
           },
           {
-            "id": "43e426f0-b749-4bb6-a9bd-7807aa46ec54",
+            "id": "6bd8e35c-2ef2-4a39-a821-fa7417e6b7ee",
             "displayId": "SB-DF7-R-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15656,7 +15503,7 @@
             "templateId": "R-001"
           },
           {
-            "id": "caa2ae20-d76f-4f84-b42d-fa99b96b9276",
+            "id": "da03fbe6-788d-4355-bd60-74a04d72d611",
             "displayId": "SB-DF7-I-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15714,7 +15561,7 @@
             "templateId": "I-001"
           },
           {
-            "id": "78b30207-3383-4874-884d-27cda7564c10",
+            "id": "6eb2c9b1-fc97-4784-82a7-d4d044025efa",
             "displayId": "SB-DF7-D-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15772,7 +15619,7 @@
             "templateId": "D-001"
           },
           {
-            "id": "7ae200d4-0673-48e1-a81d-370cb2f16625",
+            "id": "b7828d4e-34c6-4856-ab31-9b9af0d225a7",
             "displayId": "SB-DF9-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15830,7 +15677,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "7ae20b9a-672b-4c68-acb6-3a8cc9f2d197",
+            "id": "adbb8d87-f153-4517-98b8-7bf57b98184f",
             "displayId": "SB-DF9-I-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15888,7 +15735,7 @@
             "templateId": "I-002"
           },
           {
-            "id": "3ef503f3-a3dd-4f08-a445-25cf42a835b6",
+            "id": "45881697-fb9a-485e-a39c-3c20ca31664d",
             "displayId": "SB-DF9-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -15946,7 +15793,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "c3126d27-2471-482e-813b-38d2d6c019b9",
+            "id": "3dcb35dc-1e0f-405a-9239-9432eeac1ef5",
             "displayId": "SB-DF9-T-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16007,7 +15854,7 @@
             "templateId": "T-008"
           },
           {
-            "id": "758ce5a5-be57-491e-87b6-bf0a450aaad6",
+            "id": "133e3ecf-afb7-4ce0-bf5e-b3f5f68f732f",
             "displayId": "SB-DF9-I-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16065,7 +15912,7 @@
             "templateId": "I-001"
           },
           {
-            "id": "cbc38e0a-6743-4183-a765-1048011faec0",
+            "id": "09666312-4959-4a51-b471-6de9eb88bfd3",
             "displayId": "SB-DF9-D-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16129,7 +15976,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "7482fb6e-8718-49c0-9dff-4d9f2614590f",
+            "id": "0c016ab7-b27d-41cc-8a5f-a7e88d676914",
             "displayId": "SB-DF2-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16189,7 +16036,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "74827011-240a-47e9-8a36-961956f0c9d6",
+            "id": "38c43f31-b953-427b-855c-7cc2526d5b37",
             "displayId": "SB-DF2-I-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16249,7 +16096,7 @@
             "templateId": "I-002"
           },
           {
-            "id": "27f9d18a-ccbb-4e26-86b4-53a96362ed8b",
+            "id": "16d066ad-50df-42bc-a2d4-ab89ccaa9c27",
             "displayId": "SB-DF2-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16309,7 +16156,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "e095e34f-7515-46e2-8050-5e071e629719",
+            "id": "1b485f55-8091-42bd-a91a-eb91516d6d66",
             "displayId": "SB-DF5-S-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16368,7 +16215,7 @@
             "templateId": "S-002"
           },
           {
-            "id": "3e701599-31fa-49d9-bf1f-4cbca7d3c75a",
+            "id": "d800545e-21cb-4a0b-9de9-3b0adc330416",
             "displayId": "SB-DF5-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16424,7 +16271,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "9f41ac53-b3a7-4e77-b06c-b1a4274d1d24",
+            "id": "d140d066-6e11-49e3-8134-cf9c0f2be670",
             "displayId": "SB-DF5-R-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16480,7 +16327,7 @@
             "templateId": "R-002"
           },
           {
-            "id": "6f8f18bf-259b-486e-96d0-94831137f35a",
+            "id": "2affab52-ea13-43db-9451-5ce81d9b541a",
             "displayId": "SB-DF5-I-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16536,7 +16383,7 @@
             "templateId": "I-002"
           },
           {
-            "id": "ac3aba42-03eb-4d54-a24e-5a7ed8ba120a",
+            "id": "6ec34210-0c2b-41bf-abad-5f532604ad13",
             "displayId": "SB-DF5-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16592,7 +16439,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "4a447afa-7560-4b94-9e65-e93d8889c69b",
+            "id": "bf18c5e2-20be-4646-988e-b7e61915495f",
             "displayId": "SB-DF5-E-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16651,7 +16498,7 @@
             "templateId": "E-002"
           },
           {
-            "id": "9ae2d509-feea-404a-b4ab-43d0a5c45be0",
+            "id": "8c1ba18e-40a8-45e2-acf2-b869cc6244a6",
             "displayId": "SB-DF6-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16709,7 +16556,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "1c747f86-9bb3-4dd7-8e47-dbf747c617e3",
+            "id": "4893c9c2-c19d-4e29-8961-b467af819e06",
             "displayId": "SB-DF6-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16767,7 +16614,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "d1faedde-a708-4694-b937-7a703fe80cb6",
+            "id": "feaee6e9-6a07-4980-a1c6-aa02b33446f3",
             "displayId": "SB-DF3-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16828,7 +16675,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "c653a44f-0ff1-4836-8f99-0997a158c37f",
+            "id": "cd118118-3d0f-4cae-b084-a3996b2b6901",
             "displayId": "SB-DF3-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16889,7 +16736,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "438118e1-4bcb-4dbb-b27f-e53c7e887032",
+            "id": "6a2587b1-77d6-45a2-9701-8a95fe38d621",
             "displayId": "SB-DF10-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -16950,7 +16797,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "24d2c509-020a-4078-937f-ce310ef3fa25",
+            "id": "ecc77979-9e8c-4f68-a9f6-be75bb5c4f2f",
             "displayId": "SB-DF10-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17008,7 +16855,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "e167a677-e0e3-4367-a203-9fff66f0e713",
+            "id": "de81d8ad-8ee1-4acb-9c7b-405c30328e7c",
             "displayId": "SB-DF11-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17067,7 +16914,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "16f2657e-56e6-4389-94c9-340e4878ae7d",
+            "id": "aa007b85-c21d-4a42-96e5-9017e79ed0ca",
             "displayId": "SB-DF11-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17126,7 +16973,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "09cc4338-3732-4817-a8cf-8b5a1e847af5",
+            "id": "acb0ef24-4e69-49ad-8e35-7aff59e1664e",
             "displayId": "SB-DF4-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17187,7 +17034,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "464e10c5-9fd9-4079-a197-738a8b5bf32d",
+            "id": "0485e875-b342-4475-8828-6a607eb47f76",
             "displayId": "SB-DF4-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17248,7 +17095,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "8495d42c-e5f0-4463-974d-2328ece4228a",
+            "id": "c5d6ce7c-cc96-4e9b-9c6e-9a585ccaa3b7",
             "displayId": "SB-DF8-S-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17307,7 +17154,7 @@
             "templateId": "S-002"
           },
           {
-            "id": "66d8768a-26b0-44eb-b4e5-042f816c6e0b",
+            "id": "0a0d5183-2673-47ba-b242-f7b57435a637",
             "displayId": "SB-DF8-T-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17363,7 +17210,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "b31f52cf-ef0e-4da1-9865-c3abba1e675f",
+            "id": "a4ddc362-1b60-4641-9907-052b01a0dd75",
             "displayId": "SB-DF8-R-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17419,7 +17266,7 @@
             "templateId": "R-002"
           },
           {
-            "id": "4b749a19-c052-45f0-ad02-2a3d9fc271e1",
+            "id": "82ea0aa2-9d8f-4fb0-96ae-26ac64dd2987",
             "displayId": "SB-DF8-I-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17475,7 +17322,7 @@
             "templateId": "I-002"
           },
           {
-            "id": "8f4c4978-6806-4e15-ac6b-4ffd987701da",
+            "id": "a60a9e47-cc2f-45dd-aaed-f6806523ca9d",
             "displayId": "SB-DF8-D-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17531,7 +17378,7 @@
             "templateId": "D-002"
           },
           {
-            "id": "a4ee9d03-0be9-4663-a245-b00872bc855d",
+            "id": "2428b91a-e1dc-4f26-bd9a-7ab5293dc86a",
             "displayId": "SB-DF8-E-OUT-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17590,7 +17437,7 @@
             "templateId": "E-002"
           },
           {
-            "id": "f3b2e782-5bea-42a3-80f2-68febb8f777a",
+            "id": "864a0b3d-dd02-46a7-90f7-b2b770bb8072",
             "displayId": "SB-DF8-S-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17652,7 +17499,7 @@
             "templateId": "S-001"
           },
           {
-            "id": "6966d831-b82f-48bc-816e-ddbb1b6c4005",
+            "id": "45e255e2-8dfe-4c63-bcd4-62379d008455",
             "displayId": "SB-DF8-T-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17711,7 +17558,7 @@
             "templateId": "T-002"
           },
           {
-            "id": "de4b1d2a-ca10-438e-982b-bbe9a5f03756",
+            "id": "e944e6a8-afa3-47bd-a5e1-eda13506c8d6",
             "displayId": "SB-DF8-R-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17767,7 +17614,7 @@
             "templateId": "R-001"
           },
           {
-            "id": "dbbb6068-61c4-4eae-a1f4-625c81f9aac6",
+            "id": "11efbdd2-b90a-417b-84a0-f3ea487b7e33",
             "displayId": "SB-DF8-I-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17829,7 +17676,7 @@
             "templateId": "I-001"
           },
           {
-            "id": "e58ab998-3439-4517-9285-1e39d749d830",
+            "id": "3b45ed91-52b6-47eb-ba59-12f6fffddcf5",
             "displayId": "SB-DF8-D-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17885,7 +17732,7 @@
             "templateId": "D-001"
           },
           {
-            "id": "663a231c-7652-47cc-90fb-9c899f35ba29",
+            "id": "4472025f-315a-4a23-99c7-7032a683810b",
             "displayId": "SB-DF8-E-IN-1",
             "trustBoundaryId": "28",
             "trustBoundaryName": "Sensor Boundary [SB]",
@@ -17951,7 +17798,7 @@
         "displayIdentifier": "[CASE]",
         "threats": [
           {
-            "id": "7789c631-11b1-4ecc-b190-bbb52555318d",
+            "id": "02717c6b-4b06-423b-96aa-dd9349822257",
             "displayId": "CASE-IF2-S-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -17996,7 +17843,7 @@
             "templateId": "S-005"
           },
           {
-            "id": "b7634f78-2900-4e19-a843-82bb9912962e",
+            "id": "a802a3b3-52e8-49ea-a087-84b58af42677",
             "displayId": "CASE-IF2-T-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18047,7 +17894,7 @@
             "templateId": "T-007"
           },
           {
-            "id": "5627b398-2511-49ea-91ba-2e1d65190a7d",
+            "id": "d4c8dae9-f88d-4c1f-a2bb-62db209e1e48",
             "displayId": "CASE-IF2-R-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18086,7 +17933,7 @@
             "templateId": "R-005"
           },
           {
-            "id": "ed60c723-4d84-43a9-b832-a88faf98c232",
+            "id": "7521e3e9-b007-4b64-a20d-242ca67a76fc",
             "displayId": "CASE-IF2-I-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18128,7 +17975,7 @@
             "templateId": "I-007"
           },
           {
-            "id": "83bce23b-f0e7-4251-ab5f-b75825df1628",
+            "id": "d2f17f50-3016-4d74-9700-fc8a820d035c",
             "displayId": "CASE-IF2-D-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18170,7 +18017,7 @@
             "templateId": "D-006"
           },
           {
-            "id": "9ed2350f-f391-4df1-8112-055203846826",
+            "id": "a404c3d5-0e21-4b9c-831b-b2ce57cf0d31",
             "displayId": "CASE-IF2-E-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18230,7 +18077,7 @@
             "templateId": "E-004"
           },
           {
-            "id": "af726ee0-73ed-44cb-915c-a5a57c3b7f66",
+            "id": "1bd79c8a-717a-4f31-b811-228193406ad7",
             "displayId": "CASE-IF1-S-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18275,7 +18122,7 @@
             "templateId": "S-005"
           },
           {
-            "id": "040a6f1d-a48e-4218-b7eb-0320f2df2d43",
+            "id": "85fb7d1b-45a3-4255-9a28-428b495ad994",
             "displayId": "CASE-IF1-T-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18323,7 +18170,7 @@
             "templateId": "T-007"
           },
           {
-            "id": "71508015-c5b9-4398-8d07-8817c6212615",
+            "id": "72d244d9-914b-4654-a77b-60aaa492cd8c",
             "displayId": "CASE-IF1-R-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18362,7 +18209,7 @@
             "templateId": "R-005"
           },
           {
-            "id": "26e07afc-e28f-45a5-b9d2-dbbe846c1dbc",
+            "id": "fb6123c4-2f8f-4c72-99c4-f9db945fb62d",
             "displayId": "CASE-IF1-I-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18404,7 +18251,7 @@
             "templateId": "I-007"
           },
           {
-            "id": "a7c6b23b-10ac-495b-8eff-ce44fa3a14d8",
+            "id": "02a2fdec-990d-405d-af3f-51e851fbbd57",
             "displayId": "CASE-IF1-D-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18446,7 +18293,7 @@
             "templateId": "D-006"
           },
           {
-            "id": "d8478e1c-2615-48d2-97b5-a0caead616cd",
+            "id": "4b7b8bcd-2822-44ba-81c0-1a4f10bc35bf",
             "displayId": "CASE-IF1-E-1",
             "trustBoundaryId": null,
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18500,7 +18347,7 @@
             "templateId": "E-004"
           },
           {
-            "id": "951625c8-324a-4150-a6ca-1ac6b213f49a",
+            "id": "90591c2e-bbfa-4003-9c74-1df1c1ed309f",
             "displayId": "CASE-T-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18560,7 +18407,7 @@
             "templateId": "T-001"
           },
           {
-            "id": "b033cb38-db73-4c56-870c-3000faee0435",
+            "id": "5007be71-b88c-4ffb-9b24-0273f5eb846e",
             "displayId": "CASE-I-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18608,7 +18455,7 @@
             "templateId": "I-005"
           },
           {
-            "id": "40df4b3f-22f6-41b5-8075-9925b40a7378",
+            "id": "cc254aa2-c0e0-44bf-829f-b91bff16fe18",
             "displayId": "CASE-D-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",
@@ -18659,7 +18506,7 @@
             "templateId": "D-007"
           },
           {
-            "id": "afcdeb3e-014d-4305-9818-83fd68637da8",
+            "id": "194bf082-ea47-428b-b9c5-8fff73857689",
             "displayId": "CASE-E-1",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Smoke Detector Case [CASE]",

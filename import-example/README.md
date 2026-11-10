@@ -9,7 +9,7 @@ Two projects in one folder:
 
 Requires TARAflow **0.19 or later** (desktop app; the import reads the component from git).
 
-Both projects are complete on their own: no errors or warnings in any tab, every threat decided, every risk rated and treated. Whatever the machine reports after the import is the import's work for the machine team, not noise.
+Both projects are complete on their own: no errors or warnings in any tab, every threat decided, every risk rated and treated, and every implemented measure visible in the model (no DFD notifications). Whatever the machine reports after the import is the import's work for the machine team, not noise.
 
 ## What the import does
 
@@ -26,7 +26,7 @@ Both projects are complete on their own: no errors or warnings in any tab, every
    - the two assumptions of use (ASM-01 debug connector out of reach, ASM-02 the controller authenticates on the sensor link) are open — mark them fulfilled or not;
    - the impact of the imported assets (`SD1:DA-001` …) is the machine's to rate;
    - the machine-side threats on the new boundary flows (per interaction) wait for a decision.
-4. Rate an imported risk, look at the component section of the multiprocess (details panel). One measure of the component is still in progress (the JTAG lock, `M-CB-E-001`): the risks relying on it show it as pending.
+4. Rate an imported risk, look at the component section of the multiprocess (details panel).
 
 ## Try an update (on a local branch)
 
