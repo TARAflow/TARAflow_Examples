@@ -466,7 +466,652 @@
     },
     "lastModified": "2026-11-10T09:00:00.000Z"
   },
-  "attackTrees": null,
+  "attackTrees": {
+    "configuration": {
+      "autoCreateForSecurityGoals": false,
+      "defaultEvaluationMethod": "simple",
+      "showLikelihoodExport": true
+    },
+    "lastModified": "2026-11-12T10:00:00.000Z",
+    "trees": [
+      {
+        "id": "at-smoke-calibration",
+        "name": "Calibration data manipulated",
+        "description": "Integrity of the calibration data (DA-002)",
+        "anchor": {
+          "type": "asset",
+          "assetId": "c17da9c8-3aa0-4aaf-b02a-0cabce943a32",
+          "assetName": "calibration data"
+        },
+        "dsl": "# Attack Tree: calibration data\n# Asset DisplayId: DA-002\n# Method: Attack Potential (ISO/IEC 18045)\n\nCalibration data compromised — the detector no longer reports smoke reliably;ROOT\n\tWrite the calibration through the debug connector;AND av=physical @manipulation\n\t\tOpen the housing;et=1d,se=layman,kn=public,wo=easy,eq=standard\n\t\tUse the debug port to write the calibration;et=1w,se=proficient,kn=restricted,wo=easy,eq=specialized\n\tSend a forged calibration command over RS485 from a compromised controller;et=1m,se=expert,kn=restricted,wo=moderate,eq=specialized @manipulation\n\tRead the calibration for a counterfeit detector;AND av=physical @disclosure\n\t\tOpen the housing;et=1d,se=layman,kn=public,wo=easy,eq=standard\n\t\tRead the calibration out through the debug port;et=1w,se=proficient,kn=restricted,wo=easy,eq=specialized\n\tFlood the RS485 link so calibration updates fail;et=1w,se=proficient,kn=restricted,wo=moderate,eq=standard @service-disruption",
+        "configuration": {
+          "evaluationMethod": "extended",
+          "autoSave": true,
+          "showLineNumbers": true,
+          "fontSize": 14,
+          "highlightCriticalPath": true
+        },
+        "validation": {
+          "isValid": true,
+          "errors": [],
+          "warnings": [],
+          "infos": [
+            {
+              "line": 7,
+              "type": "logic",
+              "severity": "info",
+              "messageKey": "tabs.attacktree.validation.completeness.pathNoMitigations",
+              "params": {
+                "name": "Open the housing"
+              },
+              "context": "Calibration data compromised — the detector no longer reports smoke reliably > Write the calibration through the debug connector > Open the housing"
+            },
+            {
+              "line": 8,
+              "type": "logic",
+              "severity": "info",
+              "messageKey": "tabs.attacktree.validation.completeness.pathNoMitigations",
+              "params": {
+                "name": "Use the debug port to write the calibration"
+              },
+              "context": "Calibration data compromised — the detector no longer reports smoke reliably > Write the calibration through the debug connector > Use the debug port to write the calibration"
+            },
+            {
+              "line": 9,
+              "type": "logic",
+              "severity": "info",
+              "messageKey": "tabs.attacktree.validation.completeness.pathNoMitigations",
+              "params": {
+                "name": "Send a forged calibration command over RS485 from a compromised controller"
+              },
+              "context": "Calibration data compromised — the detector no longer reports smoke reliably > Send a forged calibration command over RS485 from a compromised controller"
+            },
+            {
+              "line": 11,
+              "type": "logic",
+              "severity": "info",
+              "messageKey": "tabs.attacktree.validation.completeness.pathNoMitigations",
+              "params": {
+                "name": "Open the housing"
+              },
+              "context": "Calibration data compromised — the detector no longer reports smoke reliably > Read the calibration for a counterfeit detector > Open the housing"
+            },
+            {
+              "line": 12,
+              "type": "logic",
+              "severity": "info",
+              "messageKey": "tabs.attacktree.validation.completeness.pathNoMitigations",
+              "params": {
+                "name": "Read the calibration out through the debug port"
+              },
+              "context": "Calibration data compromised — the detector no longer reports smoke reliably > Read the calibration for a counterfeit detector > Read the calibration out through the debug port"
+            },
+            {
+              "line": 13,
+              "type": "logic",
+              "severity": "info",
+              "messageKey": "tabs.attacktree.validation.completeness.pathNoMitigations",
+              "params": {
+                "name": "Flood the RS485 link so calibration updates fail"
+              },
+              "context": "Calibration data compromised — the detector no longer reports smoke reliably > Flood the RS485 link so calibration updates fail"
+            }
+          ],
+          "lastValidated": "2026-11-12T10:00:00.000Z"
+        },
+        "created": "2026-11-12T10:00:00.000Z",
+        "lastModified": "2026-11-12T10:00:00.000Z",
+        "ast": {
+          "id": "node-22ccbc8ac5a6",
+          "name": "Calibration data compromised — the detector no longer reports smoke reliably",
+          "type": "ROOT",
+          "level": 0,
+          "children": [
+            {
+              "id": "node-474b2527d093",
+              "name": "Write the calibration through the debug connector",
+              "type": "AND",
+              "level": 1,
+              "children": [
+                {
+                  "id": "node-ca1885e08536",
+                  "name": "Open the housing",
+                  "type": "LEAF",
+                  "level": 2,
+                  "children": [],
+                  "mitigations": [],
+                  "evaluation": {
+                    "attackPotential": {
+                      "elapsedTime": "le-1-day",
+                      "specialistExpertise": "layman",
+                      "knowledgeOfItem": "public",
+                      "windowOfOpportunity": "easy",
+                      "equipment": "standard"
+                    }
+                  },
+                  "lineNumber": 7,
+                  "parentId": "node-474b2527d093",
+                  "riskScore": 0,
+                  "probability": 0,
+                  "criticalPath": true
+                },
+                {
+                  "id": "node-7bea33672d3a",
+                  "name": "Use the debug port to write the calibration",
+                  "type": "LEAF",
+                  "level": 2,
+                  "children": [],
+                  "mitigations": [],
+                  "evaluation": {
+                    "attackPotential": {
+                      "elapsedTime": "le-1-week",
+                      "specialistExpertise": "proficient",
+                      "knowledgeOfItem": "restricted",
+                      "windowOfOpportunity": "easy",
+                      "equipment": "specialized"
+                    }
+                  },
+                  "lineNumber": 8,
+                  "parentId": "node-474b2527d093",
+                  "riskScore": 0,
+                  "probability": 0,
+                  "criticalPath": true
+                }
+              ],
+              "mitigations": [],
+              "attackGoal": "manipulation",
+              "targetedSecurityGoals": [
+                "I"
+              ],
+              "attackVector": "physical",
+              "lineNumber": 6,
+              "parentId": "node-22ccbc8ac5a6",
+              "riskScore": 0,
+              "probability": 0,
+              "criticalPath": true
+            },
+            {
+              "id": "node-37ca95f59282",
+              "name": "Send a forged calibration command over RS485 from a compromised controller",
+              "type": "LEAF",
+              "level": 1,
+              "children": [],
+              "mitigations": [],
+              "attackGoal": "manipulation",
+              "targetedSecurityGoals": [
+                "I"
+              ],
+              "evaluation": {
+                "attackPotential": {
+                  "elapsedTime": "le-1-month",
+                  "specialistExpertise": "expert",
+                  "knowledgeOfItem": "restricted",
+                  "windowOfOpportunity": "moderate",
+                  "equipment": "specialized"
+                }
+              },
+              "lineNumber": 9,
+              "parentId": "node-22ccbc8ac5a6",
+              "riskScore": 0,
+              "probability": 0,
+              "criticalPath": true
+            },
+            {
+              "id": "node-81c731ea006a",
+              "name": "Read the calibration for a counterfeit detector",
+              "type": "AND",
+              "level": 1,
+              "children": [
+                {
+                  "id": "node-986970ffdac3",
+                  "name": "Open the housing",
+                  "type": "LEAF",
+                  "level": 2,
+                  "children": [],
+                  "mitigations": [],
+                  "evaluation": {
+                    "attackPotential": {
+                      "elapsedTime": "le-1-day",
+                      "specialistExpertise": "layman",
+                      "knowledgeOfItem": "public",
+                      "windowOfOpportunity": "easy",
+                      "equipment": "standard"
+                    }
+                  },
+                  "lineNumber": 11,
+                  "parentId": "node-81c731ea006a",
+                  "riskScore": 0,
+                  "probability": 0,
+                  "criticalPath": true
+                },
+                {
+                  "id": "node-154acce81e63",
+                  "name": "Read the calibration out through the debug port",
+                  "type": "LEAF",
+                  "level": 2,
+                  "children": [],
+                  "mitigations": [],
+                  "evaluation": {
+                    "attackPotential": {
+                      "elapsedTime": "le-1-week",
+                      "specialistExpertise": "proficient",
+                      "knowledgeOfItem": "restricted",
+                      "windowOfOpportunity": "easy",
+                      "equipment": "specialized"
+                    }
+                  },
+                  "lineNumber": 12,
+                  "parentId": "node-81c731ea006a",
+                  "riskScore": 0,
+                  "probability": 0,
+                  "criticalPath": true
+                }
+              ],
+              "mitigations": [],
+              "attackGoal": "disclosure",
+              "targetedSecurityGoals": [
+                "C"
+              ],
+              "attackVector": "physical",
+              "lineNumber": 10,
+              "parentId": "node-22ccbc8ac5a6",
+              "riskScore": 0,
+              "probability": 0,
+              "criticalPath": true
+            },
+            {
+              "id": "node-c0d4d5d4e348",
+              "name": "Flood the RS485 link so calibration updates fail",
+              "type": "LEAF",
+              "level": 1,
+              "children": [],
+              "mitigations": [],
+              "attackGoal": "service-disruption",
+              "targetedSecurityGoals": [
+                "A"
+              ],
+              "evaluation": {
+                "attackPotential": {
+                  "elapsedTime": "le-1-week",
+                  "specialistExpertise": "proficient",
+                  "knowledgeOfItem": "restricted",
+                  "windowOfOpportunity": "moderate",
+                  "equipment": "standard"
+                }
+              },
+              "lineNumber": 13,
+              "parentId": "node-22ccbc8ac5a6",
+              "riskScore": 0,
+              "probability": 0,
+              "criticalPath": true
+            }
+          ],
+          "mitigations": [],
+          "lineNumber": 5,
+          "riskScore": 0,
+          "probability": 0,
+          "criticalPath": true
+        },
+        "pathAnalysis": {
+          "paths": [
+            {
+              "id": "path-1",
+              "pathKey": "f6eff3e0f152",
+              "path": [
+                "Calibration data compromised — the detector no longer reports smoke reliably",
+                "Write the calibration through the debug connector",
+                "Open the housing + Use the debug port to write the calibration"
+              ],
+              "combination": {
+                "gate": [
+                  "Calibration data compromised — the detector no longer reports smoke reliably",
+                  "Write the calibration through the debug connector"
+                ],
+                "legs": [
+                  [
+                    "Open the housing"
+                  ],
+                  [
+                    "Use the debug port to write the calibration"
+                  ]
+                ]
+              },
+              "nodeIds": [
+                "node-22ccbc8ac5a6",
+                "node-474b2527d093",
+                "node-ca1885e08536",
+                "node-7bea33672d3a"
+              ],
+              "riskScore": 0,
+              "probability": 0,
+              "impact": 0,
+              "feasibilityLevel": "high",
+              "attackPotential": 13,
+              "likelihoodLevel": "high",
+              "attackVector": "physical",
+              "attackGoals": [
+                "manipulation"
+              ],
+              "mitigations": [],
+              "isCritical": true,
+              "isFullyMitigated": false
+            },
+            {
+              "id": "path-2",
+              "pathKey": "37ca95f59282",
+              "path": [
+                "Calibration data compromised — the detector no longer reports smoke reliably",
+                "Send a forged calibration command over RS485 from a compromised controller"
+              ],
+              "nodeIds": [
+                "node-22ccbc8ac5a6",
+                "node-37ca95f59282"
+              ],
+              "riskScore": 0,
+              "probability": 0,
+              "impact": 0,
+              "feasibilityLevel": "low",
+              "attackPotential": 21,
+              "attackPotentialFactors": {
+                "elapsedTime": "le-1-month",
+                "specialistExpertise": "expert",
+                "knowledgeOfItem": "restricted",
+                "windowOfOpportunity": "moderate",
+                "equipment": "specialized"
+              },
+              "likelihoodLevel": "low",
+              "attackGoals": [
+                "manipulation"
+              ],
+              "mitigations": [],
+              "isCritical": true,
+              "isFullyMitigated": false
+            },
+            {
+              "id": "path-3",
+              "pathKey": "1d12c885d8d0",
+              "path": [
+                "Calibration data compromised — the detector no longer reports smoke reliably",
+                "Read the calibration for a counterfeit detector",
+                "Open the housing + Read the calibration out through the debug port"
+              ],
+              "combination": {
+                "gate": [
+                  "Calibration data compromised — the detector no longer reports smoke reliably",
+                  "Read the calibration for a counterfeit detector"
+                ],
+                "legs": [
+                  [
+                    "Open the housing"
+                  ],
+                  [
+                    "Read the calibration out through the debug port"
+                  ]
+                ]
+              },
+              "nodeIds": [
+                "node-22ccbc8ac5a6",
+                "node-81c731ea006a",
+                "node-986970ffdac3",
+                "node-154acce81e63"
+              ],
+              "riskScore": 0,
+              "probability": 0,
+              "impact": 0,
+              "feasibilityLevel": "high",
+              "attackPotential": 13,
+              "likelihoodLevel": "high",
+              "attackVector": "physical",
+              "attackGoals": [
+                "disclosure"
+              ],
+              "mitigations": [],
+              "isCritical": true,
+              "isFullyMitigated": false
+            },
+            {
+              "id": "path-4",
+              "pathKey": "c0d4d5d4e348",
+              "path": [
+                "Calibration data compromised — the detector no longer reports smoke reliably",
+                "Flood the RS485 link so calibration updates fail"
+              ],
+              "nodeIds": [
+                "node-22ccbc8ac5a6",
+                "node-c0d4d5d4e348"
+              ],
+              "riskScore": 0,
+              "probability": 0,
+              "impact": 0,
+              "feasibilityLevel": "high",
+              "attackPotential": 11,
+              "attackPotentialFactors": {
+                "elapsedTime": "le-1-week",
+                "specialistExpertise": "proficient",
+                "knowledgeOfItem": "restricted",
+                "windowOfOpportunity": "moderate",
+                "equipment": "standard"
+              },
+              "likelihoodLevel": "high",
+              "attackGoals": [
+                "service-disruption"
+              ],
+              "mitigations": [],
+              "isCritical": true,
+              "isFullyMitigated": false
+            }
+          ],
+          "criticalPaths": [
+            {
+              "id": "path-1",
+              "pathKey": "f6eff3e0f152",
+              "path": [
+                "Calibration data compromised — the detector no longer reports smoke reliably",
+                "Write the calibration through the debug connector",
+                "Open the housing + Use the debug port to write the calibration"
+              ],
+              "combination": {
+                "gate": [
+                  "Calibration data compromised — the detector no longer reports smoke reliably",
+                  "Write the calibration through the debug connector"
+                ],
+                "legs": [
+                  [
+                    "Open the housing"
+                  ],
+                  [
+                    "Use the debug port to write the calibration"
+                  ]
+                ]
+              },
+              "nodeIds": [
+                "node-22ccbc8ac5a6",
+                "node-474b2527d093",
+                "node-ca1885e08536",
+                "node-7bea33672d3a"
+              ],
+              "riskScore": 0,
+              "probability": 0,
+              "impact": 0,
+              "feasibilityLevel": "high",
+              "attackPotential": 13,
+              "likelihoodLevel": "high",
+              "attackVector": "physical",
+              "attackGoals": [
+                "manipulation"
+              ],
+              "mitigations": [],
+              "isCritical": true,
+              "isFullyMitigated": false
+            },
+            {
+              "id": "path-2",
+              "pathKey": "37ca95f59282",
+              "path": [
+                "Calibration data compromised — the detector no longer reports smoke reliably",
+                "Send a forged calibration command over RS485 from a compromised controller"
+              ],
+              "nodeIds": [
+                "node-22ccbc8ac5a6",
+                "node-37ca95f59282"
+              ],
+              "riskScore": 0,
+              "probability": 0,
+              "impact": 0,
+              "feasibilityLevel": "low",
+              "attackPotential": 21,
+              "attackPotentialFactors": {
+                "elapsedTime": "le-1-month",
+                "specialistExpertise": "expert",
+                "knowledgeOfItem": "restricted",
+                "windowOfOpportunity": "moderate",
+                "equipment": "specialized"
+              },
+              "likelihoodLevel": "low",
+              "attackGoals": [
+                "manipulation"
+              ],
+              "mitigations": [],
+              "isCritical": true,
+              "isFullyMitigated": false
+            },
+            {
+              "id": "path-3",
+              "pathKey": "1d12c885d8d0",
+              "path": [
+                "Calibration data compromised — the detector no longer reports smoke reliably",
+                "Read the calibration for a counterfeit detector",
+                "Open the housing + Read the calibration out through the debug port"
+              ],
+              "combination": {
+                "gate": [
+                  "Calibration data compromised — the detector no longer reports smoke reliably",
+                  "Read the calibration for a counterfeit detector"
+                ],
+                "legs": [
+                  [
+                    "Open the housing"
+                  ],
+                  [
+                    "Read the calibration out through the debug port"
+                  ]
+                ]
+              },
+              "nodeIds": [
+                "node-22ccbc8ac5a6",
+                "node-81c731ea006a",
+                "node-986970ffdac3",
+                "node-154acce81e63"
+              ],
+              "riskScore": 0,
+              "probability": 0,
+              "impact": 0,
+              "feasibilityLevel": "high",
+              "attackPotential": 13,
+              "likelihoodLevel": "high",
+              "attackVector": "physical",
+              "attackGoals": [
+                "disclosure"
+              ],
+              "mitigations": [],
+              "isCritical": true,
+              "isFullyMitigated": false
+            },
+            {
+              "id": "path-4",
+              "pathKey": "c0d4d5d4e348",
+              "path": [
+                "Calibration data compromised — the detector no longer reports smoke reliably",
+                "Flood the RS485 link so calibration updates fail"
+              ],
+              "nodeIds": [
+                "node-22ccbc8ac5a6",
+                "node-c0d4d5d4e348"
+              ],
+              "riskScore": 0,
+              "probability": 0,
+              "impact": 0,
+              "feasibilityLevel": "high",
+              "attackPotential": 11,
+              "attackPotentialFactors": {
+                "elapsedTime": "le-1-week",
+                "specialistExpertise": "proficient",
+                "knowledgeOfItem": "restricted",
+                "windowOfOpportunity": "moderate",
+                "equipment": "standard"
+              },
+              "likelihoodLevel": "high",
+              "attackGoals": [
+                "service-disruption"
+              ],
+              "mitigations": [],
+              "isCritical": true,
+              "isFullyMitigated": false
+            }
+          ],
+          "maxRiskScore": 0,
+          "averageRiskScore": 0,
+          "totalPaths": 4,
+          "aggregatedLikelihood": 0,
+          "likelihoodMethod": "max",
+          "aggregatedFeasibility": "high",
+          "aggregatedLikelihoodLevel": "high",
+          "cheapestPath": {
+            "id": "path-3",
+            "pathKey": "1d12c885d8d0",
+            "path": [
+              "Calibration data compromised — the detector no longer reports smoke reliably",
+              "Read the calibration for a counterfeit detector",
+              "Open the housing + Read the calibration out through the debug port"
+            ],
+            "combination": {
+              "gate": [
+                "Calibration data compromised — the detector no longer reports smoke reliably",
+                "Read the calibration for a counterfeit detector"
+              ],
+              "legs": [
+                [
+                  "Open the housing"
+                ],
+                [
+                  "Read the calibration out through the debug port"
+                ]
+              ]
+            },
+            "nodeIds": [
+              "node-22ccbc8ac5a6",
+              "node-81c731ea006a",
+              "node-986970ffdac3",
+              "node-154acce81e63"
+            ],
+            "riskScore": 0,
+            "probability": 0,
+            "impact": 0,
+            "feasibilityLevel": "high",
+            "attackPotential": 13,
+            "likelihoodLevel": "high",
+            "attackVector": "physical",
+            "attackGoals": [
+              "disclosure"
+            ],
+            "mitigations": [],
+            "isCritical": true,
+            "isFullyMitigated": false
+          },
+          "goalSummary": {
+            "disclosure": 1,
+            "manipulation": 2,
+            "service-disruption": 1,
+            "privilege-abuse": 0,
+            "identity-misuse": 0,
+            "accountability-evasion": 0,
+            "destruction": 0
+          },
+          "analysisDate": "2026-11-12T10:00:00.000Z"
+        }
+      }
+    ]
+  },
   "audit": null,
   "dfd": {
     "assets": [
@@ -1613,7 +2258,7 @@
     "created": "2026-05-22T17:36:25.709Z",
     "description": "Component TARA for the import example (0.19): the smoke detector case with its sensor chip (SDS). The external entity \"Smoke Detector Controller\" is the device it is built into; \"Debugger\" is the service access.",
     "isHighImpact": false,
-    "lastModified": "2026-11-10T09:00:00.000Z",
+    "lastModified": "2026-11-12T10:00:00.000Z",
     "name": "Smoke Detector Case",
     "responsible": "JPM",
     "safetyRelevant": false,

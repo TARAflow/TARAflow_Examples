@@ -15,6 +15,7 @@ Both projects are complete on their own: no errors or warnings in any tab, every
 
 - The component's DFD becomes a read-only child page of a new multiprocess in the machine. Its external entities are mapped to elements of the machine (e.g. the component's *Smoke Detector Controller* to the machine's controller process, its *Debugger* to the machine's debugger).
 - The component's threats, attack trees, measures, assets and assumptions of use come along — not regenerated. The machine rates what depends on its context: impact, context factors (e.g. window of opportunity), the assumptions of use per instance.
+- The component has one attack tree on its calibration data (DA-002) with two AND combinations — *Open the housing* AND *Use the debug port to write the calibration* (or *… read it out*) — and two single steps over RS485. Each leaf is rated with the five attack-potential factors (ISO/IEC 18045). In the machine's report the tree appears under the imported component, every path per instance, every step with its factors. Rating the window of opportunity per step is the machine's decision in an ISO/SAE 21434 machine only; this example is an IEC 62443 / CRA pair, so the paths are shown, not rated.
 - The same component can be built in more than once: each instance (prefix `SD1`, `SD2`, …) has its own ratings.
 - The import is pinned to the component's **commit**. Both files lie in this repository, so the machine finds the component on any computer that has the repository checked out.
 
