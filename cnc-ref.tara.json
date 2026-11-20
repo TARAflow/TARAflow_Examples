@@ -120,8 +120,8 @@
         "name": "dd",
         "numericId": 0,
         "overallImpact": 0,
-        "physicalImpact": "reversible_injury",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Bad Hazard\" (reversible_injury)",
+        "physicalImpact": "reversible_major",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Bad Hazard\" (reversible_major)",
         "physicalImpactSource": "hazard",
         "properties": {
           "description": ""
@@ -199,8 +199,8 @@
         "name": "zz",
         "numericId": 0,
         "overallImpact": 0,
-        "physicalImpact": "reversible_injury",
-        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Bad Hazard\" (reversible_injury)",
+        "physicalImpact": "reversible_major",
+        "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Bad Hazard\" (reversible_major)",
         "physicalImpactSource": "hazard",
         "properties": {
           "description": ""
@@ -1234,7 +1234,24 @@
       }
     ]
   },
-  "audit": null,
+  "audit": {
+    "config": {
+      "auth": {
+        "method": "ssh"
+      },
+      "customRoundNames": [],
+      "defaultBranch": "main",
+      "gpg": {
+        "enabled": false
+      },
+      "provider": "github",
+      "remoteUrl": "git@github.com:TARAflow/TARAflow_Examples.git",
+      "signing": {
+        "enabled": true,
+        "format": "ssh"
+      }
+    }
+  },
   "dfd": {
     "assets": [],
     "autoNumberingConfig": {
@@ -3720,7 +3737,7 @@
       {
         "from": "H-01",
         "impact": {
-          "severity": "reversible_injury",
+          "severity": "reversible_major",
           "target": "human"
         },
         "to": "b8e6ed38-f004-4432-a67b-d245de1b3bd5",
@@ -3733,35 +3750,33 @@
     "created": "2026-01-17T13:02:01.401Z",
     "description": "CNC Referenz Fall",
     "isHighImpact": false,
-    "lastModified": "2026-10-13T09:55:48.533Z",
+    "lastModified": "2026-11-20T08:04:58.689Z",
     "name": "CNC Referenz Fall",
     "responsible": "JPM",
-    "safetyRelevant": false,
+    "safetyRelevant": true,
     "tags": {
       "custom": [],
       "domain": [],
       "platform": [],
       "regulation": [
-        "ISO 21434"
+        "CRA",
+        "EN 50742 A"
       ]
     },
     "team": [
       "test"
     ],
-    "version": "1.0"
+    "version": "1.0",
+    "windowOfOpportunity": "moderately_restricted"
   },
   "integration": {
     "connection": {
       "credentials": {
-        "accountId": "70121:00000000-0000-0000-0000-000000000000",
         "authMethod": "pat",
         "baseUrl": "https://example-team.atlassian.net",
-        "email": "test.user@example.com",
         "projectKey": "SCRUM"
       },
-      "lastTested": "2026-01-01T00:00:00.000Z",
       "projectName": "SCRUM",
-      "status": "connected",
       "tool": "jira"
     },
     "mapping": {
@@ -3778,12 +3793,12 @@
   },
   "methodSelected": false,
   "phaseStatus": {
-    "0": "not-started",
+    "0": "complete",
     "1": "incomplete",
     "2": "incomplete",
     "3": "not-started",
     "4": "not-started",
-    "5": "not-started",
+    "5": "incomplete",
     "6": "not-started",
     "7": "not-started",
     "8": "not-started",
@@ -3818,12 +3833,14 @@
           "weight": 1
         },
         {
-          "enabled": false,
+          "autoEnabled": true,
+          "enabled": true,
           "factorId": "attacker_capability",
           "weight": 1
         },
         {
-          "enabled": false,
+          "autoEnabled": true,
+          "enabled": true,
           "factorId": "exposure_level",
           "weight": 1
         },
@@ -3909,13 +3926,15 @@
         "MED+": 2
       },
       "customFactors": [],
+      "likelihoodMethod": "en-50742-a",
       "method": "complex",
       "roundingMethod": "round",
       "scale": "4-level",
       "showIndividualFactors": false,
-      "useAssetImpact": true
+      "useAssetImpact": true,
+      "windowOfOpportunity": "moderately_restricted"
     },
-    "lastModified": "2026-05-27T11:17:13.279Z",
+    "lastModified": "2026-11-20T08:04:39.484Z",
     "risks": [
       {
         "attackDescription": "Detailed error messages reveal sensitive system or internal information",
@@ -3947,37 +3966,37 @@
             "weight": 1
           },
           {
-            "derivedValue": 1,
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
-            "source": "manual",
             "value": 3,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "regulatory_compliance",
-            "source": "manual",
             "value": 3,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "operational",
-            "source": "manual",
             "value": 3,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "recoverability",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 2,
             "factorId": "physical_damage",
-            "source": "manual",
             "value": 3,
             "weight": 1
           },
@@ -3988,7 +4007,7 @@
           }
         ],
         "id": "R-504280ad-3f56-4659-a3ef-994dac7dc48f",
-        "lastModified": "2026-05-27T11:17:12.214Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "fd176715-b169-427e-9b26-1ee7cc8e9ffd",
           "DA-002",
@@ -4017,6 +4036,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 2,
             "weight": 1
@@ -4039,6 +4068,11 @@
           {
             "factorId": "physical_damage",
             "value": 1,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
             "weight": 1
           }
         ],
@@ -4134,43 +4168,48 @@
             "weight": 1
           },
           {
-            "derivedValue": 1,
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "regulatory_compliance",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "operational",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "recoverability",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 2,
             "factorId": "physical_damage",
-            "source": "derived",
             "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
             "weight": 1
           }
         ],
         "id": "R-67abfbaf-d56e-4e4d-aa6d-342673b095c3",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "fd176715-b169-427e-9b26-1ee7cc8e9ffd",
           "DA-002",
@@ -4199,6 +4238,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -4220,6 +4269,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -4298,43 +4352,48 @@
             "weight": 1
           },
           {
-            "derivedValue": 1,
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "regulatory_compliance",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "operational",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "recoverability",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 2,
             "factorId": "physical_damage",
-            "source": "derived",
             "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
             "weight": 1
           }
         ],
         "id": "R-905801ca-62fe-4813-80d2-fef2c7df58b0",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "fd176715-b169-427e-9b26-1ee7cc8e9ffd",
           "DA-002",
@@ -4363,6 +4422,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -4384,6 +4453,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -4467,43 +4541,48 @@
             "weight": 1
           },
           {
-            "derivedValue": 1,
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "regulatory_compliance",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "operational",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 1,
             "factorId": "recoverability",
-            "source": "derived",
             "value": 1,
             "weight": 1
           },
           {
-            "derivedValue": 2,
             "factorId": "physical_damage",
-            "source": "derived",
             "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
             "weight": 1
           }
         ],
         "id": "R-b21366b3-5fae-4897-a67c-25f86878d6c9",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "fd176715-b169-427e-9b26-1ee7cc8e9ffd",
           "DA-002",
@@ -4532,6 +4611,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -4553,6 +4642,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -4626,6 +4720,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -4649,10 +4753,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF2-S-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -4678,6 +4787,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -4699,6 +4818,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -4777,6 +4901,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -4800,10 +4934,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF2-T-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -4829,6 +4968,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -4850,6 +4999,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -4923,6 +5077,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -4946,10 +5110,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF2-R-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -4975,6 +5144,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -4996,6 +5175,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -5069,6 +5253,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5092,10 +5286,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF2-I-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -5121,6 +5320,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5142,6 +5351,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -5215,6 +5429,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5238,10 +5462,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF2-D-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -5267,6 +5496,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5288,6 +5527,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -5361,6 +5605,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5384,10 +5638,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF2-E-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -5413,6 +5672,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5434,6 +5703,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -5512,6 +5786,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5535,10 +5819,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF8-S-IN-1",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "DA-006",
           "SY-005"
@@ -5565,6 +5854,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5586,6 +5885,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -5664,6 +5968,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5687,10 +6001,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF8-T-IN-1",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "DA-006",
           "SY-005"
@@ -5717,6 +6036,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5738,6 +6067,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -5811,6 +6145,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5834,10 +6178,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF8-R-IN-1",
-        "lastModified": "2026-05-19T07:55:55.883Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "DA-006",
           "SY-005"
@@ -5864,6 +6213,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5885,6 +6244,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -5958,6 +6322,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -5981,10 +6355,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF8-I-IN-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "DA-006",
           "SY-005"
@@ -6011,6 +6390,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6032,6 +6421,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -6105,6 +6499,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6128,10 +6532,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF8-D-IN-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "DA-006",
           "SY-005"
@@ -6158,6 +6567,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6179,6 +6598,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -6252,6 +6676,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6275,10 +6709,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF8-E-IN-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "DA-006",
           "SY-005"
@@ -6305,6 +6744,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6326,6 +6775,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -6404,6 +6858,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6427,10 +6891,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF7-S-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -6456,6 +6925,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6477,6 +6956,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -6555,6 +7039,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6578,10 +7072,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF7-T-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -6607,6 +7106,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6628,6 +7137,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -6701,6 +7215,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6724,10 +7248,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF7-R-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -6753,6 +7282,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6774,6 +7313,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -6847,6 +7391,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6870,10 +7424,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF7-I-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -6899,6 +7458,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -6920,6 +7489,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -6993,6 +7567,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7016,10 +7600,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF7-D-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -7045,6 +7634,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7066,6 +7665,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -7139,6 +7743,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7162,10 +7776,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF7-E-OUT-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -7191,6 +7810,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7212,6 +7841,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -7290,6 +7924,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7313,10 +7957,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-127483e3-fcab-4975-8275-d6f94641eb60",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -7342,6 +7991,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7363,6 +8022,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -7441,6 +8105,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7464,10 +8138,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-597a4fff-7fad-4aa5-9251-2d04fbbe9317",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -7493,6 +8172,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7514,6 +8203,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -7587,6 +8281,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7610,10 +8314,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-ec5a0905-b184-4b67-8802-7e5f9489aa4c",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -7639,6 +8348,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7660,6 +8379,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -7733,6 +8457,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7756,10 +8490,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-71161d33-fc17-4be8-9de3-dd01061e7658",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -7785,6 +8524,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7806,6 +8555,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -7879,6 +8633,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7902,10 +8666,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-3c2b4169-2991-47bb-87b9-265cf337c522",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -7931,6 +8700,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -7952,6 +8731,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -8025,6 +8809,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8048,10 +8842,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-3307722c-ff8d-4c9a-bfd1-f6fd59d1f67d",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -8077,6 +8876,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8098,6 +8907,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -8176,6 +8990,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8199,10 +9023,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-IFName-S-IN-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -8226,6 +9055,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8247,6 +9086,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -8325,6 +9169,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8348,10 +9202,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-IFName-T-IN-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -8375,6 +9234,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8396,6 +9265,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -8469,6 +9343,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8492,10 +9376,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-IFName-R-IN-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -8519,6 +9408,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8540,6 +9439,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -8613,6 +9517,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8636,10 +9550,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-IFName-I-IN-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -8663,6 +9582,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8684,6 +9613,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -8757,6 +9691,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8780,10 +9724,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-IFName-D-IN-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -8807,6 +9756,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8828,6 +9787,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -8901,6 +9865,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8924,10 +9898,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-IFName-E-IN-1",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -8951,6 +9930,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -8972,6 +9961,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -9050,6 +10044,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -9073,10 +10077,15 @@
             "factorId": "physical_damage",
             "value": 0,
             "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
           }
         ],
         "id": "R-CNA-DF1-S-OUT-2",
-        "lastModified": "2026-05-19T07:55:55.884Z",
+        "lastModified": "2026-11-20T08:04:39.484Z",
         "linkedAssetIds": [
           "SY-005"
         ],
@@ -9102,6 +10111,16 @@
             "weight": 1
           },
           {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
             "factorId": "financial_damage",
             "value": 0,
             "weight": 1
@@ -9123,6 +10142,11 @@
           },
           {
             "factorId": "physical_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
             "value": 0,
             "weight": 1
           }
@@ -9166,10 +10190,11 @@
       ]
     }
   },
-  "schemaVersion": 8,
+  "schemaVersion": 14,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,
+    "regulationPreset": "en-50742-a",
     "strictMode": false
   },
   "status": "draft",
