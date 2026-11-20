@@ -72,8 +72,7 @@
             "telemetry"
           ],
           "description": "Current smoke density from the optical chamber — direct input of the alarm decision.",
-          "lifecycle": "transient",
-          "protectionNeed": "critical"
+          "lifecycle": "transient"
         },
         "securityGoals": [
           {
@@ -225,8 +224,7 @@
             "calibration"
           ],
           "description": "Optical calibration coefficients, sensitivity factors, reference values. Manipulation shifts every measurement — silently.",
-          "lifecycle": "stored",
-          "protectionNeed": "critical"
+          "lifecycle": "stored"
         },
         "securityGoals": [
           {
@@ -378,8 +376,7 @@
             "config"
           ],
           "description": "Alarm and pre-alarm thresholds, verification delay, zone/address assignment.",
-          "lifecycle": "stored",
-          "protectionNeed": "critical"
+          "lifecycle": "stored"
         },
         "securityGoals": [
           {
@@ -530,8 +527,7 @@
             "firmware"
           ],
           "description": "Firmware image of the controller MCU: alarm logic, protocol stacks, authentication, WLAN.",
-          "lifecycle": "stored",
-          "protectionNeed": "critical"
+          "lifecycle": "stored"
         },
         "securityGoals": [
           {
@@ -674,8 +670,7 @@
             "firmware"
           ],
           "description": "Firmware image of the sensor MCU (measurement, diagnostics, sensor-bus protocol).",
-          "lifecycle": "stored",
-          "protectionNeed": "high"
+          "lifecycle": "stored"
         },
         "securityGoals": [
           {
@@ -810,8 +805,7 @@
             "keys_certificates"
           ],
           "description": "Maintenance password hash, Wi-Fi PSK, TLS server key.",
-          "lifecycle": "stored",
-          "protectionNeed": "high"
+          "lifecycle": "stored"
         },
         "securityGoals": [
           {
@@ -924,8 +918,7 @@
             "config"
           ],
           "description": "Network settings, device name, update server URL.",
-          "lifecycle": "stored",
-          "protectionNeed": "medium"
+          "lifecycle": "stored"
         },
         "securityGoals": [
           {
@@ -1048,8 +1041,7 @@
             "telemetry"
           ],
           "description": "Alarm / pre-alarm message with zone and address — the output of the safety function.",
-          "lifecycle": "transient",
-          "protectionNeed": "critical"
+          "lifecycle": "transient"
         },
         "securityGoals": [
           {
@@ -1178,8 +1170,7 @@
             "telemetry"
           ],
           "description": "Heartbeat, diagnostic status (LED ageing, contamination), fault signal to the panel (EN 54).",
-          "lifecycle": "transient",
-          "protectionNeed": "high"
+          "lifecycle": "transient"
         },
         "securityGoals": [
           {
@@ -1335,8 +1326,7 @@
             "audit_logs"
           ],
           "description": "Alarms, logins, configuration changes, updates, boot results — evidence after a fire event (liability, insurance).",
-          "lifecycle": "archived",
-          "protectionNeed": "high"
+          "lifecycle": "archived"
         },
         "securityGoals": [
           {
@@ -1453,8 +1443,7 @@
             "config"
           ],
           "description": "Reset, silence and test commands from the fire panel. Not authenticated on the loop.",
-          "lifecycle": "transient",
-          "protectionNeed": "high"
+          "lifecycle": "transient"
         },
         "securityGoals": [
           {
@@ -1567,8 +1556,7 @@
         "physicalImpactSource": "hazard",
         "properties": {
           "description": "Detect smoke reliably and in time (EN 54-7 response threshold).",
-          "isSafetyFunction": true,
-          "protectionNeed": "critical"
+          "isSafetyFunction": true
         },
         "securityGoals": [
           {
@@ -1665,8 +1653,7 @@
         "physicalImpactSource": "hazard",
         "properties": {
           "description": "Signal an alarm to the fire panel — via the loop protocol and the hard-wired alarm contact.",
-          "isSafetyFunction": true,
-          "protectionNeed": "critical"
+          "isSafetyFunction": true
         },
         "securityGoals": [
           {
@@ -1763,8 +1750,7 @@
         "physicalImpactSource": "hazard",
         "properties": {
           "description": "Detect and report detector faults (sensor-bus loss, contamination, LED failure) so an out-of-service detector does not go unnoticed.",
-          "isSafetyFunction": true,
-          "protectionNeed": "high"
+          "isSafetyFunction": true
         },
         "securityGoals": [
           {
@@ -1859,8 +1845,7 @@
         "physicalImpactSource": "derived",
         "properties": {
           "automationLevel": "partly_automated",
-          "description": "Download, verify and install controller and sensor firmware.",
-          "protectionNeed": "high"
+          "description": "Download, verify and install controller and sensor firmware."
         },
         "securityGoals": [
           {
@@ -1956,8 +1941,7 @@
         "physicalImpactSource": "derived",
         "properties": {
           "automationLevel": "manual",
-          "description": "Technician login, threshold and network configuration, password change.",
-          "protectionNeed": "high"
+          "description": "Technician login, threshold and network configuration, password change."
         },
         "securityGoals": [
           {
@@ -2044,7 +2028,6 @@
         "overallImpact": 4,
         "properties": {
           "description": "Trust anchor of the update chain — a compromise reaches every device in the field.",
-          "protectionNeed": "critical",
           "providerName": "Device manufacturer",
           "responsibility": "owner",
           "serviceType": "external"
@@ -2144,10 +2127,8 @@
         "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Alarm not transmitted\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
-          "criticality": "safety_critical",
           "description": "Controller MCU with alarm evaluation, panel interface, WLAN.",
-          "exposure": "internal",
-          "protectionNeed": "critical"
+          "exposure": "internal"
         },
         "securityGoals": [
           {
@@ -2236,10 +2217,8 @@
         "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatal)",
         "physicalImpactSource": "hazard",
         "properties": {
-          "criticality": "safety_critical",
           "description": "Sensor MCU with optical chamber, calibration and diagnostics.",
-          "exposure": "internal",
-          "protectionNeed": "critical"
+          "exposure": "internal"
         },
         "securityGoals": [
           {
@@ -2318,8 +2297,6 @@
         "properties": {
           "description": "People in the protected area; primary protection target of the detector (EN 54).",
           "isProtectionTarget": true,
-          "physicalHazardPotential": "high",
-          "protectionNeed": "critical",
           "role": "external",
           "safetyImpact": "fatal"
         },
@@ -2398,7 +2375,6 @@
         "properties": {
           "description": "Emergency responders who rely on the reported zone/address.",
           "isProtectionTarget": true,
-          "protectionNeed": "high",
           "role": "external",
           "safetyImpact": "irreversible_major"
         },
@@ -2477,8 +2453,7 @@
         "properties": {
           "description": "Premises and goods protected by the fire detection system.",
           "environmentalHazard": "fire",
-          "physicalAccessControl": "lock",
-          "protectionNeed": "critical"
+          "physicalAccessControl": "lock"
         },
         "securityGoals": [
           {
@@ -2776,7 +2751,9 @@
           "location": "field_cable",
           "messageType": "measurement",
           "notes": "Measurement and diagnostic status, ~10 Hz. Loss of the stream is detected by P-3.1 (sensor-bus timeout → fault).",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "uart",
           "redundancy": "none",
           "safetyFunction": "fire_gas"
@@ -2820,7 +2797,9 @@
           "integrityProtection": "crc",
           "location": "field_cable",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "uart",
           "redundancy": "none",
           "safetyFunction": "none"
@@ -2868,7 +2847,9 @@
           "integrityProtection": "signature",
           "location": "field_cable",
           "messageType": "firmware",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "uart",
           "redundancy": "none",
           "safetyFunction": "none"
@@ -2908,7 +2889,6 @@
           "dataClassification": "confidential",
           "encryptionInTransit": "none",
           "endpointAuthentication": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
@@ -2946,7 +2926,6 @@
           "dataClassification": "confidential",
           "encryptionInTransit": "none",
           "endpointAuthentication": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
@@ -2991,7 +2970,9 @@
           "location": "internet",
           "messageType": "firmware",
           "notes": "TLS terminated on the device by P-3.7; payload signed by the manufacturer.",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "https",
           "redundancy": "none",
           "safetyFunction": "none"
@@ -3020,7 +3001,9 @@
           "location": "wireless_local",
           "messageType": "credentials",
           "notes": "WPA2/WPA3-Personal 4-way handshake and link encryption.",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "redundancy": "none",
           "securityControlOwnership": [
@@ -3068,7 +3051,9 @@
           "integrityProtection": "crc",
           "location": "field_cable",
           "messageType": "alarm_event",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "uart",
           "redundancy": "none",
           "safetyFunction": "fire_gas",
@@ -3113,7 +3098,9 @@
           "location": "field_cable",
           "messageType": "status",
           "notes": "The panel polls every loop address cyclically; a missing answer is shown as a fault on the panel.",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "uart",
           "redundancy": "none",
           "safetyFunction": "none"
@@ -3164,7 +3151,9 @@
           "integrityProtection": "aead",
           "location": "wireless_local",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "https",
           "redundancy": "degraded",
           "safetyFunction": "none"
@@ -3202,7 +3191,9 @@
           "integrityProtection": "none",
           "location": "field_cable",
           "messageType": "alarm_event",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "relay_output",
           "redundancy": "none",
           "safetyFunction": "fire_gas",
@@ -3243,7 +3234,9 @@
           "location": "field_cable",
           "messageType": "command",
           "notes": "Reset, silence, test. Not authenticated on the loop protocol.",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "uart",
           "redundancy": "none",
           "safetyFunction": "none"
@@ -3281,12 +3274,13 @@
           "accessMode": "read_only",
           "dataClassification": "internal",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "continuous",
           "integrityProtection": "crc",
           "location": "on_board",
           "messageType": "measurement",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "spi",
           "safetyFunction": "none"
         },
@@ -3328,12 +3322,13 @@
           "accessMode": "write_only",
           "dataClassification": "internal",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "spi",
           "safetyFunction": "none"
         },
@@ -3378,12 +3373,13 @@
         "properties": {
           "dataClassification": "internal",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "on_board",
           "messageType": "status",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "spi",
           "safetyFunction": "none"
         },
@@ -3420,12 +3416,13 @@
           "accessMode": "write_only",
           "dataClassification": "internal",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "signature",
           "location": "on_board",
           "messageType": "firmware",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "spi",
           "safetyFunction": "none"
         },
@@ -3461,7 +3458,9 @@
           "integrityProtection": "none",
           "location": "on_board",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -3497,12 +3496,13 @@
         "properties": {
           "accessMode": "write_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "signature",
           "location": "on_board",
           "messageType": "firmware",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -3538,13 +3538,14 @@
         "properties": {
           "accessMode": "read_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "hash",
           "location": "on_board",
           "messageType": "firmware",
           "notes": "Post-flash readback verification.",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -3584,7 +3585,9 @@
           "integrityProtection": "none",
           "location": "on_board",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -3615,12 +3618,13 @@
         "name": "push alarm [event]",
         "properties": {
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "alarm_event",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "fire_gas"
         },
@@ -3662,12 +3666,13 @@
           "accessMode": "write_only",
           "dataClassification": "confidential",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -3703,12 +3708,13 @@
         "properties": {
           "accessMode": "write_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -3767,7 +3773,9 @@
           "integrityProtection": "signature",
           "location": "on_chip",
           "messageType": "firmware",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -3805,12 +3813,13 @@
           "accessMode": "read_write",
           "dataClassification": "confidential",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "credentials",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "to": "P-6",
@@ -3855,7 +3864,9 @@
           "integrityProtection": "none",
           "location": "on_board",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "to": "DS-5",
@@ -3900,12 +3911,13 @@
           "accessMode": "read_only",
           "dataClassification": "confidential",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
           "messageType": "credentials",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "targetPoint": {
@@ -3948,7 +3960,9 @@
           "integrityProtection": "signature",
           "location": "on_board",
           "messageType": "firmware",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -3989,13 +4003,14 @@
         "properties": {
           "accessMode": "read_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "hash",
           "location": "on_board",
           "messageType": "firmware",
           "notes": "Post-flash readback verification.",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -4035,12 +4050,13 @@
         "properties": {
           "accessMode": "write_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -4076,12 +4092,13 @@
         "properties": {
           "accessMode": "read_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
           "messageType": "config",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -4117,13 +4134,14 @@
         "properties": {
           "accessMode": "read_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "signature",
           "location": "on_board",
           "messageType": "firmware",
           "notes": "Secure boot: image and signature are read before execution.",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -4151,12 +4169,13 @@
         },
         "properties": {
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "status",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -4191,12 +4210,13 @@
         },
         "properties": {
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "log_audit",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "to": "P-9",
@@ -4230,12 +4250,13 @@
         },
         "properties": {
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "log_audit",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "to": "P-9",
@@ -4269,12 +4290,13 @@
         },
         "properties": {
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "log_audit",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "to": "P-9",
@@ -4308,12 +4330,13 @@
         },
         "properties": {
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "log_audit",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "to": "P-9",
@@ -4353,12 +4376,13 @@
         "properties": {
           "accessMode": "write_only",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "hash",
           "location": "on_board",
           "messageType": "log_audit",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "to": "DS-6",
@@ -4392,13 +4416,14 @@
         },
         "properties": {
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "command",
           "notes": "Reset, silence, test.",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom",
           "safetyFunction": "none"
         },
@@ -4425,13 +4450,14 @@
         "name": "push wifi link event [event]",
         "properties": {
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "on_chip",
           "messageType": "log_audit",
           "notes": "Association, de-authentication, failed PSK handshakes.",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "to": "P-9",
@@ -4459,12 +4485,13 @@
           "accessMode": "read_only",
           "dataClassification": "confidential",
           "encryptionInTransit": "none",
-          "exposureLevelSource": "derived",
           "frequency": "ondemand",
           "integrityProtection": "none",
           "location": "on_board",
           "messageType": "credentials",
-          "physicalPathProtection": "none",
+          "physicalPathProtection": [
+            "none"
+          ],
           "protocol": "custom"
         },
         "to": "P-7",
@@ -4789,7 +4816,9 @@
           "errorHandling": "sanitized",
           "failSafeOutputState": "not_defined",
           "inputValidation": "basic",
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "nonRepudiation": "none",
           "notes": "LED pulse control, ADC sampling of forward/side scatter, smoke density calculation. Reads calibration parameters at start-up and after recalibration.",
           "privilegeLevel": "high",
@@ -4819,7 +4848,9 @@
           "errorHandling": "silent",
           "failSafeOutputState": "not_defined",
           "inputValidation": "basic",
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "nonRepudiation": "none",
           "notes": "Sensor-bus endpoint of the sensor head (RS-485). Streams measurements and diagnostics to the controller, receives calibration and firmware commands.",
           "privilegeLevel": "medium",
@@ -4859,7 +4890,9 @@
           "authenticationRequired": "no",
           "failSafeOutputState": "not_defined",
           "inputValidation": "basic",
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "nonRepudiation": "none",
           "notes": "Monitors LED ageing, chamber contamination, temperature/humidity. Reports faults (EN 54 fault signal) to the controller.",
           "privilegeLevel": "medium",
@@ -4894,7 +4927,9 @@
           "authenticationRequired": "certificate",
           "failSafeOutputState": "fixed_value",
           "inputValidation": "strict",
-          "malwareProtection": "code_signing",
+          "malwareProtection": [
+            "code_signing"
+          ],
           "nonRepudiation": "none",
           "notes": "Receives the sensor firmware image from the controller via the sensor bus, writes it to the sensor flash and reads it back for verification.",
           "privilegeLevel": "high",
@@ -5112,7 +5147,9 @@
           "authenticationRequired": "no",
           "failSafeOutputState": "fixed_value",
           "inputValidation": "strict",
-          "malwareProtection": "code_signing",
+          "malwareProtection": [
+            "code_signing"
+          ],
           "nonRepudiation": "audit_log",
           "notes": "Alarm decision: smoke density vs. threshold, verification delay, zone assignment. Drives the alarm relay and the fire-panel message.",
           "privilegeLevel": "high",
@@ -5152,7 +5189,9 @@
           "authenticationRequired": "no",
           "failSafeOutputState": "not_defined",
           "inputValidation": "basic",
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "nonRepudiation": "none",
           "notes": "Fire-panel protocol stack (RS-485 loop): alarm and status messages to the panel, reset/silence/test commands from the panel. Replaceable by a 868 MHz radio module.",
           "privilegeLevel": "medium",
@@ -5190,7 +5229,9 @@
           "authorizationModel": "none",
           "failSafeOutputState": "not_defined",
           "inputValidation": "strict",
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "nonRepudiation": "none",
           "notes": "Checks the maintenance login and authorises configuration changes. Gap: a single shared maintenance password, no roles — every authenticated user may change thresholds and credentials.",
           "privilegeLevel": "high",
@@ -5219,7 +5260,9 @@
           "authenticatorStorage": "software_only",
           "failSafeOutputState": "fixed_value",
           "inputValidation": "strict",
-          "malwareProtection": "code_signing",
+          "malwareProtection": [
+            "code_signing"
+          ],
           "nonRepudiation": "none",
           "notes": "Root of trust: verifies the controller image before execution and reports the boot result.",
           "privilegeLevel": "root",
@@ -5248,14 +5291,18 @@
           "authenticatorStorage": "software_only",
           "failSafeOutputState": "not_defined",
           "inputValidation": "basic",
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "notes": "WLAN driver (IEEE 802.11 b/g/n): station mode towards the site access point. Uses the Wi-Fi PSK from the device configuration flash. Does not terminate TLS.",
           "privilegeLevel": "high",
           "processSemantic": "functional_block",
           "runsAs": "system",
           "securityControls": "WPA2/WPA3-Personal",
           "technology": "driver",
-          "tlsTermination": "server"
+          "tlsTermination": [
+            "server"
+          ]
         },
         "size": {
           "height": 50,
@@ -5283,7 +5330,9 @@
           "authenticationRequired": "no",
           "failSafeOutputState": "hold_last_value",
           "inputValidation": "basic",
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "nonRepudiation": "audit_log",
           "notes": "Persists security-relevant events (alarms, logins, updates, boot results, WLAN events) — evidence after a fire event (EN 54, CRA).",
           "privilegeLevel": "medium",
@@ -5314,14 +5363,18 @@
           "exposedToInternet": false,
           "failSafeOutputState": "not_defined",
           "inputValidation": "basic",
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "notes": "HTTPS endpoint of the controller: maintenance web UI (server) and update download (client). Hands logins to P-3.3 Maintenance Authentication Service and downloads to P-3.8 Firmware Update Manager.",
           "privilegeLevel": "high",
           "processSemantic": "functional_block",
           "runsAs": "system",
           "securityControls": "TLS 1.2+: server certificate for the maintenance web UI, server-certificate validation towards the update server",
           "technology": "protocol_stack",
-          "tlsTermination": "server"
+          "tlsTermination": [
+            "server"
+          ]
         },
         "size": {
           "height": 50,
@@ -5351,7 +5404,9 @@
           "authenticatorStorage": "software_only",
           "failSafeOutputState": "not_defined",
           "inputValidation": "strict",
-          "malwareProtection": "code_signing",
+          "malwareProtection": [
+            "code_signing"
+          ],
           "notes": "Downloads the update package via the Communication Handler, verifies signature and rollback counter, writes the controller image to flash and forwards the sensor image to the sensor head.",
           "privilegeLevel": "root",
           "processSemantic": "execution_unit",
@@ -6348,7 +6403,7 @@
     "created": "2026-05-22T17:36:25.709Z",
     "description": "Leveled DFD example: the single-page Smoke Detector split into a System page (MP-1 Sensor Head, MP-2 Smoke Detector Controller) and one child page per multiprocess. Original cell ids are kept, so threats, risks and assets refer to the same logical elements; context copies are linked in dfd.pages.",
     "isHighImpact": false,
-    "lastModified": "2026-10-30T23:00:28.045Z",
+    "lastModified": "2026-11-20T08:03:30.356Z",
     "name": "Smoke Detector (leveled)",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -46095,7 +46150,7 @@
       "warnings": []
     }
   },
-  "schemaVersion": 11,
+  "schemaVersion": 14,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,
