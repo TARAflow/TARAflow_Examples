@@ -30,7 +30,7 @@
           },
           {
             "criterionId": "safety",
-            "value": 3
+            "value": 4
           }
         ],
         "lastModified": "2026-10-02T11:27:22.908Z",
@@ -1003,7 +1003,7 @@
       "warnings": []
     }
   },
-  "schemaVersion": 8,
+  "schemaVersion": 14,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,

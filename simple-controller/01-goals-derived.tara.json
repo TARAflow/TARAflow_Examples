@@ -29,7 +29,7 @@
           },
           {
             "criterionId": "safety",
-            "value": 3
+            "value": 4
           }
         ],
         "lastModified": "2026-10-02T00:00:00.000Z",
@@ -708,7 +708,7 @@
     "created": "2026-10-02T06:14:02.241Z",
     "description": "Goals derived from DFD relations and asset impact; no analyst decisions. Generate threats to see the goal filter.",
     "isHighImpact": false,
-    "lastModified": "2026-10-02T06:23:16.177Z",
+    "lastModified": "2026-11-20T08:05:52.134Z",
     "name": "TARAflow Example – Simple Controller – 01 Goals derived",
     "responsible": "JPM",
     "safetyRelevant": false,
@@ -730,7 +730,7 @@
   "integration": null,
   "methodSelected": false,
   "phaseStatus": {
-    "0": "not-started",
+    "0": "complete",
     "1": "in-progress",
     "2": "not-started",
     "3": "not-started",
@@ -742,7 +742,7 @@
     "9": "not-started"
   },
   "risks": null,
-  "schemaVersion": 8,
+  "schemaVersion": 14,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,

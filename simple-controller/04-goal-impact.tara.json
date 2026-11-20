@@ -29,7 +29,7 @@
           },
           {
             "criterionId": "safety",
-            "value": 3
+            "value": 4
           }
         ],
         "lastModified": "2026-10-02T00:00:00.000Z",
@@ -756,7 +756,7 @@
     "9": "not-started"
   },
   "risks": null,
-  "schemaVersion": 8,
+  "schemaVersion": 14,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,
