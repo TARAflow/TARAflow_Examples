@@ -45,8 +45,7 @@
             "command"
           ],
           "description": "ISO/SAE 21434 Annex H Table H.2 asset 'Data communication (lamp request)'. Command that switches the headlamp low/high/off (Body control ECU -> power switch actuator, DF-9).",
-          "lifecycle": "transient",
-          "protectionNeed": "high"
+          "lifecycle": "transient"
         },
         "securityGoals": [
           {
@@ -136,8 +135,7 @@
             "status"
           ],
           "description": "ISO/SAE 21434 Annex H Table H.2 asset 'Data communication (oncoming car information)'. Yes/no oncoming-vehicle indication for the automatic high-beam logic (Camera ECU -> power switch actuator, DF-10).",
-          "lifecycle": "transient",
-          "protectionNeed": "medium"
+          "lifecycle": "transient"
         },
         "securityGoals": [
           {
@@ -234,8 +232,7 @@
         "overallImpact": 3,
         "physicalImpactSource": "derived",
         "properties": {
-          "description": "ISO/SAE 21434 Annex H Table H.2 asset 'Headlamp on/off function': switching the headlamps on, off and between low and high beam, from the headlamp switch (SE-1) through the Body control ECU (MP-3) to the power switch actuator (AC-1).",
-          "protectionNeed": "high"
+          "description": "ISO/SAE 21434 Annex H Table H.2 asset 'Headlamp on/off function': switching the headlamps on, off and between low and high beam, from the headlamp switch (SE-1) through the Body control ECU (MP-3) to the power switch actuator (AC-1)."
         },
         "securityGoals": [
           {
@@ -324,8 +321,7 @@
             "config"
           ],
           "description": "ISO/SAE 21434 Annex H Table H.2 asset 'Firmware of body control ECU'. Firmware image of the body control ECU. NOTE: set dataType to 'firmware' if the StoredDataType vocabulary supports it.",
-          "lifecycle": "stored",
-          "protectionNeed": "high"
+          "lifecycle": "stored"
         },
         "securityGoals": [
           {
@@ -3782,7 +3778,6 @@
           "dataMinimization": "none",
           "encryptionInTransit": "none",
           "endpointAuthentication": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "local_network",
@@ -3818,7 +3813,6 @@
           "dataMinimization": "none",
           "encryptionInTransit": "none",
           "endpointAuthentication": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "local_network",
@@ -3857,7 +3851,6 @@
           "dataMinimization": "none",
           "encryptionInTransit": "none",
           "endpointAuthentication": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "none",
           "location": "in_enclosure",
@@ -3905,7 +3898,6 @@
           "dataTypeNotes": "ISO/SAE 21434 Table H.2 asset: 'Data communication (lamp request)'. Cybersecurity properties: Integrity + Availability.",
           "encryptionInTransit": "none",
           "endpointAuthentication": "none",
-          "exposureLevelSource": "derived",
           "frequency": "event_based",
           "integrityProtection": "hmac",
           "location": "in_enclosure",
@@ -3973,7 +3965,6 @@
           "dataTypeNotes": "ISO/SAE 21434 Table H.2 asset: 'Data communication (oncoming car information)'. Cybersecurity properties: Integrity + Availability.",
           "encryptionInTransit": "none",
           "endpointAuthentication": "none",
-          "exposureLevelSource": "derived",
           "frequency": "continuous",
           "integrityProtection": "hmac",
           "location": "local_network",
@@ -4229,7 +4220,9 @@
           "boundaryAuthentication": "none",
           "certificationLevel": "none",
           "exposedToInternet": true,
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "nonRepudiation": "none",
           "notes": "Navigation ECU (head unit) in the operational environment. Externally connected via cellular and Bluetooth; connected to the Gateway ECU by data communication (Table H.1). In every Annex H attack path the attacker first compromises this ECU from the cellular or Bluetooth interface, then transmits malicious control signals toward the gateway.",
           "operatingSystem": "linux_standard",
@@ -4238,7 +4231,9 @@
           "safetyRelevant": false,
           "securitySummary": "Internet-facing infotainment/navigation ECU terminating the cellular and Bluetooth interfaces. Firewall on external interfaces per ISO/SAE 21434 Table H.1 assumption. First compromise point in the Annex H attack paths (Tables H.5/H.6).",
           "systemClass": "embedded_controller",
-          "tlsTermination": "server",
+          "tlsTermination": [
+            "server"
+          ],
           "updateMechanism": "signed_ota"
         },
         "size": {
@@ -4264,7 +4259,9 @@
           "boundaryAuthentication": "certificate",
           "certificationLevel": "iso21434",
           "exposedToInternet": false,
-          "malwareProtection": "code_signing",
+          "malwareProtection": [
+            "code_signing"
+          ],
           "nonRepudiation": "audit_log",
           "notes": "Gateway ECU routing between the external/connectivity domain and the internal vehicle bus that reaches the item. Strong security controls incl. a firewall function, developed as CAL4 (Table H.1). In the Annex H attack paths it forwards the malicious control signals to the power switch actuator once the Navigation ECU or the OBD-II path is abused.",
           "operatingSystem": "linux_hardened",
@@ -4273,7 +4270,9 @@
           "safetyRelevant": false,
           "securitySummary": "Central vehicle gateway with firewall, developed as CAL4 per ISO/SAE 21434 Table H.1 assumption. Trust choke point between the connectivity domain (Navigation ECU, OBD-II) and the headlamp item on the internal bus.",
           "systemClass": "gateway",
-          "tlsTermination": "mutual",
+          "tlsTermination": [
+            "mutual"
+          ],
           "updateMechanism": "signed_ota"
         },
         "size": {
@@ -4298,7 +4297,9 @@
           "boundaryAuthentication": "none",
           "certificationLevel": "none",
           "exposedToInternet": false,
-          "malwareProtection": "none",
+          "malwareProtection": [
+            "none"
+          ],
           "notes": "Camera ECU inside the item boundary but outside the headlamp system sub-boundary. Produces the 'oncoming car information (yes or no)' consumed by the power switch actuator. Denial of service of this information is one of the two Annex H threat scenarios (Table H.4).",
           "operatingSystem": "rtos",
           "owner": "OEM / Tier-1 (camera)",
@@ -4381,7 +4382,9 @@
           "certificationLevel": "none",
           "exposedToInternet": false,
           "internalComponents": "Headlamp control logic (low/high/off arbitration), diagnostic services, bus stack.",
-          "malwareProtection": "code_signing",
+          "malwareProtection": [
+            "code_signing"
+          ],
           "notes": "Body control ECU inside the headlamp system. Receives the driver's switch position and issues the 'lamp request (low, high, or off)' to the power switch actuator. Its firmware is an asset in Table H.2; the lamp request is the asset targeted by the Annex H spoofing/tampering threat scenarios (Table H.4).",
           "operatingSystem": "rtos",
           "owner": "OEM (body domain)",
@@ -4777,7 +4780,7 @@
     "created": "2026-09-12T00:00:00.000Z",
     "description": "ISO/SAE 21434 TARA example — automotive headlamp system (based on the worked example in Annex H). Exercises the iso-21434 preset: SFOP damage-scenario impact, per-element STRIDE (per-interaction disabled), attack-tree attack-potential feasibility, and R = I x L.",
     "isHighImpact": true,
-    "lastModified": "2026-11-02T10:25:39.847Z",
+    "lastModified": "2026-11-20T08:03:53.959Z",
     "name": "Headlamp System (ISO/SAE 21434)",
     "responsible": "TARAflow Example",
     "safetyRelevant": false,
@@ -9031,7 +9034,7 @@
       "warnings": []
     }
   },
-  "schemaVersion": 12,
+  "schemaVersion": 14,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,
