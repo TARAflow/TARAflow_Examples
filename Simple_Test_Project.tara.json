@@ -2012,7 +2012,7 @@
     "created": "2026-05-22T11:53:20.822Z",
     "description": "Simple Test Project",
     "isHighImpact": false,
-    "lastModified": "2026-11-20T08:02:40.425Z",
+    "lastModified": "2026-11-25T19:08:13.143Z",
     "name": "Simple Test Project",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -2062,7 +2062,7 @@
     "0": "complete",
     "1": "incomplete",
     "2": "in-progress",
-    "3": "not-started",
+    "3": "incomplete",
     "4": "in-progress",
     "5": "complete",
     "6": "in-progress",
@@ -2226,7 +2226,7 @@
       "useAssetImpact": true,
       "windowOfOpportunity": "moderately_restricted"
     },
-    "lastModified": "2026-10-13T09:51:25.598Z",
+    "lastModified": "2026-11-25T19:07:37.559Z",
     "risks": [
       {
         "attackDescription": "Attacker injects requests pretending to be a legitimate caller",
@@ -2534,7 +2534,7 @@
           }
         ],
         "id": "R-fded5d2a-e9c9-47b5-914a-4da5fd4e41e0",
-        "lastModified": "2026-10-13T09:51:24.540Z",
+        "lastModified": "2026-11-25T19:07:36.389Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857",
           "56fe0b45-9bfc-457b-8637-ce529dc92038"
@@ -2644,7 +2644,7 @@
         "threatDisplayId": "P1-T-1",
         "threatId": "fded5d2a-e9c9-47b5-914a-4da5fd4e41e0",
         "threatRelevance": "relevant",
-        "treatment": "reduce",
+        "treatment": "eliminate",
         "treatmentJustification": "",
         "wontJustification": ""
       },
@@ -4792,10 +4792,11 @@
     "validation": {
       "errors": [],
       "isComplete": false,
-      "lastValidated": "2026-10-13T09:51:25.598Z",
+      "lastValidated": "2026-11-25T19:07:37.559Z",
       "warnings": [
         "11 risk(s) have not been rated",
-        "1 high-risk item(s) have no mitigation defined"
+        "11 risk(s) to reduce have no mitigation (P1-S-1, P1-R-1, P1-I-1, P1-D-1, DB-S-1, …)",
+        "1 risk(s) to reduce have no residual risk rating (AT-1.2)"
       ]
     }
   },
@@ -4832,7 +4833,7 @@
       "showThreatActor": false,
       "zeroTrustMode": false
     },
-    "lastModified": "2026-10-13T09:51:07.961Z",
+    "lastModified": "2026-11-25T19:08:13.143Z",
     "perElementTables": [
       {
         "displayIdentifier": "[MTB]",
@@ -4845,7 +4846,7 @@
             "displayId": "P1-S-1",
             "id": "7323dad1-8b91-45f9-9ab6-a459417d5be0",
             "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
+            "lastModified": "2026-11-25T19:08:11.667Z",
             "linkedAssetIds": [
               "ac70a321-b04e-4df2-bc51-1fd5b5179857",
               "56fe0b45-9bfc-457b-8637-ce529dc92038"
@@ -4872,7 +4873,8 @@
                 "id": "V-S-004"
               }
             ],
-            "relevance": "relevant",
+            "relevance": "not_relevant",
+            "relevanceOverridden": false,
             "retainedAfterRuleChange": {
               "at": "2026-10-13T09:51:07.961Z",
               "previousSource": "generated:classic"
@@ -5329,7 +5331,7 @@
             "displayId": "DB-T-1",
             "id": "1c7b0a7b-7b5f-479f-9e98-ac1e7a8e647d",
             "isTextCustomized": false,
-            "lastModified": "2026-07-31T20:14:48.065Z",
+            "lastModified": "2026-11-25T19:08:13.143Z",
             "linkedAssetIds": [],
             "linkedElement": {
               "displayId": "DB",
@@ -5363,6 +5365,7 @@
               }
             ],
             "relevance": "unrated",
+            "relevanceOverridden": false,
             "sequenceNumber": 1,
             "source": "generated:classic",
             "strideCategory": "T",
