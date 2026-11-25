@@ -2009,7 +2009,7 @@
     "created": "2026-05-22T11:53:20.822Z",
     "description": "Simple Test Project",
     "isHighImpact": false,
-    "lastModified": "2026-11-25T20:34:22.082Z",
+    "lastModified": "2026-11-25T21:06:19.851Z",
     "name": "Simple Test Project",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -2223,7 +2223,7 @@
       "useAssetImpact": true,
       "windowOfOpportunity": "moderately_restricted"
     },
-    "lastModified": "2026-11-25T20:34:22.081Z",
+    "lastModified": "2026-11-25T21:06:19.851Z",
     "risks": [
       {
         "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
@@ -2334,7 +2334,7 @@
           }
         ],
         "id": "R-fded5d2a-e9c9-47b5-914a-4da5fd4e41e0",
-        "lastModified": "2026-11-25T19:07:36.389Z",
+        "lastModified": "2026-11-25T21:05:25.754Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857",
           "56fe0b45-9bfc-457b-8637-ce529dc92038"
@@ -2428,16 +2428,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-T-FSAFE-001",
-            "status": "verified",
-            "statusChangedAt": "2026-09-05T07:52:30.490Z"
-          }
-        ],
-        "selectedVerifications": [
-          "V-T-FSAFE-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "T",
         "threatDescription": "Undefined fail-safe output state — process outputs reach arbitrary values on communication loss",
@@ -2539,7 +2531,7 @@
           }
         ],
         "id": "R-cea7007d-b4b9-4a34-b3cf-11b1729cb15f",
-        "lastModified": "2026-11-25T20:09:40.036Z",
+        "lastModified": "2026-11-25T21:05:23.565Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857",
           "56fe0b45-9bfc-457b-8637-ce529dc92038"
@@ -2633,15 +2625,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-R-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-R-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "R",
         "threatDescription": "Process action repudiation — process denies having performed an action",
@@ -2743,7 +2728,7 @@
           }
         ],
         "id": "R-f46fe30c-2149-4eae-8e2d-ad6f25d4633b",
-        "lastModified": "2026-11-25T20:09:33.841Z",
+        "lastModified": "2026-11-25T21:05:19.286Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857",
           "56fe0b45-9bfc-457b-8637-ce529dc92038"
@@ -2837,16 +2822,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-I-002",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-I-001",
-          "V-I-002"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "I",
         "threatDescription": "Process data leakage — sensitive data processed by the process is exposed",
@@ -2936,7 +2913,7 @@
           }
         ],
         "id": "R-7c60946a-04df-4996-9bf9-bcc833a0e7be",
-        "lastModified": "2026-11-25T20:09:26.799Z",
+        "lastModified": "2026-11-25T21:05:15.626Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857",
           "56fe0b45-9bfc-457b-8637-ce529dc92038"
@@ -3040,16 +3017,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-D-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-D-001",
-          "V-D-003"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "D",
         "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
@@ -3139,7 +3108,7 @@
           }
         ],
         "id": "R-3e884df4-4b5d-4afe-953e-89f2630e5c65",
-        "lastModified": "2026-11-25T20:33:50.319Z",
+        "lastModified": "2026-11-25T21:04:46.123Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -3230,16 +3199,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-S-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-S-001",
-          "V-S-002"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "S",
         "threatDescription": "Physical boundary identity spoofing — attacker impersonates authorized personnel to gain physical access",
@@ -3343,7 +3304,7 @@
           }
         ],
         "id": "R-97c656be-6bba-49c2-9768-b87d363aae1e",
-        "lastModified": "2026-11-25T20:10:05.070Z",
+        "lastModified": "2026-11-25T21:06:00.690Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857"
         ],
@@ -3438,17 +3399,11 @@
         "riskBeforeRationale": "",
         "selectedMitigations": [
           {
-            "id": "M-T-001",
-            "status": "open"
-          },
-          {
             "id": "en50742-7.4.3.4.3",
             "status": "open"
           }
         ],
-        "selectedVerifications": [
-          "V-T-001"
-        ],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "T",
         "threatDescription": "Data flow tampering — attacker modifies data in transit between components",
@@ -3552,7 +3507,7 @@
           }
         ],
         "id": "R-e6a55d89-9e0a-4cce-92f9-902e73a97be7",
-        "lastModified": "2026-11-25T20:09:55.907Z",
+        "lastModified": "2026-11-25T21:05:55.359Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857"
         ],
@@ -3645,15 +3600,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-I-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-I-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "I",
         "threatDescription": "Data flow eavesdropping — attacker intercepts sensitive data on the data flow",
@@ -3757,7 +3705,7 @@
           }
         ],
         "id": "R-81df64f7-0638-40e6-b2a5-a926105118c3",
-        "lastModified": "2026-11-25T20:09:49.503Z",
+        "lastModified": "2026-11-25T21:05:51.685Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857"
         ],
@@ -3850,16 +3798,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-D-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-D-001",
-          "V-D-003"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "D",
         "threatDescription": "Data flow disruption — attacker blocks or delays the data flow",
@@ -3949,7 +3889,7 @@
           }
         ],
         "id": "R-e3296e2d-2806-4e3c-9581-81785b0e5e3c",
-        "lastModified": "2026-11-25T20:32:36.488Z",
+        "lastModified": "2026-11-25T21:06:08.997Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -4040,15 +3980,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-T-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-T-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "T",
         "threatDescription": "Data flow tampering — attacker modifies data in transit between components",
@@ -4138,7 +4071,7 @@
           }
         ],
         "id": "R-6cbf13bb-d9da-4d78-8856-08a0478adb7f",
-        "lastModified": "2026-11-25T20:32:29.493Z",
+        "lastModified": "2026-11-25T21:06:06.917Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -4229,15 +4162,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-I-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-I-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "I",
         "threatDescription": "Data flow eavesdropping — attacker intercepts sensitive data on the data flow",
@@ -4327,7 +4253,7 @@
           }
         ],
         "id": "R-4a3e5cda-0e17-4e33-9b72-b17a58f65821",
-        "lastModified": "2026-11-25T20:10:14.867Z",
+        "lastModified": "2026-11-25T21:06:04.480Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -4418,16 +4344,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-D-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-D-001",
-          "V-D-003"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "D",
         "threatDescription": "Data flow disruption — attacker blocks or delays the data flow",
@@ -4547,7 +4465,7 @@
           }
         ],
         "id": "R-AT-at-1784807920186-rbg7dh3g2-0f50241382b2-T",
-        "lastModified": "2026-11-25T20:32:46.592Z",
+        "lastModified": "2026-11-25T21:06:18.713Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857"
         ],
@@ -4644,16 +4562,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "Carried over from AT-1.2 (AND gate = one attack path, TARAflow 0.18): review the rating and the treatment.",
-        "selectedMitigations": [
-          {
-            "id": "M-T-002",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-T-001",
-          "V-T-002"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "attack-path",
         "strideCategory": "T",
         "threatDescription": "Data Tampering",
@@ -4743,7 +4653,7 @@
           }
         ],
         "id": "R-4338698e-c65b-41f7-9890-0194f6b4a167",
-        "lastModified": "2026-11-25T20:34:20.931Z",
+        "lastModified": "2026-11-25T21:05:11.612Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -4849,15 +4759,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-CB-T-002",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-CB-T-002"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "T",
         "threatDescription": "Embedded storage tampering — attacker modifies data in non-volatile memory",
@@ -4947,7 +4850,7 @@
           }
         ],
         "id": "R-eb618a97-a039-46ee-b834-a14f26b11991",
-        "lastModified": "2026-11-25T20:34:18.778Z",
+        "lastModified": "2026-11-25T21:05:08.660Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -5043,15 +4946,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-R-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-R-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "R",
         "threatDescription": "Data store access repudiation — access to the data store cannot be attributed",
@@ -5141,7 +5037,7 @@
           }
         ],
         "id": "R-869eaaad-59f6-4a32-ac77-367391d2a617",
-        "lastModified": "2026-11-25T20:34:12.908Z",
+        "lastModified": "2026-11-25T21:05:03.941Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -5247,15 +5143,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-CB-I-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-CB-I-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "I",
         "threatDescription": "Embedded storage information disclosure — attacker reads sensitive data from non-volatile memory",
@@ -5345,7 +5234,7 @@
           }
         ],
         "id": "R-8cda0cdc-8cc2-4b3f-b8ff-44afc79b753a",
-        "lastModified": "2026-11-25T20:34:08.853Z",
+        "lastModified": "2026-11-25T21:05:00.896Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -5446,16 +5335,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-D-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-D-001",
-          "V-D-003"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "D",
         "threatDescription": "Data store unavailability — attacker makes the data store inaccessible",
@@ -5545,7 +5426,7 @@
           }
         ],
         "id": "R-1c7b0a7b-7b5f-479f-9e98-ac1e7a8e647d",
-        "lastModified": "2026-11-25T20:33:54.846Z",
+        "lastModified": "2026-11-25T21:04:48.851Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -5656,15 +5537,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-T-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-T-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "T",
         "threatDescription": "Physical boundary tampering — unauthorized physical access to boundary interior",
@@ -5754,7 +5628,7 @@
           }
         ],
         "id": "R-2391708c-593a-4368-aa50-8062a873e87a",
-        "lastModified": "2026-11-25T20:33:47.136Z",
+        "lastModified": "2026-11-25T21:04:43.672Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -5855,15 +5729,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-I-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-I-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "I",
         "threatDescription": "Side-channel observation — sensitive data extracted via physical measurements",
@@ -5953,7 +5820,7 @@
           }
         ],
         "id": "R-1919d477-67fe-437e-a0a2-04e9b7f4aa8d",
-        "lastModified": "2026-11-25T20:33:39.205Z",
+        "lastModified": "2026-11-25T21:04:38.011Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -6054,16 +5921,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-D-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-D-001",
-          "V-D-003"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "D",
         "threatDescription": "Physical destruction or power disruption — device rendered unavailable by physical attack",
@@ -6153,7 +6012,7 @@
           }
         ],
         "id": "R-00c8f01d-065e-49d2-aaea-4481c291be7e",
-        "lastModified": "2026-11-25T20:33:43.450Z",
+        "lastModified": "2026-11-25T21:04:41.022Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -6259,15 +6118,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-E-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-E-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "E",
         "threatDescription": "Physical privilege escalation — attacker gains elevated system access via physical boundary breach",
@@ -6357,7 +6209,7 @@
           }
         ],
         "id": "R-0baf849f-abf1-4190-a07c-e0978dd283c0",
-        "lastModified": "2026-11-25T20:34:05.814Z",
+        "lastModified": "2026-11-25T21:04:57.673Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -6453,15 +6305,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-T-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-T-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "T",
         "threatDescription": "Data flow tampering — attacker modifies data in transit between components",
@@ -6551,7 +6396,7 @@
           }
         ],
         "id": "R-69d2ee08-da00-45e1-8774-0c960bec0e9c",
-        "lastModified": "2026-11-25T20:34:02.432Z",
+        "lastModified": "2026-11-25T21:04:54.951Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -6647,15 +6492,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-I-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-I-001"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "I",
         "threatDescription": "Data flow eavesdropping — attacker intercepts sensitive data on the data flow",
@@ -6745,7 +6583,7 @@
           }
         ],
         "id": "R-74b7c29e-c7d9-4e3b-a9d2-2a21849df475",
-        "lastModified": "2026-11-25T20:33:58.665Z",
+        "lastModified": "2026-11-25T21:04:51.495Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -6841,16 +6679,8 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [
-          {
-            "id": "M-D-001",
-            "status": "open"
-          }
-        ],
-        "selectedVerifications": [
-          "V-D-001",
-          "V-D-003"
-        ],
+        "selectedMitigations": [],
+        "selectedVerifications": [],
         "sourceStrideMethod": "per-element",
         "strideCategory": "D",
         "threatDescription": "Data flow disruption — attacker blocks or delays the data flow",
@@ -6865,9 +6695,10 @@
     "validation": {
       "errors": [],
       "isComplete": false,
-      "lastValidated": "2026-11-25T20:34:22.081Z",
+      "lastValidated": "2026-11-25T21:06:19.851Z",
       "warnings": [
         "21 risk(s) have not been rated",
+        "21 risk(s) to reduce have no mitigation (P1-R-1, P1-I-1, P1-D-1, DB-S-1, DF3-I-1, …)",
         "1 risk(s) to reduce have no residual risk rating (AT-1.1)"
       ]
     }
