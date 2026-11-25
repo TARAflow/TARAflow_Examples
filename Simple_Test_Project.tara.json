@@ -2009,7 +2009,7 @@
     "created": "2026-05-22T11:53:20.822Z",
     "description": "Simple Test Project",
     "isHighImpact": false,
-    "lastModified": "2026-11-25T21:09:11.866Z",
+    "lastModified": "2026-11-25T21:36:56.474Z",
     "name": "Simple Test Project",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -2223,7 +2223,7 @@
       "useAssetImpact": true,
       "windowOfOpportunity": "moderately_restricted"
     },
-    "lastModified": "2026-11-25T21:06:19.851Z",
+    "lastModified": "2026-11-25T21:36:56.473Z",
     "risks": [
       {
         "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
@@ -2913,7 +2913,7 @@
           }
         ],
         "id": "R-7c60946a-04df-4996-9bf9-bcc833a0e7be",
-        "lastModified": "2026-11-25T21:05:15.626Z",
+        "lastModified": "2026-11-25T21:36:55.319Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857",
           "56fe0b45-9bfc-457b-8637-ce529dc92038"
@@ -3017,8 +3017,16 @@
         ],
         "riskAfterRationale": "",
         "riskBeforeRationale": "",
-        "selectedMitigations": [],
-        "selectedVerifications": [],
+        "selectedMitigations": [
+          {
+            "id": "M-D-001",
+            "status": "open"
+          }
+        ],
+        "selectedVerifications": [
+          "V-D-001",
+          "V-D-003"
+        ],
         "sourceStrideMethod": "per-element",
         "strideCategory": "D",
         "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
@@ -6695,10 +6703,10 @@
     "validation": {
       "errors": [],
       "isComplete": false,
-      "lastValidated": "2026-11-25T21:06:19.851Z",
+      "lastValidated": "2026-11-25T21:36:56.474Z",
       "warnings": [
         "21 risk(s) have not been rated",
-        "21 risk(s) to reduce have no mitigation (P1-R-1, P1-I-1, P1-D-1, DB-S-1, DF3-I-1, …)",
+        "20 risk(s) to reduce have no mitigation (P1-R-1, P1-I-1, DB-S-1, DF3-I-1, DF3-D-1, …)",
         "1 risk(s) to reduce have no residual risk rating (AT-1.1)"
       ]
     }
@@ -6736,7 +6744,7 @@
       "showThreatActor": false,
       "zeroTrustMode": false
     },
-    "lastModified": "2026-11-25T21:09:11.866Z",
+    "lastModified": "2026-11-25T21:30:51.751Z",
     "perElementTables": [
       {
         "displayIdentifier": "[MTB]",
@@ -6749,7 +6757,7 @@
             "displayId": "P1-S-1",
             "id": "7323dad1-8b91-45f9-9ab6-a459417d5be0",
             "isTextCustomized": false,
-            "lastModified": "2026-11-25T19:08:11.667Z",
+            "lastModified": "2026-11-25T21:30:51.751Z",
             "linkedAssetIds": [
               "ac70a321-b04e-4df2-bc51-1fd5b5179857",
               "56fe0b45-9bfc-457b-8637-ce529dc92038"
