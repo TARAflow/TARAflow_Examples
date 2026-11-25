@@ -2009,7 +2009,7 @@
     "created": "2026-05-22T11:53:20.822Z",
     "description": "Simple Test Project",
     "isHighImpact": false,
-    "lastModified": "2026-11-25T21:06:19.851Z",
+    "lastModified": "2026-11-25T21:09:11.866Z",
     "name": "Simple Test Project",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -6736,7 +6736,7 @@
       "showThreatActor": false,
       "zeroTrustMode": false
     },
-    "lastModified": "2026-11-25T20:33:26.218Z",
+    "lastModified": "2026-11-25T21:09:11.866Z",
     "perElementTables": [
       {
         "displayIdentifier": "[MTB]",
@@ -6801,7 +6801,7 @@
             "displayId": "P1-T-1",
             "id": "fded5d2a-e9c9-47b5-914a-4da5fd4e41e0",
             "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
+            "lastModified": "2026-11-25T21:09:11.866Z",
             "linkedAssetIds": [
               "ac70a321-b04e-4df2-bc51-1fd5b5179857",
               "56fe0b45-9bfc-457b-8637-ce529dc92038"
@@ -6829,6 +6829,7 @@
               }
             ],
             "relevance": "relevant",
+            "relevanceOverridden": false,
             "sequenceNumber": 1,
             "source": "generated:classic",
             "strideCategory": "T",
