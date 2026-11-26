@@ -2009,7 +2009,7 @@
     "created": "2026-05-22T11:53:20.822Z",
     "description": "Simple Test Project",
     "isHighImpact": false,
-    "lastModified": "2026-11-25T21:36:56.474Z",
+    "lastModified": "2026-11-26T16:15:20.628Z",
     "name": "Simple Test Project",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -2223,7 +2223,7 @@
       "useAssetImpact": true,
       "windowOfOpportunity": "moderately_restricted"
     },
-    "lastModified": "2026-11-25T21:36:56.473Z",
+    "lastModified": "2026-11-25T21:37:19.865Z",
     "risks": [
       {
         "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
@@ -2913,7 +2913,7 @@
           }
         ],
         "id": "R-7c60946a-04df-4996-9bf9-bcc833a0e7be",
-        "lastModified": "2026-11-25T21:36:55.319Z",
+        "lastModified": "2026-11-25T21:37:18.708Z",
         "linkedAssetIds": [
           "ac70a321-b04e-4df2-bc51-1fd5b5179857",
           "56fe0b45-9bfc-457b-8637-ce529dc92038"
@@ -3019,13 +3019,13 @@
         "riskBeforeRationale": "",
         "selectedMitigations": [
           {
-            "id": "M-D-001",
+            "id": "M-D-002",
             "status": "open"
           }
         ],
         "selectedVerifications": [
           "V-D-001",
-          "V-D-003"
+          "V-D-002"
         ],
         "sourceStrideMethod": "per-element",
         "strideCategory": "D",
@@ -6703,7 +6703,7 @@
     "validation": {
       "errors": [],
       "isComplete": false,
-      "lastValidated": "2026-11-25T21:36:56.474Z",
+      "lastValidated": "2026-11-25T21:37:19.865Z",
       "warnings": [
         "21 risk(s) have not been rated",
         "20 risk(s) to reduce have no mitigation (P1-R-1, P1-I-1, DB-S-1, DF3-I-1, DF3-D-1, …)",
@@ -6744,7 +6744,7 @@
       "showThreatActor": false,
       "zeroTrustMode": false
     },
-    "lastModified": "2026-11-25T21:30:51.751Z",
+    "lastModified": "2026-11-26T16:12:43.657Z",
     "perElementTables": [
       {
         "displayIdentifier": "[MTB]",
@@ -8738,67 +8738,6 @@
         "displayIdentifier": "[MTB]",
         "threats": [
           {
-            "attackDescription": "Attacker sets up a rogue endpoint pretending to be MyProcess, causing MyExternal to send sensitive data to the attacker",
-            "causeDescription": "Missing endpoint validation before data transmission — MyExternal cannot verify the true identity of the receiving endpoint",
-            "created": "2026-07-02T12:06:26.424Z",
-            "dataFlow": {
-              "connectionId": "7",
-              "dataFlowId": "DF-3",
-              "dataFlowName": "push control command [cmd]",
-              "sourceId": "5",
-              "sourceName": "MyExternal",
-              "sourceType": "ExternalEntity",
-              "targetId": "3",
-              "targetName": "MyProcess",
-              "targetType": "Process"
-            },
-            "displayId": "MTB-DF3-S-OUT-1",
-            "id": "bcdb797f-c0f3-4799-9929-a238bc13c905",
-            "interactionContext": {
-              "attackedRole": "target",
-              "crossesTrustBoundary": true,
-              "direction": "outgoing",
-              "victimRole": "source"
-            },
-            "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
-            "linkedAssetIds": [
-              "ac70a321-b04e-4df2-bc51-1fd5b5179857",
-              "56fe0b45-9bfc-457b-8637-ce529dc92038"
-            ],
-            "linkedElement": null,
-            "proposedMitigations": [
-              {
-                "id": "M-S-001"
-              },
-              {
-                "id": "M-S-002"
-              },
-              {
-                "id": "M-S-005"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-S-001"
-              },
-              {
-                "id": "V-S-003"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "S",
-            "templateId": "S-002",
-            "threatActor": "external",
-            "threatDescription": "Receiver spoofing: Attacker impersonates MyProcess to intercept data from MyExternal",
-            "trustBoundaryDisplayId": "MTB",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "My Trust Boundary [MTB]",
-            "workflowStatus": "open"
-          },
-          {
             "attackDescription": "Attacker intercepts the response from MyProcess and modifies data, causing MyExternal to process falsified information",
             "causeDescription": "Missing integrity protection on the response flow from MyProcess — MyExternal cannot detect modified responses",
             "created": "2026-07-02T12:06:26.426Z",
@@ -8915,247 +8854,6 @@
             "workflowStatus": "open"
           },
           {
-            "attackDescription": "Attacker intercepts the response from MyProcess to MyExternal and reads sensitive information",
-            "causeDescription": "Unencrypted or weakly protected response channel — response data is readable in transit",
-            "created": "2026-07-02T12:06:26.426Z",
-            "dataFlow": {
-              "connectionId": "7",
-              "dataFlowId": "DF-3",
-              "dataFlowName": "push control command [cmd]",
-              "sourceId": "5",
-              "sourceName": "MyExternal",
-              "sourceType": "ExternalEntity",
-              "targetId": "3",
-              "targetName": "MyProcess",
-              "targetType": "Process"
-            },
-            "displayId": "MTB-DF3-I-OUT-1",
-            "id": "03310112-f8e5-4a6a-93c1-f72159cb3aec",
-            "interactionContext": {
-              "attackedRole": "target",
-              "crossesTrustBoundary": true,
-              "direction": "outgoing",
-              "victimRole": "source"
-            },
-            "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
-            "linkedAssetIds": [
-              "ac70a321-b04e-4df2-bc51-1fd5b5179857",
-              "56fe0b45-9bfc-457b-8637-ce529dc92038"
-            ],
-            "linkedElement": null,
-            "proposedMitigations": [
-              {
-                "id": "M-I-001"
-              },
-              {
-                "id": "M-I-002"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-I-001"
-              },
-              {
-                "id": "V-I-002"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "I",
-            "templateId": "I-002",
-            "threatActor": "external",
-            "threatDescription": "Eavesdropping on response: Attacker intercepts sensitive response data from MyProcess",
-            "trustBoundaryDisplayId": "MTB",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "My Trust Boundary [MTB]",
-            "workflowStatus": "open"
-          },
-          {
-            "attackDescription": "Attacker disrupts or delays the response channel from MyProcess, causing MyExternal to stall or fail",
-            "causeDescription": "No redundancy or timeout protection — MyExternal depends on responses from MyProcess to continue operation",
-            "created": "2026-07-02T12:06:26.426Z",
-            "dataFlow": {
-              "connectionId": "7",
-              "dataFlowId": "DF-3",
-              "dataFlowName": "push control command [cmd]",
-              "sourceId": "5",
-              "sourceName": "MyExternal",
-              "sourceType": "ExternalEntity",
-              "targetId": "3",
-              "targetName": "MyProcess",
-              "targetType": "Process"
-            },
-            "displayId": "MTB-DF3-D-OUT-1",
-            "id": "0dd492d6-5279-45da-81f9-28f46da9f14b",
-            "interactionContext": {
-              "attackedRole": "target",
-              "crossesTrustBoundary": true,
-              "direction": "outgoing",
-              "victimRole": "source"
-            },
-            "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
-            "linkedAssetIds": [
-              "ac70a321-b04e-4df2-bc51-1fd5b5179857",
-              "56fe0b45-9bfc-457b-8637-ce529dc92038"
-            ],
-            "linkedElement": null,
-            "proposedMitigations": [
-              {
-                "id": "M-D-001"
-              },
-              {
-                "id": "M-D-003"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-D-001"
-              },
-              {
-                "id": "V-D-003"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "D",
-            "templateId": "D-002",
-            "threatActor": "external",
-            "threatDescription": "Response blocking: Attacker prevents MyExternal from receiving responses from MyProcess",
-            "trustBoundaryDisplayId": "MTB",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "My Trust Boundary [MTB]",
-            "workflowStatus": "open"
-          },
-          {
-            "attackDescription": "Attacker modifies the response from MyProcess to include elevated roles or permissions, causing MyExternal to grant unauthorized access",
-            "causeDescription": "MyExternal trusts response data from MyProcess without integrity verification, enabling privilege decisions based on forged responses",
-            "created": "2026-07-02T12:06:26.427Z",
-            "dataFlow": {
-              "connectionId": "7",
-              "dataFlowId": "DF-3",
-              "dataFlowName": "push control command [cmd]",
-              "sourceId": "5",
-              "sourceName": "MyExternal",
-              "sourceType": "ExternalEntity",
-              "targetId": "3",
-              "targetName": "MyProcess",
-              "targetType": "Process"
-            },
-            "displayId": "MTB-DF3-E-OUT-1",
-            "id": "df718a47-2cca-44a5-b21f-10db391fbeb4",
-            "interactionContext": {
-              "attackedRole": "target",
-              "crossesTrustBoundary": true,
-              "direction": "outgoing",
-              "victimRole": "source"
-            },
-            "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
-            "linkedAssetIds": [
-              "ac70a321-b04e-4df2-bc51-1fd5b5179857",
-              "56fe0b45-9bfc-457b-8637-ce529dc92038"
-            ],
-            "linkedElement": null,
-            "proposedMitigations": [
-              {
-                "id": "M-E-001"
-              },
-              {
-                "id": "M-E-002"
-              },
-              {
-                "id": "M-E-003"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-E-001"
-              },
-              {
-                "id": "V-E-002"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "E",
-            "templateId": "E-002",
-            "threatActor": "external",
-            "threatDescription": "Response manipulation for privilege escalation: Attacker manipulates response to gain elevated access in MyExternal",
-            "trustBoundaryDisplayId": "MTB",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "My Trust Boundary [MTB]",
-            "workflowStatus": "open"
-          },
-          {
-            "attackDescription": "Attacker forges the identity of MyExternal and sends malicious data to MyProcess, which processes it as legitimate",
-            "causeDescription": "Missing sender authentication on incoming data flow — MyProcess cannot verify the true origin of received data",
-            "created": "2026-07-02T12:06:26.427Z",
-            "dataFlow": {
-              "connectionId": "7",
-              "dataFlowId": "DF-3",
-              "dataFlowName": "push control command [cmd]",
-              "sourceId": "5",
-              "sourceName": "MyExternal",
-              "sourceType": "ExternalEntity",
-              "targetId": "3",
-              "targetName": "MyProcess",
-              "targetType": "Process"
-            },
-            "displayId": "MTB-DF3-S-IN-1",
-            "id": "1ca9c118-1700-4062-b842-40ea1bb986b5",
-            "interactionContext": {
-              "attackedRole": "source",
-              "crossesTrustBoundary": true,
-              "direction": "incoming",
-              "victimRole": "target"
-            },
-            "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
-            "linkedAssetIds": [
-              "ac70a321-b04e-4df2-bc51-1fd5b5179857",
-              "56fe0b45-9bfc-457b-8637-ce529dc92038"
-            ],
-            "linkedElement": null,
-            "proposedMitigations": [
-              {
-                "id": "M-S-001"
-              },
-              {
-                "id": "M-S-002"
-              },
-              {
-                "id": "M-S-004"
-              },
-              {
-                "id": "M-S-008"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-S-001"
-              },
-              {
-                "id": "V-S-003"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "S",
-            "templateId": "S-001",
-            "threatActor": "external",
-            "threatDescription": "Sender spoofing: Attacker impersonates MyExternal to deceive MyProcess",
-            "trustBoundaryDisplayId": "MTB",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "My Trust Boundary [MTB]",
-            "workflowStatus": "open"
-          },
-          {
             "attackDescription": "Attacker intercepts the data flow from MyExternal and modifies commands or payload before delivery to MyProcess",
             "causeDescription": "Missing integrity protection on the data flow from MyExternal — data arrives without tamper evidence",
             "created": "2026-07-02T12:06:26.427Z",
@@ -9266,183 +8964,6 @@
             "templateId": "R-001",
             "threatActor": "external",
             "threatDescription": "Sender repudiation: MyExternal denies sending the request or data",
-            "trustBoundaryDisplayId": "MTB",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "My Trust Boundary [MTB]",
-            "workflowStatus": "open"
-          },
-          {
-            "attackDescription": "Attacker passively monitors the data flow and reads sensitive payload transmitted from MyExternal to MyProcess",
-            "causeDescription": "Unencrypted or weakly protected communication channel between MyExternal and MyProcess",
-            "created": "2026-07-02T12:06:26.427Z",
-            "dataFlow": {
-              "connectionId": "7",
-              "dataFlowId": "DF-3",
-              "dataFlowName": "push control command [cmd]",
-              "sourceId": "5",
-              "sourceName": "MyExternal",
-              "sourceType": "ExternalEntity",
-              "targetId": "3",
-              "targetName": "MyProcess",
-              "targetType": "Process"
-            },
-            "displayId": "MTB-DF3-I-IN-1",
-            "id": "b54c09a4-e05a-4025-b179-1a80403e2fcc",
-            "interactionContext": {
-              "attackedRole": "source",
-              "crossesTrustBoundary": true,
-              "direction": "incoming",
-              "victimRole": "target"
-            },
-            "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
-            "linkedAssetIds": [
-              "ac70a321-b04e-4df2-bc51-1fd5b5179857",
-              "56fe0b45-9bfc-457b-8637-ce529dc92038"
-            ],
-            "linkedElement": null,
-            "proposedMitigations": [
-              {
-                "id": "M-I-001"
-              },
-              {
-                "id": "M-I-002"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-I-001"
-              },
-              {
-                "id": "V-I-002"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "I",
-            "templateId": "I-001",
-            "threatActor": "external",
-            "threatDescription": "Eavesdropping on incoming data: Attacker intercepts sensitive data flowing to MyProcess",
-            "trustBoundaryDisplayId": "MTB",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "My Trust Boundary [MTB]",
-            "workflowStatus": "open"
-          },
-          {
-            "attackDescription": "Attacker sends a high volume of requests via the data flow, exhausting the processing capacity of MyProcess",
-            "causeDescription": "No rate limiting or request throttling protecting MyProcess from high-volume input via MyExternal",
-            "created": "2026-07-02T12:06:26.427Z",
-            "dataFlow": {
-              "connectionId": "7",
-              "dataFlowId": "DF-3",
-              "dataFlowName": "push control command [cmd]",
-              "sourceId": "5",
-              "sourceName": "MyExternal",
-              "sourceType": "ExternalEntity",
-              "targetId": "3",
-              "targetName": "MyProcess",
-              "targetType": "Process"
-            },
-            "displayId": "MTB-DF3-D-IN-1",
-            "id": "8c523be1-a6dc-49fd-b3a3-8b8f92efde46",
-            "interactionContext": {
-              "attackedRole": "source",
-              "crossesTrustBoundary": true,
-              "direction": "incoming",
-              "victimRole": "target"
-            },
-            "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
-            "linkedAssetIds": [
-              "ac70a321-b04e-4df2-bc51-1fd5b5179857",
-              "56fe0b45-9bfc-457b-8637-ce529dc92038"
-            ],
-            "linkedElement": null,
-            "proposedMitigations": [
-              {
-                "id": "M-D-001"
-              },
-              {
-                "id": "M-D-003"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-D-001"
-              },
-              {
-                "id": "V-D-003"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "D",
-            "templateId": "D-001",
-            "threatActor": "external",
-            "threatDescription": "Request flooding: Attacker overwhelms MyProcess with excessive incoming requests",
-            "trustBoundaryDisplayId": "MTB",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "My Trust Boundary [MTB]",
-            "workflowStatus": "open"
-          },
-          {
-            "attackDescription": "Attacker injects malicious commands or payloads into the data flow, which MyProcess executes with its own privilege level",
-            "causeDescription": "Insufficient input validation in MyProcess — incoming data from MyExternal is processed with elevated trust",
-            "created": "2026-07-02T12:06:26.427Z",
-            "dataFlow": {
-              "connectionId": "7",
-              "dataFlowId": "DF-3",
-              "dataFlowName": "push control command [cmd]",
-              "sourceId": "5",
-              "sourceName": "MyExternal",
-              "sourceType": "ExternalEntity",
-              "targetId": "3",
-              "targetName": "MyProcess",
-              "targetType": "Process"
-            },
-            "displayId": "MTB-DF3-E-IN-1",
-            "id": "ed06a7cf-4a89-44eb-9225-bca6784c2ffa",
-            "interactionContext": {
-              "attackedRole": "source",
-              "crossesTrustBoundary": true,
-              "direction": "incoming",
-              "victimRole": "target"
-            },
-            "isTextCustomized": false,
-            "lastModified": "2026-07-31T19:51:55.598Z",
-            "linkedAssetIds": [
-              "ac70a321-b04e-4df2-bc51-1fd5b5179857",
-              "56fe0b45-9bfc-457b-8637-ce529dc92038"
-            ],
-            "linkedElement": null,
-            "proposedMitigations": [
-              {
-                "id": "M-E-001"
-              },
-              {
-                "id": "M-E-002"
-              },
-              {
-                "id": "M-E-003"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-E-001"
-              },
-              {
-                "id": "V-E-002"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "E",
-            "templateId": "E-001",
-            "threatActor": "external",
-            "threatDescription": "Command injection: Attacker injects commands via data flow to escalate privileges in MyProcess",
             "trustBoundaryDisplayId": "MTB",
             "trustBoundaryId": "2",
             "trustBoundaryName": "My Trust Boundary [MTB]",
@@ -10708,56 +10229,6 @@
             "workflowStatus": "open"
           },
           {
-            "attackDescription": "Attacker forges the identity of Device Boundary [DB] and sends malicious data to Device Boundary [DB], which processes it as legitimate",
-            "causeDescription": "Missing sender authentication on incoming data flow — Device Boundary [DB] cannot verify the true origin of received data",
-            "created": "2026-07-02T12:06:26.430Z",
-            "dataFlow": null,
-            "displayId": "DB-IFDB-S-IN-1",
-            "id": "a6fb6e7d-93ce-4d35-8748-6c2cb064b061",
-            "isTextCustomized": false,
-            "lastModified": "2026-07-02T12:06:26.430Z",
-            "linkedAssetIds": [],
-            "linkedElement": {
-              "displayId": "DB",
-              "elementId": "15",
-              "elementName": "Device Boundary [DB]",
-              "elementType": "PhysicalBoundary"
-            },
-            "proposedMitigations": [
-              {
-                "id": "M-S-001"
-              },
-              {
-                "id": "M-S-002"
-              },
-              {
-                "id": "M-S-004"
-              },
-              {
-                "id": "M-S-008"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-S-001"
-              },
-              {
-                "id": "V-S-003"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "S",
-            "templateId": "S-001",
-            "threatActor": "external",
-            "threatDescription": "Sender spoofing: Attacker impersonates Device Boundary [DB] to deceive Device Boundary [DB]",
-            "trustBoundaryDisplayId": "DB",
-            "trustBoundaryId": "15",
-            "trustBoundaryName": "Device Boundary [DB]",
-            "workflowStatus": "open"
-          },
-          {
             "attackDescription": "Attacker intercepts the data flow from Device Boundary [DB] and modifies commands or payload before delivery to Device Boundary [DB]",
             "causeDescription": "Missing integrity protection on the data flow from Device Boundary [DB] — data arrives without tamper evidence",
             "created": "2026-07-02T12:06:26.430Z",
@@ -10796,50 +10267,6 @@
             "templateId": "T-001",
             "threatActor": "external",
             "threatDescription": "Data tampering on incoming flow: Attacker modifies data before it reaches Device Boundary [DB]",
-            "trustBoundaryDisplayId": "DB",
-            "trustBoundaryId": "15",
-            "trustBoundaryName": "Device Boundary [DB]",
-            "workflowStatus": "open"
-          },
-          {
-            "attackDescription": "Device Boundary [DB] claims it never sent the command or data that Device Boundary [DB] received and acted upon",
-            "causeDescription": "No non-repudiation mechanism on the data flow — requests from Device Boundary [DB] are not signed or cryptographically bound to the sender",
-            "created": "2026-07-02T12:06:26.430Z",
-            "dataFlow": null,
-            "displayId": "DB-IFDB-R-IN-1",
-            "id": "bb93b630-7530-4001-a877-087986bd5c09",
-            "isTextCustomized": false,
-            "lastModified": "2026-07-02T12:06:26.430Z",
-            "linkedAssetIds": [],
-            "linkedElement": {
-              "displayId": "DB",
-              "elementId": "15",
-              "elementName": "Device Boundary [DB]",
-              "elementType": "PhysicalBoundary"
-            },
-            "proposedMitigations": [
-              {
-                "id": "M-R-001"
-              },
-              {
-                "id": "M-R-002"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-R-001"
-              },
-              {
-                "id": "V-R-002"
-              }
-            ],
-            "relevance": "unrated",
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "R",
-            "templateId": "R-001",
-            "threatActor": "external",
-            "threatDescription": "Sender repudiation: Device Boundary [DB] denies sending the request or data",
             "trustBoundaryDisplayId": "DB",
             "trustBoundaryId": "15",
             "trustBoundaryName": "Device Boundary [DB]",
