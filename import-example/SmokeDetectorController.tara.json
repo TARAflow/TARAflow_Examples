@@ -12555,7 +12555,7 @@
     "created": "2026-05-22T17:36:25.709Z",
     "description": "Machine TARA for the import example (0.19): a fire panel controller. The smoke detector is not analysed here — it is imported as a component (DFD tab → Import component).",
     "isHighImpact": false,
-    "lastModified": "2026-11-20T08:15:39.646Z",
+    "lastModified": "2026-11-26T23:54:33.878Z",
     "name": "Smoke Detector Controller",
     "responsible": "JPM",
     "safetyRelevant": false,
@@ -12583,7 +12583,7 @@
     "connection": {
       "credentials": {
         "authMethod": "pat",
-        "baseUrl": "https://bbv-team-aqj7rcth.atlassian.net",
+        "baseUrl": "https://example.atlassian.net",
         "projectKey": "SCRUM"
       },
       "projectName": "SCRUM",
@@ -12609,7 +12609,7 @@
     "3": "complete",
     "4": "complete",
     "5": "not-started",
-    "6": "complete",
+    "6": "in-progress",
     "7": "not-started",
     "8": "not-started",
     "9": "not-started"
@@ -12743,7 +12743,7 @@
           "weight": 1
         }
       ],
-      "activeStrideMethod": "per-interaction",
+      "activeStrideMethod": "per-element",
       "assetImpactMapping": {
         "CRITICAL": 4,
         "HIGH": 3,
@@ -12757,13 +12757,12 @@
       "impactWeightSource": "asset",
       "likelihoodMethod": "weighted-mean",
       "method": "complex",
-      "pendingSafetySourceRemoval": false,
       "roundingMethod": "round",
       "scale": "4-level",
       "showIndividualFactors": false,
       "useAssetImpact": true
     },
-    "lastModified": "2026-11-10T09:00:00.000Z",
+    "lastModified": "2026-11-26T23:54:33.877Z",
     "risks": [
       {
         "attackDescription": "Attacker injects malformed or malicious input data that causes the process to behave incorrectly",
@@ -23602,13 +23601,6281 @@
         "treatment": "reduce",
         "treatmentJustification": "",
         "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No deterministic fail-safe output state defined — actuator outputs are unpredictable under fault",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp3f89a5cdbc80",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-FSAFE-001",
+            "isCustom": false,
+            "text": "Define and implement a deterministic fail-safe output state for all process outputs (CR 3.6)"
+          },
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-FSAFE-001",
+            "isCustom": false,
+            "text": "Test fail-safe output state under simulated attack or communication loss — verify defined safe state is reached"
+          },
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "T",
+        "threatDescription": "Undefined fail-safe output state — process outputs reach arbitrary values on communication loss",
+        "threatDisplayId": "SDC1:P2-T-1",
+        "threatId": "cmp3f89a5cdbc80",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker observes process output and extracts sensitive configuration data, credentials, or business information",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Process outputs or error messages contain sensitive information — no output filtering applied",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp8fc42cf0e0c8",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-002",
+            "isCustom": false,
+            "text": "Encrypt data in transit using TLS 1.3"
+          },
+          {
+            "id": "M-I-005",
+            "isCustom": false,
+            "text": "Apply data masking for sensitive information"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-I-004",
+            "isCustom": false,
+            "text": "Security scanning (Lynis, Nessus, OpenVAS)"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "I",
+        "threatDescription": "Process data leakage — sensitive data processed by the process is exposed",
+        "threatDisplayId": "SDC1:P2-I-1",
+        "threatId": "cmp8fc42cf0e0c8",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker sends high volume of requests consuming all available CPU, memory, or file handles",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No resource limits or rate limiting — process allocates unbounded resources in response to requests",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp28201ee89d3e",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-002",
+            "isCustom": false,
+            "text": "Implement quotas and resource limits"
+          },
+          {
+            "id": "M-D-005",
+            "isCustom": false,
+            "text": "Use load balancing to distribute traffic"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-D-002",
+            "isCustom": false,
+            "text": "DDoS simulation testing"
+          },
+          {
+            "id": "V-D-003",
+            "isCustom": false,
+            "text": "Rate limiting effectiveness testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "D",
+        "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
+        "threatDisplayId": "SDC1:P2-D-1",
+        "threatId": "cmp28201ee89d3e",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker exploits a process vulnerability to execute code or trigger operations with elevated privileges",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Insufficient input validation or privilege boundary enforcement in the process",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpd0e85a316deb",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-E-001",
+            "isCustom": false,
+            "text": "Apply least privilege principle"
+          },
+          {
+            "id": "M-E-002",
+            "isCustom": false,
+            "text": "Implement proper ACLs and role-based access control"
+          },
+          {
+            "id": "M-E-003",
+            "isCustom": false,
+            "text": "Implement strict input validation"
+          },
+          {
+            "id": "M-E-005",
+            "isCustom": false,
+            "text": "Use sandboxing to isolate processes"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-E-001",
+            "isCustom": false,
+            "text": "Privilege escalation penetration testing"
+          },
+          {
+            "id": "V-E-002",
+            "isCustom": false,
+            "text": "Authorization bypass testing (OWASP ZAP, Burp Suite)"
+          },
+          {
+            "id": "V-E-003",
+            "isCustom": false,
+            "text": "SAST code review (SonarQube, Checkmarx)"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "E",
+        "threatDescription": "Privilege escalation via process vulnerability — attacker gains elevated privileges through process flaw",
+        "threatDisplayId": "SDC1:P2-E-1",
+        "threatId": "cmpd0e85a316deb",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No deterministic fail-safe output state defined — actuator outputs are unpredictable under fault",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp5402314594a6",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-FSAFE-001",
+            "isCustom": false,
+            "text": "Define and implement a deterministic fail-safe output state for all process outputs (CR 3.6)"
+          },
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-FSAFE-001",
+            "isCustom": false,
+            "text": "Test fail-safe output state under simulated attack or communication loss — verify defined safe state is reached"
+          },
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "T",
+        "threatDescription": "Undefined fail-safe output state — process outputs reach arbitrary values on communication loss",
+        "threatDisplayId": "SDC1:P3-T-1",
+        "threatId": "cmp5402314594a6",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker observes process output and extracts sensitive configuration data, credentials, or business information",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Process outputs or error messages contain sensitive information — no output filtering applied",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp902c1ca55de4",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-002",
+            "isCustom": false,
+            "text": "Encrypt data in transit using TLS 1.3"
+          },
+          {
+            "id": "M-I-005",
+            "isCustom": false,
+            "text": "Apply data masking for sensitive information"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-I-004",
+            "isCustom": false,
+            "text": "Security scanning (Lynis, Nessus, OpenVAS)"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "I",
+        "threatDescription": "Process data leakage — sensitive data processed by the process is exposed",
+        "threatDisplayId": "SDC1:P3-I-1",
+        "threatId": "cmp902c1ca55de4",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker sends high volume of requests consuming all available CPU, memory, or file handles",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No resource limits or rate limiting — process allocates unbounded resources in response to requests",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpfae5ff1fe6f8",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-002",
+            "isCustom": false,
+            "text": "Implement quotas and resource limits"
+          },
+          {
+            "id": "M-D-005",
+            "isCustom": false,
+            "text": "Use load balancing to distribute traffic"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-D-002",
+            "isCustom": false,
+            "text": "DDoS simulation testing"
+          },
+          {
+            "id": "V-D-003",
+            "isCustom": false,
+            "text": "Rate limiting effectiveness testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "D",
+        "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
+        "threatDisplayId": "SDC1:P3-D-1",
+        "threatId": "cmpfae5ff1fe6f8",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker disables Secure Boot to execute malicious firmware that persists across device resets",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Secure Boot is not enforced or can be bypassed via debug interface",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp940c586e4cce",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-CB-E-001",
+            "isCustom": false,
+            "text": "Lock or disable JTAG/SWD debug interface via OTP fuse before production release"
+          },
+          {
+            "id": "M-CB-E-002",
+            "isCustom": false,
+            "text": "Apply RDP Level 2 — full JTAG disable with automatic mass-erase on tamper attempt"
+          },
+          {
+            "id": "M-E-001",
+            "isCustom": false,
+            "text": "Apply least privilege principle"
+          },
+          {
+            "id": "M-E-007",
+            "isCustom": false,
+            "text": "Implement application whitelisting — only explicitly authorized binaries may execute"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-CB-E-001",
+            "isCustom": false,
+            "text": "Verify JTAG/SWD interface is locked via OTP/fuse in production units"
+          },
+          {
+            "id": "V-E-001",
+            "isCustom": false,
+            "text": "Privilege escalation penetration testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "E",
+        "threatDescription": "Secure boot bypass on embedded system — attacker bypasses firmware signature verification",
+        "threatDisplayId": "SDC1:P3-E-1",
+        "threatId": "cmp940c586e4cce",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker replaces embedded process firmware to disable security checks or introduce a backdoor",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No cryptographic code signing on embedded process firmware",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpf74284ab27e3",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-CB-T-001",
+            "isCustom": false,
+            "text": "Enable Secure Boot with cryptographic signature verification of the boot chain"
+          },
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          },
+          {
+            "id": "M-IF-T-001",
+            "isCustom": false,
+            "text": "Physical tamper detection and secure boot mechanisms"
+          },
+          {
+            "id": "M-T-006",
+            "isCustom": false,
+            "text": "Enforce cryptographic code signing — only firmware signed with a trusted key is accepted for execution"
+          },
+          {
+            "id": "M-T-007",
+            "isCustom": false,
+            "text": "Require cryptographically signed firmware updates — reject unsigned or unverifiable images"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-CB-T-001",
+            "isCustom": false,
+            "text": "Verify Secure Boot is enabled and boot chain is cryptographically verified"
+          },
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "T",
+        "threatDescription": "Embedded process firmware tampering — attacker modifies firmware of embedded process component",
+        "threatDisplayId": "SDC1:P4-T-1",
+        "threatId": "cmpf74284ab27e3",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Process or its operator denies having executed a command that affected the system",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Audit log is absent, incomplete, or not tamper-proof",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp6ed3221207f1",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-R-001",
+            "isCustom": false,
+            "text": "Implement secure, tamper-proof logging"
+          },
+          {
+            "id": "M-R-002",
+            "isCustom": false,
+            "text": "Use digital signatures for non-repudiation"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-R-001",
+            "isCustom": false,
+            "text": "Audit log completeness and integrity testing"
+          },
+          {
+            "id": "V-R-003",
+            "isCustom": false,
+            "text": "Timestamp accuracy and source verification"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "R",
+        "threatDescription": "Process action repudiation — process denies having performed an action",
+        "threatDisplayId": "SDC1:P4-R-1",
+        "threatId": "cmp6ed3221207f1",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker uses debug interface or firmware extraction to read memory and recover cryptographic keys",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Authenticator storage is software-only — keys reside in flash or RAM without hardware protection",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp4de987186b34",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-006",
+            "isCustom": false,
+            "text": "Store cryptographic keys and credentials in hardware-protected storage (TPM, Secure Element, HSM)"
+          },
+          {
+            "id": "M-CB-I-001",
+            "isCustom": false,
+            "text": "Apply side-channel countermeasures (power analysis protection, timing attack resistance)"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-CB-I-001",
+            "isCustom": false,
+            "text": "Verify side-channel countermeasures are implemented (power analysis, timing)"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "I",
+        "threatDescription": "Cryptographic keys in software-only storage — extractable via memory dump or debug access",
+        "threatDisplayId": "SDC1:P4-I-1",
+        "threatId": "cmp4de987186b34",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker sends high volume of requests consuming all available CPU, memory, or file handles",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No resource limits or rate limiting — process allocates unbounded resources in response to requests",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp3ea2bfc4e2d7",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-002",
+            "isCustom": false,
+            "text": "Implement quotas and resource limits"
+          },
+          {
+            "id": "M-D-005",
+            "isCustom": false,
+            "text": "Use load balancing to distribute traffic"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-D-002",
+            "isCustom": false,
+            "text": "DDoS simulation testing"
+          },
+          {
+            "id": "V-D-003",
+            "isCustom": false,
+            "text": "Rate limiting effectiveness testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "D",
+        "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
+        "threatDisplayId": "SDC1:P4-D-1",
+        "threatId": "cmp3ea2bfc4e2d7",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker disables Secure Boot to execute malicious firmware that persists across device resets",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Secure Boot is not enforced or can be bypassed via debug interface",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp761334be1019",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-CB-E-001",
+            "isCustom": false,
+            "text": "Lock or disable JTAG/SWD debug interface via OTP fuse before production release"
+          },
+          {
+            "id": "M-CB-E-002",
+            "isCustom": false,
+            "text": "Apply RDP Level 2 — full JTAG disable with automatic mass-erase on tamper attempt"
+          },
+          {
+            "id": "M-E-001",
+            "isCustom": false,
+            "text": "Apply least privilege principle"
+          },
+          {
+            "id": "M-E-007",
+            "isCustom": false,
+            "text": "Implement application whitelisting — only explicitly authorized binaries may execute"
+          },
+          {
+            "id": "M-E-002",
+            "isCustom": false,
+            "text": "Implement proper ACLs and role-based access control"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-CB-E-001",
+            "isCustom": false,
+            "text": "Verify JTAG/SWD interface is locked via OTP/fuse in production units"
+          },
+          {
+            "id": "V-E-001",
+            "isCustom": false,
+            "text": "Privilege escalation penetration testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "E",
+        "threatDescription": "Secure boot bypass on embedded system — attacker bypasses firmware signature verification",
+        "threatDisplayId": "SDC1:P4-E-1",
+        "threatId": "cmp761334be1019",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No deterministic fail-safe output state defined — actuator outputs are unpredictable under fault",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp5716c772d1bd",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768",
+          "cmpf0cf51f5b8a4"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-FSAFE-001",
+            "isCustom": false,
+            "text": "Define and implement a deterministic fail-safe output state for all process outputs (CR 3.6)"
+          },
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-FSAFE-001",
+            "isCustom": false,
+            "text": "Test fail-safe output state under simulated attack or communication loss — verify defined safe state is reached"
+          },
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "T",
+        "threatDescription": "Undefined fail-safe output state — process outputs reach arbitrary values on communication loss",
+        "threatDisplayId": "SDC1:P1-T-1",
+        "threatId": "cmp5716c772d1bd",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker observes process output and extracts sensitive configuration data, credentials, or business information",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Process outputs or error messages contain sensitive information — no output filtering applied",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp52d3c0de5119",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768",
+          "cmpf0cf51f5b8a4"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-002",
+            "isCustom": false,
+            "text": "Encrypt data in transit using TLS 1.3"
+          },
+          {
+            "id": "M-I-005",
+            "isCustom": false,
+            "text": "Apply data masking for sensitive information"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-I-004",
+            "isCustom": false,
+            "text": "Security scanning (Lynis, Nessus, OpenVAS)"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "I",
+        "threatDescription": "Process data leakage — sensitive data processed by the process is exposed",
+        "threatDisplayId": "SDC1:P1-I-1",
+        "threatId": "cmp52d3c0de5119",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker sends high volume of requests consuming all available CPU, memory, or file handles",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No resource limits or rate limiting — process allocates unbounded resources in response to requests",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp7920f337f6ae",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768",
+          "cmpf0cf51f5b8a4"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-002",
+            "isCustom": false,
+            "text": "Implement quotas and resource limits"
+          },
+          {
+            "id": "M-D-005",
+            "isCustom": false,
+            "text": "Use load balancing to distribute traffic"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-D-002",
+            "isCustom": false,
+            "text": "DDoS simulation testing"
+          },
+          {
+            "id": "V-D-003",
+            "isCustom": false,
+            "text": "Rate limiting effectiveness testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "D",
+        "threatDescription": "Process resource exhaustion — attacker exhausts process resources causing denial of service",
+        "threatDisplayId": "SDC1:P1-D-1",
+        "threatId": "cmp7920f337f6ae",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker intercepts and modifies values before they reach the destination",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Data flow is unprotected — no integrity check or encryption prevents modification",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp9959714c0beb",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          },
+          {
+            "id": "M-T-002",
+            "isCustom": false,
+            "text": "Use digital signatures for data integrity"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          },
+          {
+            "id": "V-T-002",
+            "isCustom": false,
+            "text": "Fuzzing tests for input validation (AFL, Peach, Radamsa)"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "T",
+        "threatDescription": "Data flow tampering — attacker modifies data in transit between components",
+        "threatDisplayId": "SDC1:DF7-T-1",
+        "threatId": "cmp9959714c0beb",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker passively monitors the data flow and captures sensitive data",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Data flow is unencrypted — sensitive payload is transmitted in plaintext",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpc4cf58884eae",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-001",
+            "isCustom": false,
+            "text": "Encrypt data at rest using AES-256"
+          },
+          {
+            "id": "M-I-002",
+            "isCustom": false,
+            "text": "Encrypt data in transit using TLS 1.3"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-I-002",
+            "isCustom": false,
+            "text": "Network traffic analysis for unencrypted data"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "I",
+        "threatDescription": "Data flow eavesdropping — attacker intercepts sensitive data on the data flow",
+        "threatDisplayId": "SDC1:DF7-I-1",
+        "threatId": "cmpc4cf58884eae",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker blocks or corrupts the data flow causing dependent components to lose communication",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No redundancy or timeout protection — disruption causes loss of communication",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp42ce7b28936e",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-003",
+            "isCustom": false,
+            "text": "Use ACLs or filtering to restrict access"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-D-003",
+            "isCustom": false,
+            "text": "Rate limiting effectiveness testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "D",
+        "threatDescription": "Data flow disruption — attacker blocks or delays the data flow",
+        "threatDisplayId": "SDC1:DF7-D-1",
+        "threatId": "cmp42ce7b28936e",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker places a rogue node on the OT network and sends write commands to modify setpoints or controller configuration",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "OT protocol data flow is configured with read-write access — any node can issue write commands without authorization",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp87c760504ba5",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmp83ad7ae0b54f"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-010",
+            "isCustom": false,
+            "text": "Restrict data flow to read-only access — disable write/command registers at protocol level"
+          },
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          },
+          {
+            "id": "M-I-007",
+            "isCustom": false,
+            "text": "Apply data minimization — expose only necessary registers or topics; filter or aggregate at source"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          },
+          {
+            "id": "V-IF-T-001",
+            "isCustom": false,
+            "text": "Physical tamper inspection — verify tamper-evident seals and enclosure integrity"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "T",
+        "threatDescription": "Unauthorized write access via OT protocol — attacker modifies process values or configuration",
+        "threatDisplayId": "SDC1:DF9-T-1",
+        "threatId": "cmp87c760504ba5",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker passively monitors the data flow and captures sensitive data",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Data flow is unencrypted — sensitive payload is transmitted in plaintext",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpf5e17fd5e96c",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmp83ad7ae0b54f"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-001",
+            "isCustom": false,
+            "text": "Encrypt data at rest using AES-256"
+          },
+          {
+            "id": "M-I-002",
+            "isCustom": false,
+            "text": "Encrypt data in transit using TLS 1.3"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-I-002",
+            "isCustom": false,
+            "text": "Network traffic analysis for unencrypted data"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "I",
+        "threatDescription": "Data flow eavesdropping — attacker intercepts sensitive data on the data flow",
+        "threatDisplayId": "SDC1:DF9-I-1",
+        "threatId": "cmpf5e17fd5e96c",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker blocks or corrupts the data flow causing dependent components to lose communication",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No redundancy or timeout protection — disruption causes loss of communication",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpc1f4cbb1f42a",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmp83ad7ae0b54f"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-003",
+            "isCustom": false,
+            "text": "Use ACLs or filtering to restrict access"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-D-003",
+            "isCustom": false,
+            "text": "Rate limiting effectiveness testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "D",
+        "threatDescription": "Data flow disruption — attacker blocks or delays the data flow",
+        "threatDisplayId": "SDC1:DF9-D-1",
+        "threatId": "cmpc1f4cbb1f42a",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker splices in a tap device or signal injector and manipulates data in transit without triggering any alarm",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 3,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Data flow runs through a physically accessible cable without physical protection",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp19fcfa15af5d",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-008",
+            "isCustom": false,
+            "text": "Protect physical cable routing with cable duct, conduit, or armored cable to prevent tap and tampering"
+          },
+          {
+            "id": "M-T-009",
+            "isCustom": false,
+            "text": "Secure cable access points with tamper-evident seals or locked enclosures to prevent undetected splicing"
+          },
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-006",
+            "isCustom": false,
+            "text": "Inspect and document physical cable routing protection (duct, conduit, armoring) — photo evidence required"
+          },
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "T",
+        "threatDescription": "Physical cable tampering — data flow manipulated via accessible cable or connector",
+        "threatDisplayId": "SDC1:DF8-T-1",
+        "threatId": "cmp19fcfa15af5d",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker passively monitors the data flow and captures sensitive data",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 3,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Data flow is unencrypted — sensitive payload is transmitted in plaintext",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpfbd9ee1e1405",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-001",
+            "isCustom": false,
+            "text": "Encrypt data at rest using AES-256"
+          },
+          {
+            "id": "M-I-002",
+            "isCustom": false,
+            "text": "Encrypt data in transit using TLS 1.3"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-I-002",
+            "isCustom": false,
+            "text": "Network traffic analysis for unencrypted data"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "I",
+        "threatDescription": "Data flow eavesdropping — attacker intercepts sensitive data on the data flow",
+        "threatDisplayId": "SDC1:DF8-I-1",
+        "threatId": "cmpfbd9ee1e1405",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker blocks or corrupts the data flow causing dependent components to lose communication",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 3,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No redundancy or timeout protection — disruption causes loss of communication",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpeb8b3d8f5d65",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-003",
+            "isCustom": false,
+            "text": "Use ACLs or filtering to restrict access"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-D-003",
+            "isCustom": false,
+            "text": "Rate limiting effectiveness testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-element",
+        "strideCategory": "D",
+        "threatDescription": "Data flow disruption — attacker blocks or delays the data flow",
+        "threatDisplayId": "SDC1:DF8-D-1",
+        "threatId": "cmpeb8b3d8f5d65",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker intercepts the response from Smoke Detector Controller and modifies data, causing Sensor Communication Controller to process falsified information",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Missing integrity protection on the response flow from Smoke Detector Controller — Sensor Communication Controller cannot detect modified responses",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp28f5aa256f24",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          },
+          {
+            "id": "M-T-002",
+            "isCustom": false,
+            "text": "Use digital signatures for data integrity"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          },
+          {
+            "id": "V-T-002",
+            "isCustom": false,
+            "text": "Fuzzing tests for input validation (AFL, Peach, Radamsa)"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "T",
+        "threatDescription": "Response tampering: Attacker modifies response data before it reaches Sensor Communication Controller",
+        "threatDisplayId": "SDC1:SB-DF7-T-OUT-1",
+        "threatId": "cmp28f5aa256f24",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Smoke Detector Controller claims it never received the data from Sensor Communication Controller, or denies having processed it",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No delivery confirmation or cryptographic receipt — Sensor Communication Controller has no proof that Smoke Detector Controller received its data",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpb1f459979bae",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-R-001",
+            "isCustom": false,
+            "text": "Implement secure, tamper-proof logging"
+          },
+          {
+            "id": "M-R-002",
+            "isCustom": false,
+            "text": "Use digital signatures for non-repudiation"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-R-001",
+            "isCustom": false,
+            "text": "Audit log completeness and integrity testing"
+          },
+          {
+            "id": "V-R-003",
+            "isCustom": false,
+            "text": "Timestamp accuracy and source verification"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "R",
+        "threatDescription": "Receiver repudiation: Smoke Detector Controller denies receiving or processing the request",
+        "threatDisplayId": "SDC1:SB-DF7-R-OUT-1",
+        "threatId": "cmpb1f459979bae",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker intercepts the response from Smoke Detector Controller to Sensor Communication Controller and reads sensitive information",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Unencrypted or weakly protected response channel — response data is readable in transit",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpaab82e6a206c",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-001",
+            "isCustom": false,
+            "text": "Encrypt data at rest using AES-256"
+          },
+          {
+            "id": "M-I-002",
+            "isCustom": false,
+            "text": "Encrypt data in transit using TLS 1.3"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-I-002",
+            "isCustom": false,
+            "text": "Network traffic analysis for unencrypted data"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "I",
+        "threatDescription": "Eavesdropping on response: Attacker intercepts sensitive response data from Smoke Detector Controller",
+        "threatDisplayId": "SDC1:SB-DF7-I-OUT-1",
+        "threatId": "cmpaab82e6a206c",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker disrupts or delays the response channel from Smoke Detector Controller, causing Sensor Communication Controller to stall or fail",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No redundancy or timeout protection — Sensor Communication Controller depends on responses from Smoke Detector Controller to continue operation",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpf3d71a3f6f71",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmpd6a16dee9768"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-003",
+            "isCustom": false,
+            "text": "Use ACLs or filtering to restrict access"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-D-003",
+            "isCustom": false,
+            "text": "Rate limiting effectiveness testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "D",
+        "threatDescription": "Response blocking: Attacker prevents Sensor Communication Controller from receiving responses from Smoke Detector Controller",
+        "threatDisplayId": "SDC1:SB-DF7-D-OUT-1",
+        "threatId": "cmpf3d71a3f6f71",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker places a rogue node on the OT network and sends write commands to modify setpoints or controller configuration",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "OT protocol data flow is configured with read-write access — any node can issue write commands without authorization",
+        "created": "2026-11-26T23:54:27.692Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp6a5d638738ac",
+        "lastModified": "2026-11-26T23:54:27.692Z",
+        "linkedAssetIds": [
+          "cmp83ad7ae0b54f"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-010",
+            "isCustom": false,
+            "text": "Restrict data flow to read-only access — disable write/command registers at protocol level"
+          },
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          },
+          {
+            "id": "M-I-007",
+            "isCustom": false,
+            "text": "Apply data minimization — expose only necessary registers or topics; filter or aggregate at source"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          },
+          {
+            "id": "V-IF-T-001",
+            "isCustom": false,
+            "text": "Physical tamper inspection — verify tamper-evident seals and enclosure integrity"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "T",
+        "threatDescription": "Unauthorized write access via OT protocol — attacker modifies process values or configuration",
+        "threatDisplayId": "SDC1:SB-DF9-T-IN-1",
+        "threatId": "cmp6a5d638738ac",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker passively monitors the data flow and reads sensitive payload transmitted from Smoke Detector Controller to Sensor Communication Controller",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Unencrypted or weakly protected communication channel between Smoke Detector Controller and Sensor Communication Controller",
+        "created": "2026-11-26T23:54:27.693Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpde39230fc923",
+        "lastModified": "2026-11-26T23:54:27.693Z",
+        "linkedAssetIds": [
+          "cmp83ad7ae0b54f"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-001",
+            "isCustom": false,
+            "text": "Encrypt data at rest using AES-256"
+          },
+          {
+            "id": "M-I-002",
+            "isCustom": false,
+            "text": "Encrypt data in transit using TLS 1.3"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-I-002",
+            "isCustom": false,
+            "text": "Network traffic analysis for unencrypted data"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "I",
+        "threatDescription": "Eavesdropping on incoming data: Attacker intercepts sensitive data flowing to Sensor Communication Controller",
+        "threatDisplayId": "SDC1:SB-DF9-I-IN-1",
+        "threatId": "cmpde39230fc923",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker floods the fieldbus with high-frequency frames exhausting Sensor Communication Controller communication stack",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Sensor Communication Controller has no rate limiting on its communication interface — all incoming frames are queued and processed",
+        "created": "2026-11-26T23:54:27.693Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 2,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp8990c01f83cd",
+        "lastModified": "2026-11-26T23:54:27.693Z",
+        "linkedAssetIds": [
+          "cmp83ad7ae0b54f"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-003",
+            "isCustom": false,
+            "text": "Use ACLs or filtering to restrict access"
+          },
+          {
+            "id": "M-IF-D-001",
+            "isCustom": false,
+            "text": "Implement physical protection (ESD protection, overcurrent protection, fuses)"
+          },
+          {
+            "id": "M-IF-D-003",
+            "isCustom": false,
+            "text": "Implement rate limiting and lockout on interface to prevent brute-force and flooding attacks"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-IF-D-001",
+            "isCustom": false,
+            "text": "Test interface resilience — apply electrical stress and verify protection mechanisms activate"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "D",
+        "threatDescription": "Fieldbus flooding: Attacker saturates Sensor Communication Controller input buffer via high-frequency frames from Smoke Detector Controller",
+        "threatDisplayId": "SDC1:SB-DF9-D-IN-1",
+        "threatId": "cmp8990c01f83cd",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker forges the identity of Debugger and sends malicious data to Sensor Diagnostic Controller, which processes it as legitimate",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 3,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Missing sender authentication on incoming data flow — Sensor Diagnostic Controller cannot verify the true origin of received data",
+        "created": "2026-11-26T23:54:27.693Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpc321ba6170a7",
+        "lastModified": "2026-11-26T23:54:27.693Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-S-001",
+            "isCustom": false,
+            "text": "Implement multi-factor authentication (MFA)"
+          },
+          {
+            "id": "M-S-002",
+            "isCustom": false,
+            "text": "Use PKI systems and digital certificates"
+          },
+          {
+            "id": "M-S-004",
+            "isCustom": false,
+            "text": "Use digitally signed packets and authenticate code/data"
+          },
+          {
+            "id": "M-S-008",
+            "isCustom": false,
+            "text": "Implement hardware authentication (secure elements, cryptographic chips)"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-S-001",
+            "isCustom": false,
+            "text": "Penetration testing for authentication bypass"
+          },
+          {
+            "id": "V-S-003",
+            "isCustom": false,
+            "text": "Certificate validation testing (SSL Labs, testssl.sh)"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "S",
+        "threatDescription": "Sender spoofing: Attacker impersonates Debugger to deceive Sensor Diagnostic Controller",
+        "threatDisplayId": "SDC1:SB-DF8-S-IN-1",
+        "threatId": "cmpc321ba6170a7",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker attaches a hardware probe to the embedded bus and injects or modifies data packets",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 3,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Embedded bus carries no integrity protection or authentication — data is transmitted in plaintext",
+        "created": "2026-11-26T23:54:27.693Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpedf7af1a55df",
+        "lastModified": "2026-11-26T23:54:27.693Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-001",
+            "isCustom": false,
+            "text": "Implement integrity controls and checksums"
+          },
+          {
+            "id": "M-T-002",
+            "isCustom": false,
+            "text": "Use digital signatures for data integrity"
+          },
+          {
+            "id": "M-T-008",
+            "isCustom": false,
+            "text": "Protect physical cable routing with cable duct, conduit, or armored cable to prevent tap and tampering"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-001",
+            "isCustom": false,
+            "text": "Integrity check validation testing"
+          },
+          {
+            "id": "V-T-002",
+            "isCustom": false,
+            "text": "Fuzzing tests for input validation (AFL, Peach, Radamsa)"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "T",
+        "threatDescription": "Data tampering on embedded bus DF-8 between Debugger and Sensor Diagnostic Controller",
+        "threatDisplayId": "SDC1:SB-DF8-T-IN-1",
+        "threatId": "cmpedf7af1a55df",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Debugger claims it never sent the command or data that Sensor Diagnostic Controller received and acted upon",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 3,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No non-repudiation mechanism on the data flow — requests from Debugger are not signed or cryptographically bound to the sender",
+        "created": "2026-11-26T23:54:27.693Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpfef7a50047a9",
+        "lastModified": "2026-11-26T23:54:27.693Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-R-001",
+            "isCustom": false,
+            "text": "Implement secure, tamper-proof logging"
+          },
+          {
+            "id": "M-R-002",
+            "isCustom": false,
+            "text": "Use digital signatures for non-repudiation"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-R-001",
+            "isCustom": false,
+            "text": "Audit log completeness and integrity testing"
+          },
+          {
+            "id": "V-R-002",
+            "isCustom": false,
+            "text": "Verify digital signature implementation"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "R",
+        "threatDescription": "Sender repudiation: Debugger denies sending the request or data",
+        "threatDisplayId": "SDC1:SB-DF8-R-IN-1",
+        "threatId": "cmpfef7a50047a9",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker attaches a logic analyzer to the embedded bus and captures all traffic",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 3,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "Embedded bus communication is unencrypted and physically accessible — data can be passively captured",
+        "created": "2026-11-26T23:54:27.693Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmpdbe6dd5e7066",
+        "lastModified": "2026-11-26T23:54:27.693Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-I-001",
+            "isCustom": false,
+            "text": "Encrypt data at rest using AES-256"
+          },
+          {
+            "id": "M-I-002",
+            "isCustom": false,
+            "text": "Encrypt data in transit using TLS 1.3"
+          },
+          {
+            "id": "M-IF-I-001",
+            "isCustom": false,
+            "text": "Encrypt data on physical buses (CAN encryption, secure protocols)"
+          },
+          {
+            "id": "M-IF-I-002",
+            "isCustom": false,
+            "text": "Shield cables and use EMI protection to prevent eavesdropping"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-I-001",
+            "isCustom": false,
+            "text": "Encryption strength verification (correct algorithms, key lengths)"
+          },
+          {
+            "id": "V-IF-I-001",
+            "isCustom": false,
+            "text": "Verify data encryption on physical bus — capture traffic and confirm ciphertext only"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "I",
+        "threatDescription": "Eavesdropping on embedded bus DF-8 between Debugger and Sensor Diagnostic Controller",
+        "threatDisplayId": "SDC1:SB-DF8-I-IN-1",
+        "threatId": "cmpdbe6dd5e7066",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker sends a high volume of requests via the data flow, exhausting the processing capacity of Sensor Diagnostic Controller",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 3,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "No rate limiting or request throttling protecting Sensor Diagnostic Controller from high-volume input via Debugger",
+        "created": "2026-11-26T23:54:27.693Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp9a702980a998",
+        "lastModified": "2026-11-26T23:54:27.693Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-D-001",
+            "isCustom": false,
+            "text": "Implement rate limiting and throttling"
+          },
+          {
+            "id": "M-D-003",
+            "isCustom": false,
+            "text": "Use ACLs or filtering to restrict access"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-D-001",
+            "isCustom": false,
+            "text": "Stress testing and load testing (k6, JMeter)"
+          },
+          {
+            "id": "V-D-003",
+            "isCustom": false,
+            "text": "Rate limiting effectiveness testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "D",
+        "threatDescription": "Request flooding: Attacker overwhelms Sensor Diagnostic Controller with excessive incoming requests",
+        "threatDisplayId": "SDC1:SB-DF8-D-IN-1",
+        "threatId": "cmp9a702980a998",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
+      },
+      {
+        "attackDescription": "Attacker uses the DF-8 interface to halt the processor, reads security keys and modifies execution flow to bypass access controls",
+        "calculatedImpact": 0,
+        "calculatedLikelihood": 3,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 0,
+        "causeDescription": "JTAG or SWD interface provides full processor access — attacker can halt CPU and modify execution flow",
+        "created": "2026-11-26T23:54:27.693Z",
+        "factorRatings": [
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "skill_level",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedFrom": "component",
+            "derivedValue": 3,
+            "factorId": "ease_of_exploit",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "id": "R-cmp83c74a0d357e",
+        "lastModified": "2026-11-26T23:54:27.693Z",
+        "linkedAssetIds": [],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 0.2
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 0.25
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 0.15
+          },
+          {
+            "factorId": "safety",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-CB-E-001",
+            "isCustom": false,
+            "text": "Lock or disable JTAG/SWD debug interface via OTP fuse before production release"
+          },
+          {
+            "id": "M-E-001",
+            "isCustom": false,
+            "text": "Apply least privilege principle"
+          },
+          {
+            "id": "M-E-003",
+            "isCustom": false,
+            "text": "Implement strict input validation"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-CB-E-001",
+            "isCustom": false,
+            "text": "Verify JTAG/SWD interface is locked via OTP/fuse in production units"
+          },
+          {
+            "id": "V-E-001",
+            "isCustom": false,
+            "text": "Privilege escalation penetration testing"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "per-interaction",
+        "strideCategory": "E",
+        "threatDescription": "Privilege escalation via DF-8 debug interface on Sensor Diagnostic Controller",
+        "threatDisplayId": "SDC1:SB-DF8-E-IN-1",
+        "threatId": "cmp83c74a0d357e",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
       }
     ],
     "validation": {
       "errors": [],
-      "isComplete": true,
-      "lastValidated": "2026-11-10T09:00:00.000Z",
-      "warnings": []
+      "isComplete": false,
+      "lastValidated": "2026-11-26T23:54:33.878Z",
+      "warnings": [
+        "38 risk(s) have not been rated",
+        "38 risk(s) to reduce have no mitigation (SDC1:P2-T-1, SDC1:P2-I-1, SDC1:P2-D-1, SDC1:P2-E-1, SDC1:P3-T-1, …)"
+      ]
     }
   },
   "schemaVersion": 14,

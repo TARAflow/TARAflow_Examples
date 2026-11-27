@@ -6403,7 +6403,7 @@
     "created": "2026-05-22T17:36:25.709Z",
     "description": "Leveled DFD example: the single-page Smoke Detector split into a System page (MP-1 Sensor Head, MP-2 Smoke Detector Controller) and one child page per multiprocess. Original cell ids are kept, so threats, risks and assets refer to the same logical elements; context copies are linked in dfd.pages.",
     "isHighImpact": false,
-    "lastModified": "2026-11-20T08:03:30.356Z",
+    "lastModified": "2026-11-26T23:53:50.289Z",
     "name": "Smoke Detector (leveled)",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -6570,7 +6570,7 @@
           "weight": 1
         }
       ],
-      "activeStrideMethod": "per-element",
+      "activeStrideMethod": "per-interaction",
       "assetImpactMapping": {
         "CRITICAL": 4,
         "HIGH": 3,
@@ -6590,7 +6590,7 @@
       "treeLikelihoodContribution": "factor",
       "useAssetImpact": true
     },
-    "lastModified": "2026-10-30T22:16:30.323Z",
+    "lastModified": "2026-11-26T23:53:50.287Z",
     "risks": [
       {
         "attackDescription": "Attacker disrupts communication; without a defined fail-safe state, outputs may drive actuators dangerously",
@@ -46146,7 +46146,7 @@
     "validation": {
       "errors": [],
       "isComplete": true,
-      "lastValidated": "2026-10-30T22:16:30.323Z",
+      "lastValidated": "2026-11-26T23:53:50.288Z",
       "warnings": []
     }
   },

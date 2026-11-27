@@ -2114,7 +2114,7 @@
     "created": "2026-05-22T17:36:25.709Z",
     "description": "Component TARA for the import example (0.19): the smoke detector case with its sensor chip (SDS). The external entity \"Smoke Detector Controller\" is the device it is built into; \"Debugger\" is the service access.",
     "isHighImpact": false,
-    "lastModified": "2026-11-20T08:09:19.665Z",
+    "lastModified": "2026-11-26T23:54:42.661Z",
     "name": "Smoke Detector Case",
     "responsible": "JPM",
     "safetyRelevant": false,
@@ -2142,7 +2142,7 @@
     "connection": {
       "credentials": {
         "authMethod": "pat",
-        "baseUrl": "https://example-team.atlassian.net",
+        "baseUrl": "https://example.atlassian.net",
         "projectKey": "SCRUM"
       },
       "projectName": "SCRUM",
@@ -2341,7 +2341,6 @@
       },
       "customFactors": [],
       "method": "complex",
-      "pendingSafetySourceRemoval": true,
       "roundingMethod": "round",
       "scale": "4-level",
       "showIndividualFactors": false,

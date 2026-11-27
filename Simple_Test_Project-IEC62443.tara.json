@@ -69,8 +69,7 @@
             "config"
           ],
           "description": "",
-          "lifecycle": "stored",
-          "protectionNeed": "low"
+          "lifecycle": "stored"
         },
         "securityGoals": [
           {
@@ -136,10 +135,8 @@
         "overallImpact": 0,
         "physicalImpactSource": "derived",
         "properties": {
-          "criticality": "supporting",
           "description": "",
-          "exposure": "internal",
-          "protectionNeed": "medium"
+          "exposure": "internal"
         },
         "securityGoals": [
           {
@@ -215,9 +212,7 @@
         "numericId": 0,
         "overallImpact": 2,
         "physicalImpactSource": "derived",
-        "properties": {
-          "protectionNeed": "high"
-        },
+        "properties": {},
         "securityGoals": [
           {
             "formalDescription": "",
@@ -304,8 +299,7 @@
           "dataType": [
             "measurement"
           ],
-          "lifecycle": "transient",
-          "protectionNeed": "medium"
+          "lifecycle": "transient"
         },
         "securityGoals": [
           {
@@ -696,18 +690,33 @@
         "name": "Integrity Violation",
         "pathAnalysis": {
           "aggregatedFeasibility": "low",
-          "aggregatedLikelihood": 0.63,
+          "aggregatedLikelihood": 0.3024,
           "aggregatedLikelihoodLevel": "low",
-          "analysisDate": "2026-07-26T18:17:21.100Z",
-          "averageRiskScore": 5.966666666666666,
+          "analysisDate": "2026-11-26T23:51:14.188Z",
+          "averageRiskScore": 6.699999999999999,
           "cheapestPath": {
             "attackGoals": [
               "manipulation"
             ],
             "benefits": 0.9,
-            "feasibility": 0.7,
+            "combination": {
+              "gate": [
+                "Data Tampering",
+                "Application Layer",
+                "Input Validation Bypass"
+              ],
+              "legs": [
+                [
+                  "Find Weak Validation"
+                ],
+                [
+                  "Inject Malicious Data"
+                ]
+              ]
+            },
+            "feasibility": 0.42,
             "feasibilityLevel": "low",
-            "id": "path-2",
+            "id": "path-1",
             "impact": 4,
             "isCritical": true,
             "isFullyMitigated": false,
@@ -717,16 +726,17 @@
               "node-6146af2a0c84",
               "node-c392e8166f70",
               "node-6fb9d8e4b07c",
+              "node-f959bb3d5732",
               "node-b111e9ead4c2"
             ],
             "path": [
               "Data Tampering",
               "Application Layer",
               "Input Validation Bypass",
-              "Inject Malicious Data"
+              "Find Weak Validation + Inject Malicious Data"
             ],
-            "pathKey": "b111e9ead4c2",
-            "probability": 0.63,
+            "pathKey": "0f50241382b2",
+            "probability": 0.3024,
             "riskScore": 12.6
           },
           "criticalPaths": [
@@ -735,9 +745,24 @@
                 "manipulation"
               ],
               "benefits": 0.9,
-              "feasibility": 0.7,
+              "combination": {
+                "gate": [
+                  "Data Tampering",
+                  "Application Layer",
+                  "Input Validation Bypass"
+                ],
+                "legs": [
+                  [
+                    "Find Weak Validation"
+                  ],
+                  [
+                    "Inject Malicious Data"
+                  ]
+                ]
+              },
+              "feasibility": 0.42,
               "feasibilityLevel": "low",
-              "id": "path-2",
+              "id": "path-1",
               "impact": 4,
               "isCritical": true,
               "isFullyMitigated": false,
@@ -747,16 +772,17 @@
                 "node-6146af2a0c84",
                 "node-c392e8166f70",
                 "node-6fb9d8e4b07c",
+                "node-f959bb3d5732",
                 "node-b111e9ead4c2"
               ],
               "path": [
                 "Data Tampering",
                 "Application Layer",
                 "Input Validation Bypass",
-                "Inject Malicious Data"
+                "Find Weak Validation + Inject Malicious Data"
               ],
-              "pathKey": "b111e9ead4c2",
-              "probability": 0.63,
+              "pathKey": "0f50241382b2",
+              "probability": 0.3024,
               "riskScore": 12.6
             }
           ],
@@ -765,7 +791,7 @@
             "destruction": 0,
             "disclosure": 0,
             "identity-misuse": 0,
-            "manipulation": 6,
+            "manipulation": 4,
             "privilege-abuse": 0,
             "service-disruption": 0
           },
@@ -777,9 +803,24 @@
                 "manipulation"
               ],
               "benefits": 0.9,
-              "feasibility": 0.7,
+              "combination": {
+                "gate": [
+                  "Data Tampering",
+                  "Application Layer",
+                  "Input Validation Bypass"
+                ],
+                "legs": [
+                  [
+                    "Find Weak Validation"
+                  ],
+                  [
+                    "Inject Malicious Data"
+                  ]
+                ]
+              },
+              "feasibility": 0.42,
               "feasibilityLevel": "low",
-              "id": "path-2",
+              "id": "path-1",
               "impact": 4,
               "isCritical": true,
               "isFullyMitigated": false,
@@ -789,16 +830,17 @@
                 "node-6146af2a0c84",
                 "node-c392e8166f70",
                 "node-6fb9d8e4b07c",
+                "node-f959bb3d5732",
                 "node-b111e9ead4c2"
               ],
               "path": [
                 "Data Tampering",
                 "Application Layer",
                 "Input Validation Bypass",
-                "Inject Malicious Data"
+                "Find Weak Validation + Inject Malicious Data"
               ],
-              "pathKey": "b111e9ead4c2",
-              "probability": 0.63,
+              "pathKey": "0f50241382b2",
+              "probability": 0.3024,
               "riskScore": 12.6
             },
             {
@@ -806,9 +848,23 @@
                 "manipulation"
               ],
               "benefits": 0.8,
-              "feasibility": 0.5,
+              "combination": {
+                "gate": [
+                  "Data Tampering",
+                  "MITM Attack"
+                ],
+                "legs": [
+                  [
+                    "Intercept Communication"
+                  ],
+                  [
+                    "Modify in Transit"
+                  ]
+                ]
+              },
+              "feasibility": 0.15,
               "feasibilityLevel": "very-low",
-              "id": "path-5",
+              "id": "path-3",
               "impact": 4,
               "isCritical": false,
               "isFullyMitigated": false,
@@ -817,45 +873,17 @@
               "nodeIds": [
                 "node-6146af2a0c84",
                 "node-12031a42830a",
+                "node-2f675463b818",
                 "node-1e6631bb0fb8"
               ],
               "path": [
                 "Data Tampering",
                 "MITM Attack",
-                "Modify in Transit"
+                "Intercept Communication + Modify in Transit"
               ],
-              "pathKey": "1e6631bb0fb8",
-              "probability": 0.4,
+              "pathKey": "5e276a2a1fb8",
+              "probability": 0.072,
               "riskScore": 8
-            },
-            {
-              "attackGoals": [
-                "manipulation"
-              ],
-              "benefits": 0.8,
-              "feasibility": 0.6,
-              "feasibilityLevel": "low",
-              "id": "path-1",
-              "impact": 3,
-              "isCritical": false,
-              "isFullyMitigated": false,
-              "likelihoodLevel": "low",
-              "mitigations": [],
-              "nodeIds": [
-                "node-6146af2a0c84",
-                "node-c392e8166f70",
-                "node-6fb9d8e4b07c",
-                "node-f959bb3d5732"
-              ],
-              "path": [
-                "Data Tampering",
-                "Application Layer",
-                "Input Validation Bypass",
-                "Find Weak Validation"
-              ],
-              "pathKey": "f959bb3d5732",
-              "probability": 0.48,
-              "riskScore": 7.199999999999999
             },
             {
               "attackGoals": [
@@ -864,7 +892,7 @@
               "benefits": 0.7,
               "feasibility": 0.4,
               "feasibilityLevel": "low",
-              "id": "path-3",
+              "id": "path-2",
               "impact": 3,
               "isCritical": false,
               "isFullyMitigated": false,
@@ -891,7 +919,7 @@
               "benefits": 0.5,
               "feasibility": 0.2,
               "feasibilityLevel": "very-low",
-              "id": "path-6",
+              "id": "path-4",
               "impact": 4,
               "isCritical": false,
               "isFullyMitigated": false,
@@ -908,50 +936,11 @@
               "pathKey": "f1959649ebf6",
               "probability": 0.1,
               "riskScore": 2
-            },
-            {
-              "attackGoals": [
-                "manipulation"
-              ],
-              "benefits": 0.6,
-              "feasibility": 0.3,
-              "feasibilityLevel": "very-low",
-              "id": "path-4",
-              "impact": 2,
-              "isCritical": false,
-              "isFullyMitigated": false,
-              "likelihoodLevel": "very-low",
-              "mitigations": [],
-              "nodeIds": [
-                "node-6146af2a0c84",
-                "node-12031a42830a",
-                "node-2f675463b818"
-              ],
-              "path": [
-                "Data Tampering",
-                "MITM Attack",
-                "Intercept Communication"
-              ],
-              "pathKey": "2f675463b818",
-              "probability": 0.18,
-              "riskScore": 1.7999999999999998
             }
           ],
-          "totalPaths": 6
+          "totalPaths": 4
         },
         "pathAssessments": [
-          {
-            "lastModified": "2026-07-24T08:55:44.509Z",
-            "pathKey": "f959bb3d5732",
-            "relevance": "relevant",
-            "strideCategory": "T"
-          },
-          {
-            "lastModified": "2026-07-24T08:55:46.174Z",
-            "pathKey": "1e6631bb0fb8",
-            "relevance": "relevant",
-            "strideCategory": "T"
-          },
           {
             "lastModified": "2026-07-24T08:55:47.993Z",
             "pathKey": "b59585ec17df",
@@ -965,22 +954,22 @@
             "strideCategory": "T"
           },
           {
-            "lastModified": "2026-07-24T08:55:51.044Z",
-            "pathKey": "2f675463b818",
-            "relevance": "relevant",
-            "strideCategory": "T"
-          },
-          {
             "lastModified": "2026-07-26T16:21:23.254Z",
             "mitigationIds": [
               "M-T-002"
             ],
-            "pathKey": "b111e9ead4c2",
+            "pathKey": "0f50241382b2",
             "relevance": "relevant",
             "strideCategory": "T",
             "verificationIds": [
               "V-T-001"
             ]
+          },
+          {
+            "lastModified": "2026-07-24T08:55:51.044Z",
+            "pathKey": "5e276a2a1fb8",
+            "relevance": "relevant",
+            "strideCategory": "T"
           }
         ],
         "validation": {
@@ -1497,118 +1486,122 @@
     }
   },
   "compliance": {
-    "deviceCategories": {
-      "categories": [
-        "EDR"
-      ],
-      "source": "manual"
-    },
-    "statements": {
-      "cr-1.1-re1": {
-        "date": "2026-11-02",
-        "evidenceRef": "User manual §3.2",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "Every operator has a personal account; no shared login.",
-        "status": "met"
-      },
-      "cr-1.10": {
-        "date": "2026-11-02",
-        "evidenceRef": "HMI spec §2.4",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "The PIN entry is masked on the display.",
-        "status": "met"
-      },
-      "cr-1.12": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "A configurable login banner is shown before authentication.",
-        "status": "met"
-      },
-      "cr-1.3": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "met",
-        "reasoning": "Accounts are managed by the plant's central directory (LDAP).",
-        "status": "met",
-        "supportingMeasure": "Plant LDAP directory"
-      },
-      "cr-2.10": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "On an audit write error the controller keeps running and raises a maintenance flag.",
-        "status": "met"
-      },
-      "cr-2.11": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "Audit records carry the RTC time stamp.",
-        "status": "met"
-      },
-      "cr-2.11-re1": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "The real-time clock is synchronised with the plant time server (NTP).",
-        "status": "met"
-      },
-      "cr-2.4": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "The firmware executes no mobile code (no scripts, no downloadable plug-ins).",
-        "status": "n/a"
-      },
-      "cr-2.4-re1": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "No mobile code, see EDR 2.4.",
-        "status": "n/a"
-      },
-      "cr-2.9": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "Audit ring buffer of 2 MB; logging never blocks the control loop.",
-        "status": "met"
-      },
-      "cr-3.13": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "Owner keys are provisioned at commissioning with the service tool.",
-        "status": "met"
-      },
-      "cr-3.3": {
-        "date": "2026-11-02",
-        "evidenceRef": "Test report TR-07",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "Crypto self-test and secure-boot check at every start.",
-        "status": "met"
-      },
-      "cr-6.1": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "unknown",
-        "reasoning": "Audit log readable (read-only) via the maintenance interface.",
-        "status": "met"
-      },
-      "cr-7.3": {
-        "date": "2026-11-02",
-        "modelStatusAtStatement": "gap",
-        "reasoning": "The plant engineering station backs up the configuration nightly.",
-        "status": "met",
-        "supportingMeasure": "Engineering station backup"
-      },
-      "cr-7.6": {
-        "date": "2026-11-02",
-        "evidenceRef": "Hardening guide v1.0",
-        "modelStatusAtStatement": "needs-statement",
-        "reasoning": "Delivered with the supplier hardening baseline; settings readable via the service tool.",
-        "status": "met"
+    "families": {
+      "iec-62443-4-2": {
+        "deviceCategories": {
+          "categories": [
+            "EDR"
+          ],
+          "source": "manual"
+        },
+        "statements": {
+          "cr-1.1-re1": {
+            "date": "2026-11-02",
+            "evidenceRef": "User manual §3.2",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "Every operator has a personal account; no shared login.",
+            "status": "met"
+          },
+          "cr-1.10": {
+            "date": "2026-11-02",
+            "evidenceRef": "HMI spec §2.4",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "The PIN entry is masked on the display.",
+            "status": "met"
+          },
+          "cr-1.12": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "A configurable login banner is shown before authentication.",
+            "status": "met"
+          },
+          "cr-1.3": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "met",
+            "reasoning": "Accounts are managed by the plant's central directory (LDAP).",
+            "status": "met",
+            "supportingMeasure": "Plant LDAP directory"
+          },
+          "cr-2.10": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "On an audit write error the controller keeps running and raises a maintenance flag.",
+            "status": "met"
+          },
+          "cr-2.11": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "Audit records carry the RTC time stamp.",
+            "status": "met"
+          },
+          "cr-2.11-re1": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "The real-time clock is synchronised with the plant time server (NTP).",
+            "status": "met"
+          },
+          "cr-2.4": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "The firmware executes no mobile code (no scripts, no downloadable plug-ins).",
+            "status": "n/a"
+          },
+          "cr-2.4-re1": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "No mobile code, see EDR 2.4.",
+            "status": "n/a"
+          },
+          "cr-2.9": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "Audit ring buffer of 2 MB; logging never blocks the control loop.",
+            "status": "met"
+          },
+          "cr-3.13": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "Owner keys are provisioned at commissioning with the service tool.",
+            "status": "met"
+          },
+          "cr-3.3": {
+            "date": "2026-11-02",
+            "evidenceRef": "Test report TR-07",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "Crypto self-test and secure-boot check at every start.",
+            "status": "met"
+          },
+          "cr-6.1": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "unknown",
+            "reasoning": "Audit log readable (read-only) via the maintenance interface.",
+            "status": "met"
+          },
+          "cr-7.3": {
+            "date": "2026-11-02",
+            "modelStatusAtStatement": "gap",
+            "reasoning": "The plant engineering station backs up the configuration nightly.",
+            "status": "met",
+            "supportingMeasure": "Engineering station backup"
+          },
+          "cr-7.6": {
+            "date": "2026-11-02",
+            "evidenceRef": "Hardening guide v1.0",
+            "modelStatusAtStatement": "needs-statement",
+            "reasoning": "Delivered with the supplier hardening baseline; settings readable via the service tool.",
+            "status": "met"
+          }
+        },
+        "target": {
+          "DC": 2,
+          "IAC": 2,
+          "RA": 2,
+          "RDF": 2,
+          "SI": 2,
+          "TRE": 2,
+          "UC": 2
+        }
       }
-    },
-    "target": {
-      "DC": 2,
-      "IAC": 2,
-      "RA": 2,
-      "RDF": 2,
-      "SI": 2,
-      "TRE": 2,
-      "UC": 2
     }
   },
   "dfd": {
@@ -1820,7 +1813,9 @@
           "exposedToInternet": false,
           "failSafeOutputState": "fixed_value",
           "inputValidation": "strict",
-          "malwareProtection": "code_signing",
+          "malwareProtection": [
+            "code_signing"
+          ],
           "nonRepudiation": "audit_log",
           "owner": "d",
           "privilegeLevel": "low",
@@ -1832,7 +1827,9 @@
             "sessionLockEnabled": true
           },
           "technology": "bare_metal",
-          "tlsTermination": "none"
+          "tlsTermination": [
+            "none"
+          ]
         },
         "size": {
           "height": 30,
@@ -2172,7 +2169,7 @@
     "created": "2026-05-22T11:53:20.822Z",
     "description": "Simple Test Project\n\nTest example for the Compliance tab (IEC 62443-4-2:2019): every status of the requirement matrix appears once — met by the model, by a mitigation, by a statement (also with a supporting measure), a deliberate gap against the target, an unknown property, a contradiction between a mitigation marked done and the model, a statement whose model result changed since.",
     "isHighImpact": false,
-    "lastModified": "2026-11-02T10:24:47.267Z",
+    "lastModified": "2026-11-27T07:48:38.597Z",
     "name": "Simple Test Project – IEC 62443-4-2",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -2199,7 +2196,7 @@
     "connection": {
       "credentials": {
         "authMethod": "pat",
-        "baseUrl": "https://bbv-team-aqj7rcth.atlassian.net/",
+        "baseUrl": "https://example.atlassian.net/",
         "projectKey": "SCRUM"
       },
       "projectName": "SCRUM",
@@ -2368,7 +2365,7 @@
           "weight": 1
         }
       ],
-      "activeStrideMethod": "per-element",
+      "activeStrideMethod": "per-interaction",
       "assetImpactMapping": {
         "CRITICAL": 4,
         "HIGH": 3,
@@ -2386,7 +2383,7 @@
       "useAssetImpact": true,
       "windowOfOpportunity": "moderately_restricted"
     },
-    "lastModified": "2026-10-13T09:51:25.598Z",
+    "lastModified": "2026-11-27T07:48:38.596Z",
     "risks": [
       {
         "attackDescription": "Attacker injects requests pretending to be a legitimate caller",
@@ -3421,224 +3418,6 @@
         "wontJustification": ""
       },
       {
-        "attackDescription": "Data Tampering > Application Layer > Input Validation Bypass > Inject Malicious Data",
-        "attackTreeAssessment": {
-          "levelToRiskScale": {
-            "high": 4,
-            "low": 2,
-            "medium": 3,
-            "very-low": 1
-          },
-          "likelihoodComponent": 0.7,
-          "pathKey": "b111e9ead4c2",
-          "strideCategory": "T",
-          "treeId": "at-1784807920186-rbg7dh3g2"
-        },
-        "calculatedApBand": null,
-        "calculatedApScore": null,
-        "calculatedImpact": 2.2,
-        "calculatedLikelihood": 2,
-        "calculatedRiskAfterMitigation": 0,
-        "calculatedRiskBeforeMitigation": 4.3,
-        "calculatedSrsl": null,
-        "causeDescription": "Attack path analysis (Config Data (I))",
-        "created": "2026-07-23T15:06:48.858Z",
-        "factorRatings": [
-          {
-            "factorId": "skill_level",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "motive",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "opportunity",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "ease_of_exploit",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "deployment_scope",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "attacker_capability",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "exposure_level",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "derivedValue": 2,
-            "factorId": "financial_damage",
-            "source": "derived",
-            "value": 2,
-            "weight": 1
-          },
-          {
-            "derivedValue": 1,
-            "factorId": "regulatory_compliance",
-            "source": "derived",
-            "value": 1,
-            "weight": 1
-          },
-          {
-            "derivedValue": 3,
-            "factorId": "operational",
-            "source": "derived",
-            "value": 3,
-            "weight": 1
-          },
-          {
-            "derivedValue": 2,
-            "factorId": "recoverability",
-            "source": "derived",
-            "value": 2,
-            "weight": 1
-          },
-          {
-            "derivedValue": 3,
-            "factorId": "affected_users",
-            "source": "derived",
-            "value": 3,
-            "weight": 1
-          },
-          {
-            "derivedValue": 2,
-            "factorId": "safety",
-            "source": "derived",
-            "value": 2,
-            "weight": 1
-          },
-          {
-            "factorId": "attack_tree_likelihood",
-            "source": "attack-tree",
-            "value": 2,
-            "weight": 1
-          }
-        ],
-        "id": "R-AT-at-1784807920186-rbg7dh3g2-b111e9ead4c2-T",
-        "lastModified": "2026-10-13T09:51:24.541Z",
-        "linkedAssetIds": [
-          "ac70a321-b04e-4df2-bc51-1fd5b5179857"
-        ],
-        "mitigatedFactorRatings": [
-          {
-            "factorId": "skill_level",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "motive",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "opportunity",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "ease_of_exploit",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "deployment_scope",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "attacker_capability",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "exposure_level",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "financial_damage",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "regulatory_compliance",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "operational",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "recoverability",
-            "value": 0,
-            "weight": 1
-          },
-          {
-            "factorId": "affected_users",
-            "value": 0,
-            "weight": 1
-          }
-        ],
-        "moscowPriority": "should",
-        "proposedMitigations": [
-          {
-            "id": "M-T-002"
-          },
-          {
-            "id": "M-T-001"
-          },
-          {
-            "id": "M-T-003"
-          },
-          {
-            "id": "M-T-004"
-          }
-        ],
-        "proposedVerifications": [
-          {
-            "id": "V-T-001"
-          },
-          {
-            "id": "V-T-002"
-          },
-          {
-            "id": "V-T-003"
-          },
-          {
-            "id": "V-T-004"
-          }
-        ],
-        "riskAfterRationale": "",
-        "riskBeforeRationale": "",
-        "selectedMitigations": [],
-        "selectedVerifications": [],
-        "sourceStrideMethod": "attack-path",
-        "strideCategory": "T",
-        "threatDescription": "Data Tampering",
-        "threatDisplayId": "AT-1.2",
-        "threatId": "AT-at-1784807920186-rbg7dh3g2-b111e9ead4c2-T",
-        "threatRelevance": "relevant",
-        "treatment": "reduce",
-        "treatmentJustification": "",
-        "wontJustification": ""
-      },
-      {
         "attackDescription": "Attacker impersonates an authorized person (e.g. maintenance technician) to gain physical access to the boundary interior",
         "calculatedApBand": null,
         "calculatedApScore": null,
@@ -4462,10 +4241,8 @@
             "weight": 1
           },
           {
-            "derivedValue": 2,
             "factorId": "exposure_level",
-            "source": "derived",
-            "value": 2,
+            "value": 0,
             "weight": 1
           },
           {
@@ -4500,7 +4277,7 @@
           }
         ],
         "id": "R-e3296e2d-2806-4e3c-9581-81785b0e5e3c",
-        "lastModified": "2026-10-13T09:51:24.540Z",
+        "lastModified": "2026-11-27T07:48:37.577Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -4569,24 +4346,24 @@
           {
             "id": "M-T-001",
             "isCustom": false,
-            "text": "Implement integrity controls and checksums"
+            "text": "Integritätskontrollen und Prüfsummen implementieren"
           },
           {
             "id": "M-T-002",
             "isCustom": false,
-            "text": "Use digital signatures for data integrity"
+            "text": "Digitale Signaturen für Datenintegrität verwenden"
           }
         ],
         "proposedVerifications": [
           {
             "id": "V-T-001",
             "isCustom": false,
-            "text": "Integrity check validation testing"
+            "text": "Integritätsprüfungsvalidierungstests"
           },
           {
             "id": "V-T-002",
             "isCustom": false,
-            "text": "Fuzzing tests for input validation (AFL, Peach, Radamsa)"
+            "text": "Fuzzing-Tests für Eingabevalidierung (AFL, Peach, Radamsa)"
           }
         ],
         "riskAfterRationale": "",
@@ -4651,10 +4428,8 @@
             "weight": 1
           },
           {
-            "derivedValue": 2,
             "factorId": "exposure_level",
-            "source": "derived",
-            "value": 2,
+            "value": 0,
             "weight": 1
           },
           {
@@ -4689,7 +4464,7 @@
           }
         ],
         "id": "R-6cbf13bb-d9da-4d78-8856-08a0478adb7f",
-        "lastModified": "2026-10-13T09:51:24.540Z",
+        "lastModified": "2026-11-27T07:48:37.577Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -4758,24 +4533,24 @@
           {
             "id": "M-I-001",
             "isCustom": false,
-            "text": "Encrypt data at rest using AES-256"
+            "text": "Daten im Ruhezustand mit AES-256 verschlüsseln"
           },
           {
             "id": "M-I-002",
             "isCustom": false,
-            "text": "Encrypt data in transit using TLS 1.3"
+            "text": "Daten während der Übertragung mit TLS 1.3 verschlüsseln"
           }
         ],
         "proposedVerifications": [
           {
             "id": "V-I-001",
             "isCustom": false,
-            "text": "Encryption strength verification (correct algorithms, key lengths)"
+            "text": "Verschlüsselungsstärkeverifizierung (korrekte Algorithmen, Schlüssellängen)"
           },
           {
             "id": "V-I-002",
             "isCustom": false,
-            "text": "Network traffic analysis for unencrypted data"
+            "text": "Netzwerkverkehrsanalyse auf unverschlüsselte Daten"
           }
         ],
         "riskAfterRationale": "",
@@ -4835,10 +4610,8 @@
             "weight": 1
           },
           {
-            "derivedValue": 2,
             "factorId": "exposure_level",
-            "source": "derived",
-            "value": 2,
+            "value": 0,
             "weight": 1
           },
           {
@@ -4873,7 +4646,7 @@
           }
         ],
         "id": "R-4a3e5cda-0e17-4e33-9b72-b17a58f65821",
-        "lastModified": "2026-10-13T09:51:24.540Z",
+        "lastModified": "2026-11-27T07:48:37.577Z",
         "linkedAssetIds": [],
         "mitigatedFactorRatings": [
           {
@@ -4942,24 +4715,24 @@
           {
             "id": "M-D-001",
             "isCustom": false,
-            "text": "Implement rate limiting and throttling"
+            "text": "Rate Limiting und Throttling implementieren"
           },
           {
             "id": "M-D-003",
             "isCustom": false,
-            "text": "Use ACLs or filtering to restrict access"
+            "text": "ACLs oder Filterung verwenden, um Zugriff zu beschränken"
           }
         ],
         "proposedVerifications": [
           {
             "id": "V-D-001",
             "isCustom": false,
-            "text": "Stress testing and load testing (k6, JMeter)"
+            "text": "Stress- und Lasttests (k6, JMeter)"
           },
           {
             "id": "V-D-003",
             "isCustom": false,
-            "text": "Rate limiting effectiveness testing"
+            "text": "Effektivitätstests für Rate Limiting"
           }
         ],
         "riskAfterRationale": "",
@@ -4975,19 +4748,238 @@
         "treatment": "reduce",
         "treatmentJustification": "",
         "wontJustification": ""
+      },
+      {
+        "attackDescription": "Data Tampering > Application Layer > Input Validation Bypass > Find Weak Validation + Inject Malicious Data",
+        "attackTreeAssessment": {
+          "levelToRiskScale": {
+            "high": 4,
+            "low": 2,
+            "medium": 3,
+            "very-low": 1
+          },
+          "likelihoodComponent": 0.42,
+          "pathKey": "0f50241382b2",
+          "strideCategory": "T",
+          "treeId": "at-1784807920186-rbg7dh3g2"
+        },
+        "calculatedApBand": null,
+        "calculatedApScore": null,
+        "calculatedImpact": 2.2,
+        "calculatedLikelihood": 2,
+        "calculatedRiskAfterMitigation": 0,
+        "calculatedRiskBeforeMitigation": 4.3,
+        "calculatedSrsl": null,
+        "causeDescription": "Attack path analysis (Config Data (I))",
+        "created": "2026-07-23T15:06:48.858Z",
+        "factorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "derivedValue": 2,
+            "factorId": "financial_damage",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "derivedValue": 1,
+            "factorId": "regulatory_compliance",
+            "source": "derived",
+            "value": 1,
+            "weight": 1
+          },
+          {
+            "derivedValue": 3,
+            "factorId": "operational",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "derivedValue": 2,
+            "factorId": "recoverability",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "derivedValue": 3,
+            "factorId": "affected_users",
+            "source": "derived",
+            "value": 3,
+            "weight": 1
+          },
+          {
+            "derivedValue": 2,
+            "factorId": "safety",
+            "source": "derived",
+            "value": 2,
+            "weight": 1
+          },
+          {
+            "factorId": "attack_tree_likelihood",
+            "source": "attack-tree",
+            "value": 2,
+            "weight": 1
+          }
+        ],
+        "id": "R-AT-at-1784807920186-rbg7dh3g2-0f50241382b2-T",
+        "lastModified": "2026-11-26T23:54:02.710Z",
+        "linkedAssetIds": [
+          "ac70a321-b04e-4df2-bc51-1fd5b5179857"
+        ],
+        "mitigatedFactorRatings": [
+          {
+            "factorId": "skill_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "motive",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "opportunity",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "ease_of_exploit",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "deployment_scope",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "attacker_capability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "exposure_level",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "financial_damage",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "regulatory_compliance",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "operational",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "recoverability",
+            "value": 0,
+            "weight": 1
+          },
+          {
+            "factorId": "affected_users",
+            "value": 0,
+            "weight": 1
+          }
+        ],
+        "moscowPriority": "should",
+        "proposedMitigations": [
+          {
+            "id": "M-T-002"
+          },
+          {
+            "id": "M-T-001"
+          },
+          {
+            "id": "M-T-003"
+          },
+          {
+            "id": "M-T-004"
+          }
+        ],
+        "proposedVerifications": [
+          {
+            "id": "V-T-001"
+          },
+          {
+            "id": "V-T-002"
+          },
+          {
+            "id": "V-T-003"
+          },
+          {
+            "id": "V-T-004"
+          }
+        ],
+        "riskAfterRationale": "",
+        "riskBeforeRationale": "Carried over from AT-1.2 (AND gate = one attack path, TARAflow 0.18): review the rating and the treatment.",
+        "selectedMitigations": [],
+        "selectedVerifications": [],
+        "sourceStrideMethod": "attack-path",
+        "strideCategory": "T",
+        "threatDescription": "Data Tampering",
+        "threatDisplayId": "AT-1.1",
+        "threatId": "AT-at-1784807920186-rbg7dh3g2-0f50241382b2-T",
+        "threatRelevance": "relevant",
+        "treatment": "reduce",
+        "treatmentJustification": "",
+        "wontJustification": ""
       }
     ],
     "validation": {
       "errors": [],
       "isComplete": false,
-      "lastValidated": "2026-10-13T09:51:25.598Z",
+      "lastValidated": "2026-11-27T07:48:38.596Z",
       "warnings": [
         "11 risk(s) have not been rated",
-        "1 high-risk item(s) have no mitigation defined"
+        "7 risk(s) to reduce have no mitigation (P1-R-1, DB-S-1, DF3-I-1, DF3-D-1, DF4-I-1, …)",
+        "2 risk(s) to reduce have no residual risk rating (P1-T-1, AT-1.1)"
       ]
     }
   },
-  "schemaVersion": 12,
+  "schemaVersion": 14,
   "settings": {
     "autoSave": true,
     "autoSaveInterval": 2,

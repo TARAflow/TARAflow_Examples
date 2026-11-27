@@ -3773,7 +3773,7 @@
     "connection": {
       "credentials": {
         "authMethod": "pat",
-        "baseUrl": "https://example-team.atlassian.net",
+        "baseUrl": "https://example.atlassian.net",
         "projectKey": "SCRUM"
       },
       "projectName": "SCRUM",

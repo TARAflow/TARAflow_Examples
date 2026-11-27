@@ -2544,7 +2544,7 @@
     "created": "2026-11-01T00:00:00.000Z",
     "description": "Industrial pump station controller (PLC with HMI, configuration store, service and fieldbus interfaces) evaluated against the CRA edition of IEC 62443-4-2 (EN IEC 62443-4-2/prAA, draft). Shows the requirement matrix with met, planned, stated, open and gap rows.",
     "isHighImpact": false,
-    "lastModified": "2026-11-02T10:21:59.097Z",
+    "lastModified": "2026-11-26T23:52:13.362Z",
     "name": "Pump Station Controller",
     "responsible": "TARAflow",
     "safetyRelevant": false,
@@ -2868,7 +2868,7 @@
       "treeLikelihoodContribution": "factor",
       "useAssetImpact": true
     },
-    "lastModified": "2026-11-01T00:00:00.000Z",
+    "lastModified": "2026-11-26T23:52:13.361Z",
     "risks": [
       {
         "attackDescription": "Attacker injects malformed or malicious input data that causes the process to behave incorrectly",
@@ -31911,7 +31911,7 @@
     "validation": {
       "errors": [],
       "isComplete": true,
-      "lastValidated": "2026-11-01T00:00:00.000Z",
+      "lastValidated": "2026-11-26T23:52:13.362Z",
       "warnings": []
     }
   },

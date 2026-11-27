@@ -597,7 +597,7 @@
             "value": 4
           }
         ],
-        "lastModified": "2026-10-13T10:19:42.180Z",
+        "lastModified": "2026-11-26T23:52:53.888Z",
         "linkedDFDElements": [
           {
             "displayId": "DS-2",
@@ -658,7 +658,7 @@
         ],
         "name": "Sensor firmware",
         "numericId": 5,
-        "overallImpact": 3,
+        "overallImpact": 4,
         "physicalImpact": "fatal",
         "physicalImpactRationale": "Derived from HazardItem chain: contributes [indirect] to \"Fire not detected\" (fatal)",
         "physicalImpactSource": "hazard",
@@ -1125,7 +1125,7 @@
             "value": 4
           }
         ],
-        "lastModified": "2026-10-13T10:19:42.180Z",
+        "lastModified": "2026-11-26T23:52:53.888Z",
         "linkedDFDElements": [
           {
             "displayId": "P-3",
@@ -1158,7 +1158,7 @@
         ],
         "name": "Detector status and fault signal",
         "numericId": 9,
-        "overallImpact": 3,
+        "overallImpact": 4,
         "physicalImpactSource": "derived",
         "properties": {
           "dataType": [
@@ -1395,7 +1395,7 @@
             "value": 4
           }
         ],
-        "lastModified": "2026-10-13T10:19:42.180Z",
+        "lastModified": "2026-11-26T23:52:53.888Z",
         "linkedDFDElements": [
           {
             "displayId": "EE-2",
@@ -1421,7 +1421,7 @@
         ],
         "name": "Panel commands",
         "numericId": 11,
-        "overallImpact": 3,
+        "overallImpact": 4,
         "physicalImpact": "fatal",
         "physicalImpactRationale": "Derived from HazardItem chain: contributes [direct] to \"Alarm not transmitted\" (fatal)",
         "physicalImpactSource": "hazard",
@@ -1850,7 +1850,7 @@
             "value": 4
           }
         ],
-        "lastModified": "2026-10-13T12:00:00.000Z",
+        "lastModified": "2026-11-26T23:52:53.888Z",
         "linkedDFDElements": [
           {
             "displayId": "P-12",
@@ -1869,7 +1869,7 @@
         ],
         "name": "Firmware update",
         "numericId": 0,
-        "overallImpact": 3,
+        "overallImpact": 4,
         "properties": {
           "automationLevel": "partly_automated",
           "description": "Download, verify and install controller and sensor firmware."
@@ -2566,7 +2566,7 @@
       "impactScale": "4-level",
       "roundingMethod": "round"
     },
-    "lastModified": "2026-10-13T10:19:42.180Z",
+    "lastModified": "2026-11-26T23:52:55.144Z",
     "relations": [
       {
         "id": "a2a-sd-13",
@@ -6218,7 +6218,7 @@
     "created": "2026-05-22T17:36:25.709Z",
     "description": "Industrial fire detector based on optical light-scattering measurement. A remote sensor head (optical chamber, sensor MCU) detects smoke particles through forward and side scattering of an LED light beam and streams the measurement over a field-wired RS-485 sensor bus to the controller unit. The controller evaluates the alarm condition, signals alarms and faults to the fire alarm control panel (RS-485 detection loop plus a hard-wired alarm contact) and logs security-relevant events. Configuration and firmware updates are performed via WLAN (maintenance web UI, update server).\n\nSafety-critical characteristic: availability and integrity of the detection and alarm-signalling functions are safety-critical — a missing, delayed or mislocated alarm in the presence of smoke can endanger human lives (EN 54-7, EN 54-2).",
     "isHighImpact": false,
-    "lastModified": "2026-11-20T08:03:02.857Z",
+    "lastModified": "2026-11-26T23:53:10.479Z",
     "name": "Smoke Detector",
     "responsible": "JPM",
     "safetyRelevant": true,
@@ -6246,7 +6246,7 @@
     "connection": {
       "credentials": {
         "authMethod": "pat",
-        "baseUrl": "https://bbv-team-aqj7rcth.atlassian.net/",
+        "baseUrl": "https://example.atlassian.net/",
         "projectKey": "SCRUM"
       },
       "projectName": "SCRUM",
@@ -6270,7 +6270,7 @@
     "1": "incomplete",
     "2": "in-progress",
     "3": "complete",
-    "4": "complete",
+    "4": "in-progress",
     "5": "not-started",
     "6": "complete",
     "7": "not-started",
@@ -6426,7 +6426,7 @@
       "treeLikelihoodContribution": "factor",
       "useAssetImpact": true
     },
-    "lastModified": "2026-10-13T13:25:11.208Z",
+    "lastModified": "2026-11-26T23:53:10.479Z",
     "risks": [
       {
         "attackDescription": "Attacker opens the enclosure without triggering any alarm, gaining access to internal components",
@@ -7554,10 +7554,10 @@
       },
       {
         "attackDescription": "Attacker replaces embedded process firmware to disable security checks or introduce a backdoor",
-        "calculatedImpact": 3,
+        "calculatedImpact": 4,
         "calculatedLikelihood": 2,
         "calculatedRiskAfterMitigation": 3.6,
-        "calculatedRiskBeforeMitigation": 6,
+        "calculatedRiskBeforeMitigation": 8,
         "causeDescription": "No cryptographic code signing on embedded process firmware",
         "created": "2026-10-13T12:45:43.365Z",
         "factorRatings": [
@@ -7620,15 +7620,15 @@
             "weight": 0.15
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "safety",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 1
           }
         ],
         "id": "R-7820585d-4908-4c11-bebe-8b737728e404",
-        "lastModified": "2026-10-13T13:25:09.883Z",
+        "lastModified": "2026-11-26T23:53:09.247Z",
         "linkedAssetIds": [
           "4bb34010-1d41-429c-8f91-60aa2ad63978"
         ],
@@ -7767,10 +7767,10 @@
       },
       {
         "attackDescription": "Attacker disables Secure Boot to execute malicious firmware that persists across device resets",
-        "calculatedImpact": 3,
+        "calculatedImpact": 4,
         "calculatedLikelihood": 2,
         "calculatedRiskAfterMitigation": 4.2,
-        "calculatedRiskBeforeMitigation": 6,
+        "calculatedRiskBeforeMitigation": 8,
         "causeDescription": "Secure Boot is not enforced or can be bypassed via debug interface",
         "created": "2026-10-13T12:45:43.366Z",
         "factorRatings": [
@@ -7833,15 +7833,15 @@
             "weight": 0.15
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "safety",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 1
           }
         ],
         "id": "R-09719965-9a3c-47d4-b010-eef197845f7e",
-        "lastModified": "2026-10-13T13:25:09.883Z",
+        "lastModified": "2026-11-26T23:53:09.247Z",
         "linkedAssetIds": [
           "4bb34010-1d41-429c-8f91-60aa2ad63978"
         ],
@@ -14328,10 +14328,10 @@
       },
       {
         "attackDescription": "Attacker splices in a tap device or signal injector and manipulates data in transit without triggering any alarm",
-        "calculatedImpact": 3,
+        "calculatedImpact": 4,
         "calculatedLikelihood": 2,
         "calculatedRiskAfterMitigation": 3.6,
-        "calculatedRiskBeforeMitigation": 6,
+        "calculatedRiskBeforeMitigation": 8,
         "causeDescription": "Data flow runs through a physically accessible cable without physical protection",
         "created": "2026-10-13T12:45:43.368Z",
         "factorRatings": [
@@ -14394,15 +14394,15 @@
             "weight": 0.15
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "safety",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 1
           }
         ],
         "id": "R-b7b60fbc-6393-4ccb-bd5b-147951814719",
-        "lastModified": "2026-10-13T13:25:09.884Z",
+        "lastModified": "2026-11-26T23:53:09.248Z",
         "linkedAssetIds": [
           "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01"
         ],
@@ -23700,10 +23700,10 @@
             "weight": 1
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
@@ -23721,10 +23721,10 @@
             "weight": 0.25
           },
           {
-            "derivedValue": 1,
+            "derivedValue": 3,
             "factorId": "recoverability",
             "source": "derived",
-            "value": 1,
+            "value": 3,
             "weight": 0.15
           },
           {
@@ -23736,10 +23736,14 @@
           }
         ],
         "id": "R-fe85fc4c-18d4-4a41-b1b9-dfdf19394cb8",
-        "lastModified": "2026-10-13T13:25:09.885Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
           "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336"
         ],
         "mitigatedFactorRatings": [
           {
@@ -23929,10 +23933,14 @@
           }
         ],
         "id": "R-947259dd-a01b-4f68-9cbc-fb8b81204906",
-        "lastModified": "2026-10-13T13:25:09.885Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
           "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336"
         ],
         "mitigatedFactorRatings": [
           {
@@ -24088,10 +24096,10 @@
             "weight": 1
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
@@ -24124,9 +24132,14 @@
           }
         ],
         "id": "R-c9c65303-4808-446c-9596-71655a310d21",
-        "lastModified": "2026-10-13T13:25:09.885Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "e4b1e979-e47a-4651-a31d-aeefa9208d2d"
+          "e4b1e979-e47a-4651-a31d-aeefa9208d2d",
+          "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336"
         ],
         "mitigatedFactorRatings": [
           {
@@ -24327,9 +24340,10 @@
           }
         ],
         "id": "R-1ea5a92d-5a80-4adc-8c92-a5aa32e739c4",
-        "lastModified": "2026-10-13T13:25:09.885Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "249c0a16-6f22-43da-8d86-348d393c006f"
+          "249c0a16-6f22-43da-8d86-348d393c006f",
+          "4bb34010-1d41-429c-8f91-60aa2ad63978"
         ],
         "mitigatedFactorRatings": [
           {
@@ -24526,9 +24540,10 @@
           }
         ],
         "id": "R-8892d815-bdb7-45b6-85ff-ed098d9c2376",
-        "lastModified": "2026-10-13T13:25:09.885Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "249c0a16-6f22-43da-8d86-348d393c006f"
+          "249c0a16-6f22-43da-8d86-348d393c006f",
+          "4bb34010-1d41-429c-8f91-60aa2ad63978"
         ],
         "mitigatedFactorRatings": [
           {
@@ -24687,10 +24702,10 @@
             "weight": 1
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
@@ -24708,10 +24723,10 @@
             "weight": 0.25
           },
           {
-            "derivedValue": 1,
+            "derivedValue": 3,
             "factorId": "recoverability",
             "source": "derived",
-            "value": 1,
+            "value": 3,
             "weight": 0.15
           },
           {
@@ -24723,10 +24738,14 @@
           }
         ],
         "id": "R-0910a744-62be-4162-80dd-75547eff0fa6",
-        "lastModified": "2026-10-13T13:25:09.885Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
           "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336"
         ],
         "mitigatedFactorRatings": [
           {
@@ -24921,10 +24940,14 @@
           }
         ],
         "id": "R-09c43060-0cd8-4ec6-bf6c-63fb67e2f1a3",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
           "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336"
         ],
         "mitigatedFactorRatings": [
           {
@@ -25084,10 +25107,10 @@
             "weight": 1
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
@@ -25120,9 +25143,14 @@
           }
         ],
         "id": "R-9b030e39-4f2f-477d-83cb-9c62e15c9b96",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "e4b1e979-e47a-4651-a31d-aeefa9208d2d"
+          "e4b1e979-e47a-4651-a31d-aeefa9208d2d",
+          "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336"
         ],
         "mitigatedFactorRatings": [
           {
@@ -25282,10 +25310,10 @@
             "weight": 1
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
@@ -25303,10 +25331,10 @@
             "weight": 0.25
           },
           {
-            "derivedValue": 1,
+            "derivedValue": 3,
             "factorId": "recoverability",
             "source": "derived",
-            "value": 1,
+            "value": 3,
             "weight": 0.15
           },
           {
@@ -25318,9 +25346,12 @@
           }
         ],
         "id": "R-1f39b784-b566-452a-8063-daa6b60c8ee9",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "61ae3794-8934-484f-854f-996912ddc96e"
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
         ],
         "mitigatedFactorRatings": [
           {
@@ -25510,9 +25541,12 @@
           }
         ],
         "id": "R-273fc842-073e-40aa-872a-9262569a798d",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "61ae3794-8934-484f-854f-996912ddc96e"
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
         ],
         "mitigatedFactorRatings": [
           {
@@ -25668,10 +25702,10 @@
             "weight": 1
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
@@ -25689,10 +25723,10 @@
             "weight": 0.25
           },
           {
-            "derivedValue": 1,
+            "derivedValue": 3,
             "factorId": "recoverability",
             "source": "derived",
-            "value": 1,
+            "value": 3,
             "weight": 0.15
           },
           {
@@ -25704,9 +25738,12 @@
           }
         ],
         "id": "R-d90afa02-9203-4b4e-ba0d-9277eee6e95b",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "61ae3794-8934-484f-854f-996912ddc96e"
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
         ],
         "mitigatedFactorRatings": [
           {
@@ -25901,9 +25938,12 @@
           }
         ],
         "id": "R-3f6aef2d-d528-4ee6-a228-858c066892e4",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "61ae3794-8934-484f-854f-996912ddc96e"
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
         ],
         "mitigatedFactorRatings": [
           {
@@ -26024,10 +26064,10 @@
       },
       {
         "attackDescription": "Attacker intercepts the response from Fire Panel Communication Service and modifies data, causing Fire Alarm Control Panel to process falsified information",
-        "calculatedImpact": 3,
+        "calculatedImpact": 4,
         "calculatedLikelihood": 2,
         "calculatedRiskAfterMitigation": 4.8,
-        "calculatedRiskBeforeMitigation": 6,
+        "calculatedRiskBeforeMitigation": 8,
         "causeDescription": "Missing integrity protection on the response flow from Fire Panel Communication Service — Fire Alarm Control Panel cannot detect modified responses",
         "created": "2026-10-13T12:45:43.371Z",
         "factorRatings": [
@@ -26062,45 +26102,48 @@
             "weight": 1
           },
           {
-            "derivedValue": 2,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 2,
+            "value": 4,
             "weight": 0.25
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "regulatory_compliance",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.2
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "operational",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
-            "derivedValue": 1,
+            "derivedValue": 3,
             "factorId": "recoverability",
             "source": "derived",
-            "value": 1,
+            "value": 3,
             "weight": 0.15
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "safety",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 1
           }
         ],
         "id": "R-01c63bf8-6ba7-4567-b5a0-10f703a57813",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04"
         ],
         "mitigatedFactorRatings": [
           {
@@ -26285,9 +26328,12 @@
           }
         ],
         "id": "R-2942aa3d-ec2b-4fba-a3f5-15a534a3cf98",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04"
         ],
         "mitigatedFactorRatings": [
           {
@@ -26392,10 +26438,10 @@
       },
       {
         "attackDescription": "Attacker attaches a hardware probe to the embedded bus and injects or modifies data packets",
-        "calculatedImpact": 3,
+        "calculatedImpact": 4,
         "calculatedLikelihood": 2,
         "calculatedRiskAfterMitigation": 4.8,
-        "calculatedRiskBeforeMitigation": 6,
+        "calculatedRiskBeforeMitigation": 8,
         "causeDescription": "Embedded bus carries no integrity protection or authentication — data is transmitted in plaintext",
         "created": "2026-10-13T12:45:43.371Z",
         "factorRatings": [
@@ -26430,45 +26476,48 @@
             "weight": 1
           },
           {
-            "derivedValue": 2,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 2,
+            "value": 4,
             "weight": 0.25
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "regulatory_compliance",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.2
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "operational",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
-            "derivedValue": 1,
+            "derivedValue": 3,
             "factorId": "recoverability",
             "source": "derived",
-            "value": 1,
+            "value": 3,
             "weight": 0.15
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "safety",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 1
           }
         ],
         "id": "R-74058c4d-2f58-42c1-9d94-8f8d8d73c723",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04"
         ],
         "mitigatedFactorRatings": [
           {
@@ -26658,9 +26707,12 @@
           }
         ],
         "id": "R-4503dfb5-e9d4-41f2-b62d-7d69f2ad1192",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e01",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04"
         ],
         "mitigatedFactorRatings": [
           {
@@ -26844,11 +26896,12 @@
           }
         ],
         "id": "R-3390ae42-67f0-4921-afb5-222db59bcf82",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
           "e7312fae-5597-4faa-bc9f-95ddf196c71b",
           "ac8e1906-703d-468b-a1df-883c2da2c93b",
-          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03"
+          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e05"
         ],
         "mitigatedFactorRatings": [
           {
@@ -27043,11 +27096,12 @@
           }
         ],
         "id": "R-87da8207-f06b-4fc8-8f6e-87213f6dc0c1",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.249Z",
         "linkedAssetIds": [
           "e7312fae-5597-4faa-bc9f-95ddf196c71b",
           "ac8e1906-703d-468b-a1df-883c2da2c93b",
-          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03"
+          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e05"
         ],
         "mitigatedFactorRatings": [
           {
@@ -27243,11 +27297,12 @@
           }
         ],
         "id": "R-7fdb2a30-9742-40fe-9f80-84cf3fa75dd9",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
           "e7312fae-5597-4faa-bc9f-95ddf196c71b",
           "ac8e1906-703d-468b-a1df-883c2da2c93b",
-          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03"
+          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e05"
         ],
         "mitigatedFactorRatings": [
           {
@@ -27442,11 +27497,12 @@
           }
         ],
         "id": "R-1221d551-3739-4adc-93c2-c80a8e8e4f4c",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
           "e7312fae-5597-4faa-bc9f-95ddf196c71b",
           "ac8e1906-703d-468b-a1df-883c2da2c93b",
-          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03"
+          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e05"
         ],
         "mitigatedFactorRatings": [
           {
@@ -27642,11 +27698,12 @@
           }
         ],
         "id": "R-256ddd08-4a3d-4788-80eb-5cc83dd5a23d",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
           "e7312fae-5597-4faa-bc9f-95ddf196c71b",
           "ac8e1906-703d-468b-a1df-883c2da2c93b",
-          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03"
+          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e05"
         ],
         "mitigatedFactorRatings": [
           {
@@ -27847,11 +27904,12 @@
           }
         ],
         "id": "R-c07d5e89-6c4c-4388-bf6c-6c112f1d5d39",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
           "e7312fae-5597-4faa-bc9f-95ddf196c71b",
           "ac8e1906-703d-468b-a1df-883c2da2c93b",
-          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03"
+          "997835d4-7e7e-4f6c-8ca8-4531bb96ca03",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e05"
         ],
         "mitigatedFactorRatings": [
           {
@@ -28046,9 +28104,14 @@
           }
         ],
         "id": "R-eb4b67ce-fbc3-4fd1-b4c9-04c17ee9353a",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "61ae3794-8934-484f-854f-996912ddc96e"
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
         ],
         "mitigatedFactorRatings": [
           {
@@ -28235,9 +28298,14 @@
           }
         ],
         "id": "R-8abe2eba-b15b-4d91-9f82-6be22694ddcd",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "61ae3794-8934-484f-854f-996912ddc96e"
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
         ],
         "mitigatedFactorRatings": [
           {
@@ -28424,9 +28492,14 @@
           }
         ],
         "id": "R-14a5df8b-cf85-4695-aada-1d9581f3ec24",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "61ae3794-8934-484f-854f-996912ddc96e"
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
         ],
         "mitigatedFactorRatings": [
           {
@@ -28617,9 +28690,14 @@
           }
         ],
         "id": "R-fb24210d-0db5-40f2-a8bd-afda3ea40419",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "61ae3794-8934-484f-854f-996912ddc96e"
+          "61ae3794-8934-484f-854f-996912ddc96e",
+          "93c60669-04b1-46c9-b2ef-8a4c0f981e0d",
+          "e7312fae-5597-4faa-bc9f-95ddf196c71b",
+          "e520e942-211c-4b76-9a8a-7ce7bd3f7622",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
         ],
         "mitigatedFactorRatings": [
           {
@@ -28815,10 +28893,11 @@
           }
         ],
         "id": "R-fe86a395-4ccc-4bbf-9e9b-4b20eef1e824",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
           "2feb1aa0-daa7-4da4-8c0e-a53b711ce1a5",
-          "249c0a16-6f22-43da-8d86-348d393c006f"
+          "249c0a16-6f22-43da-8d86-348d393c006f",
+          "826ac3f3-6083-42dc-a1dc-0ab870641793"
         ],
         "mitigatedFactorRatings": [
           {
@@ -29010,10 +29089,11 @@
           }
         ],
         "id": "R-52079d9d-5739-47a0-9710-772269509a09",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
           "2feb1aa0-daa7-4da4-8c0e-a53b711ce1a5",
-          "249c0a16-6f22-43da-8d86-348d393c006f"
+          "249c0a16-6f22-43da-8d86-348d393c006f",
+          "826ac3f3-6083-42dc-a1dc-0ab870641793"
         ],
         "mitigatedFactorRatings": [
           {
@@ -29187,10 +29267,11 @@
           }
         ],
         "id": "R-b8127a9a-8f68-4f9f-9a70-c91703096caf",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
           "2feb1aa0-daa7-4da4-8c0e-a53b711ce1a5",
-          "249c0a16-6f22-43da-8d86-348d393c006f"
+          "249c0a16-6f22-43da-8d86-348d393c006f",
+          "826ac3f3-6083-42dc-a1dc-0ab870641793"
         ],
         "mitigatedFactorRatings": [
           {
@@ -29369,10 +29450,11 @@
           }
         ],
         "id": "R-d931910a-88a3-4f5d-8220-9ea02c8a11dc",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
           "2feb1aa0-daa7-4da4-8c0e-a53b711ce1a5",
-          "249c0a16-6f22-43da-8d86-348d393c006f"
+          "249c0a16-6f22-43da-8d86-348d393c006f",
+          "826ac3f3-6083-42dc-a1dc-0ab870641793"
         ],
         "mitigatedFactorRatings": [
           {
@@ -29564,10 +29646,11 @@
           }
         ],
         "id": "R-cd6ca5d1-13fa-4427-b023-ad11ec0cc677",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
           "2feb1aa0-daa7-4da4-8c0e-a53b711ce1a5",
-          "249c0a16-6f22-43da-8d86-348d393c006f"
+          "249c0a16-6f22-43da-8d86-348d393c006f",
+          "826ac3f3-6083-42dc-a1dc-0ab870641793"
         ],
         "mitigatedFactorRatings": [
           {
@@ -31041,9 +31124,10 @@
           }
         ],
         "id": "R-4d705573-e1bf-4acd-ba5c-06c3e1855d75",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "249c0a16-6f22-43da-8d86-348d393c006f"
+          "249c0a16-6f22-43da-8d86-348d393c006f",
+          "4bb34010-1d41-429c-8f91-60aa2ad63978"
         ],
         "mitigatedFactorRatings": [
           {
@@ -31235,9 +31319,10 @@
           }
         ],
         "id": "R-3352b28a-4128-4fde-abdf-6a545c85767b",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "249c0a16-6f22-43da-8d86-348d393c006f"
+          "249c0a16-6f22-43da-8d86-348d393c006f",
+          "4bb34010-1d41-429c-8f91-60aa2ad63978"
         ],
         "mitigatedFactorRatings": [
           {
@@ -31423,9 +31508,11 @@
           }
         ],
         "id": "R-26857457-de71-49ad-8326-6ae36048e85b",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04"
         ],
         "mitigatedFactorRatings": [
           {
@@ -31591,31 +31678,31 @@
             "weight": 1
           },
           {
-            "derivedValue": 2,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 2,
+            "value": 4,
             "weight": 0.25
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "regulatory_compliance",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.2
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "operational",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
-            "derivedValue": 1,
+            "derivedValue": 3,
             "factorId": "recoverability",
             "source": "derived",
-            "value": 1,
+            "value": 3,
             "weight": 0.15
           },
           {
@@ -31627,9 +31714,11 @@
           }
         ],
         "id": "R-5d04579e-6235-4c74-8e64-70993d3fb536",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04"
         ],
         "mitigatedFactorRatings": [
           {
@@ -31825,9 +31914,11 @@
           }
         ],
         "id": "R-457442a9-a197-4042-9b9b-bb178adb13df",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04"
         ],
         "mitigatedFactorRatings": [
           {
@@ -31997,31 +32088,31 @@
             "weight": 1
           },
           {
-            "derivedValue": 2,
+            "derivedValue": 4,
             "factorId": "financial_damage",
             "source": "derived",
-            "value": 2,
+            "value": 4,
             "weight": 0.25
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "regulatory_compliance",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.2
           },
           {
-            "derivedValue": 3,
+            "derivedValue": 4,
             "factorId": "operational",
             "source": "derived",
-            "value": 3,
+            "value": 4,
             "weight": 0.25
           },
           {
-            "derivedValue": 1,
+            "derivedValue": 3,
             "factorId": "recoverability",
             "source": "derived",
-            "value": 1,
+            "value": 3,
             "weight": 0.15
           },
           {
@@ -32033,9 +32124,11 @@
           }
         ],
         "id": "R-8d60205a-ba8f-4974-a5d2-b943fec92c61",
-        "lastModified": "2026-10-13T13:25:09.886Z",
+        "lastModified": "2026-11-26T23:53:09.250Z",
         "linkedAssetIds": [
-          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03"
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e03",
+          "648586d7-dc7a-4abb-894f-7651c4eda336",
+          "5c1d2a0e-7b3f-4e8a-9d61-0f2c4b7a8e04"
         ],
         "mitigatedFactorRatings": [
           {
@@ -36332,7 +36425,7 @@
     "validation": {
       "errors": [],
       "isComplete": true,
-      "lastValidated": "2026-10-13T13:25:11.208Z",
+      "lastValidated": "2026-11-26T23:53:10.479Z",
       "warnings": [
         "3 risk(s) based on uncertain threats — confirm relevance in Threat Eval"
       ]
@@ -36362,7 +36455,7 @@
       "showThreatActor": false,
       "zeroTrustMode": false
     },
-    "lastModified": "2026-10-13T15:00:00.000Z",
+    "lastModified": "2026-11-26T23:53:02.641Z",
     "perElementTables": [
       {
         "displayIdentifier": "[SB]",
@@ -59914,58 +60007,6 @@
             "workflowStatus": "reviewed"
           },
           {
-            "attackDescription": "Attacker forges the identity of Controller Enclosure [CTE] and sends malicious data to Controller Enclosure [CTE], which processes it as legitimate",
-            "causeDescription": "Missing sender authentication on incoming data flow — Controller Enclosure [CTE] cannot verify the true origin of received data",
-            "created": "2026-10-13T12:25:38.173Z",
-            "dataFlow": null,
-            "displayId": "CTE-IFCTE-S-IN-1",
-            "evalNote": "The enclosure is not a communication endpoint. Physical-access threats are assessed per element on the enclosure (…-T-1, …-S-1, …).",
-            "id": "1e4784b2-f329-4e6e-816c-b12a467e0039",
-            "isTextCustomized": false,
-            "lastModified": "2026-10-13T15:00:00.000Z",
-            "linkedAssetIds": [],
-            "linkedElement": {
-              "displayId": "CTE",
-              "elementId": "2",
-              "elementName": "Controller Enclosure [CTE]",
-              "elementType": "PhysicalBoundary"
-            },
-            "proposedMitigations": [
-              {
-                "id": "M-S-001"
-              },
-              {
-                "id": "M-S-002"
-              },
-              {
-                "id": "M-S-004"
-              },
-              {
-                "id": "M-S-008"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-S-001"
-              },
-              {
-                "id": "V-S-003"
-              }
-            ],
-            "relevance": "not_relevant",
-            "relevanceOverridden": false,
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "S",
-            "templateId": "S-001",
-            "threatActor": "external",
-            "threatDescription": "Sender spoofing: Attacker impersonates Controller Enclosure [CTE] to deceive Controller Enclosure [CTE]",
-            "trustBoundaryDisplayId": "CTE",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "Controller Enclosure [CTE]",
-            "workflowStatus": "reviewed"
-          },
-          {
             "attackDescription": "Attacker intercepts the data flow from Controller Enclosure [CTE] and modifies commands or payload before delivery to Controller Enclosure [CTE]",
             "causeDescription": "Missing integrity protection on the data flow from Controller Enclosure [CTE] — data arrives without tamper evidence",
             "created": "2026-10-13T12:25:38.173Z",
@@ -60006,52 +60047,6 @@
             "templateId": "T-001",
             "threatActor": "external",
             "threatDescription": "Data tampering on incoming flow: Attacker modifies data before it reaches Controller Enclosure [CTE]",
-            "trustBoundaryDisplayId": "CTE",
-            "trustBoundaryId": "2",
-            "trustBoundaryName": "Controller Enclosure [CTE]",
-            "workflowStatus": "reviewed"
-          },
-          {
-            "attackDescription": "Controller Enclosure [CTE] claims it never sent the command or data that Controller Enclosure [CTE] received and acted upon",
-            "causeDescription": "No non-repudiation mechanism on the data flow — requests from Controller Enclosure [CTE] are not signed or cryptographically bound to the sender",
-            "created": "2026-10-13T12:25:38.173Z",
-            "dataFlow": null,
-            "displayId": "CTE-IFCTE-R-IN-1",
-            "evalNote": "The enclosure is not a communication endpoint. Physical-access threats are assessed per element on the enclosure (…-T-1, …-S-1, …).",
-            "id": "f344a117-429a-452c-9415-fd96a817ea71",
-            "isTextCustomized": false,
-            "lastModified": "2026-10-13T15:00:00.000Z",
-            "linkedAssetIds": [],
-            "linkedElement": {
-              "displayId": "CTE",
-              "elementId": "2",
-              "elementName": "Controller Enclosure [CTE]",
-              "elementType": "PhysicalBoundary"
-            },
-            "proposedMitigations": [
-              {
-                "id": "M-R-001"
-              },
-              {
-                "id": "M-R-002"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-R-001"
-              },
-              {
-                "id": "V-R-002"
-              }
-            ],
-            "relevance": "not_relevant",
-            "relevanceOverridden": false,
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "R",
-            "templateId": "R-001",
-            "threatActor": "external",
-            "threatDescription": "Sender repudiation: Controller Enclosure [CTE] denies sending the request or data",
             "trustBoundaryDisplayId": "CTE",
             "trustBoundaryId": "2",
             "trustBoundaryName": "Controller Enclosure [CTE]",
@@ -60794,58 +60789,6 @@
             "workflowStatus": "reviewed"
           },
           {
-            "attackDescription": "Attacker forges the identity of Sensor Head Enclosure [SHE] and sends malicious data to Sensor Head Enclosure [SHE], which processes it as legitimate",
-            "causeDescription": "Missing sender authentication on incoming data flow — Sensor Head Enclosure [SHE] cannot verify the true origin of received data",
-            "created": "2026-10-13T12:25:38.173Z",
-            "dataFlow": null,
-            "displayId": "SHE-IFSHE-S-IN-1",
-            "evalNote": "The enclosure is not a communication endpoint. Physical-access threats are assessed per element on the enclosure (…-T-1, …-S-1, …).",
-            "id": "6e277b09-05ca-42be-bce9-2a525d97f2d9",
-            "isTextCustomized": false,
-            "lastModified": "2026-10-13T15:00:00.000Z",
-            "linkedAssetIds": [],
-            "linkedElement": {
-              "displayId": "SHE",
-              "elementId": "PB-1",
-              "elementName": "Sensor Head Enclosure [SHE]",
-              "elementType": "PhysicalBoundary"
-            },
-            "proposedMitigations": [
-              {
-                "id": "M-S-001"
-              },
-              {
-                "id": "M-S-002"
-              },
-              {
-                "id": "M-S-004"
-              },
-              {
-                "id": "M-S-008"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-S-001"
-              },
-              {
-                "id": "V-S-003"
-              }
-            ],
-            "relevance": "not_relevant",
-            "relevanceOverridden": false,
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "S",
-            "templateId": "S-001",
-            "threatActor": "external",
-            "threatDescription": "Sender spoofing: Attacker impersonates Sensor Head Enclosure [SHE] to deceive Sensor Head Enclosure [SHE]",
-            "trustBoundaryDisplayId": "SHE",
-            "trustBoundaryId": "PB-1",
-            "trustBoundaryName": "Sensor Head Enclosure [SHE]",
-            "workflowStatus": "reviewed"
-          },
-          {
             "attackDescription": "Attacker intercepts the data flow from Sensor Head Enclosure [SHE] and modifies commands or payload before delivery to Sensor Head Enclosure [SHE]",
             "causeDescription": "Missing integrity protection on the data flow from Sensor Head Enclosure [SHE] — data arrives without tamper evidence",
             "created": "2026-10-13T12:25:38.173Z",
@@ -60886,52 +60829,6 @@
             "templateId": "T-001",
             "threatActor": "external",
             "threatDescription": "Data tampering on incoming flow: Attacker modifies data before it reaches Sensor Head Enclosure [SHE]",
-            "trustBoundaryDisplayId": "SHE",
-            "trustBoundaryId": "PB-1",
-            "trustBoundaryName": "Sensor Head Enclosure [SHE]",
-            "workflowStatus": "reviewed"
-          },
-          {
-            "attackDescription": "Sensor Head Enclosure [SHE] claims it never sent the command or data that Sensor Head Enclosure [SHE] received and acted upon",
-            "causeDescription": "No non-repudiation mechanism on the data flow — requests from Sensor Head Enclosure [SHE] are not signed or cryptographically bound to the sender",
-            "created": "2026-10-13T12:25:38.173Z",
-            "dataFlow": null,
-            "displayId": "SHE-IFSHE-R-IN-1",
-            "evalNote": "The enclosure is not a communication endpoint. Physical-access threats are assessed per element on the enclosure (…-T-1, …-S-1, …).",
-            "id": "f128e07c-dcf3-43b2-9001-d17c940a9551",
-            "isTextCustomized": false,
-            "lastModified": "2026-10-13T15:00:00.000Z",
-            "linkedAssetIds": [],
-            "linkedElement": {
-              "displayId": "SHE",
-              "elementId": "PB-1",
-              "elementName": "Sensor Head Enclosure [SHE]",
-              "elementType": "PhysicalBoundary"
-            },
-            "proposedMitigations": [
-              {
-                "id": "M-R-001"
-              },
-              {
-                "id": "M-R-002"
-              }
-            ],
-            "proposedVerifications": [
-              {
-                "id": "V-R-001"
-              },
-              {
-                "id": "V-R-002"
-              }
-            ],
-            "relevance": "not_relevant",
-            "relevanceOverridden": false,
-            "sequenceNumber": 1,
-            "source": "generated:classic",
-            "strideCategory": "R",
-            "templateId": "R-001",
-            "threatActor": "external",
-            "threatDescription": "Sender repudiation: Sensor Head Enclosure [SHE] denies sending the request or data",
             "trustBoundaryDisplayId": "SHE",
             "trustBoundaryId": "PB-1",
             "trustBoundaryName": "Sensor Head Enclosure [SHE]",
